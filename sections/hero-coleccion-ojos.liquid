@@ -1,0 +1,221 @@
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e61980",
+                        "background-light": "#f8f6f7",
+                        "background-dark": "#211119",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body { font-family: 'Manrope', sans-serif; }
+    .product-card:hover .quick-add { opacity: 1; transform: translateY(0); }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+</style>
+
+<section class="bg-background-light dark:bg-background-dark text-[#181114] dark:text-white transition-colors duration-300 ">
+    <main class="max-w-[1440px] mx-auto px-6 lg:px-20 py-6 ">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 mb-8 text-xs font-medium tracking-wide uppercase opacity-60  mt-20">
+<a class="hover:text-primary transition-colors" href="#">Inicio</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Colecciones</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-primary font-bold">Ojos</span>
+</nav>
+<!-- HeaderImage (Hero Section) -->
+<section class="relative h-[320px] rounded-2xl overflow-hidden mb-12">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Close up of artistic eye makeup with metallic shadows" style='background-image: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuA0V2VHcMlsrkzP-nKZRaybtnkh_mhWjgH2hLP32bYAZXCMohp3R1Z_nqjEG0s4pAc5HDE5eA2tdw_9XkFME6qSpiUYyFuTXCwTKHCXkMxUy8kDD9lR_iGDKdEJNGC52hjs8DruBVggPzqpHRdBWWcVYZoVWWZ7tQYTLJ2hvi_SNTXFz_CglDVOB9_TFcFwyjLQCwAwSBw1idUyHzUV68kpUGt9wMPb-v0ylpWobc--uII_4QKTdqA22txL79viMFoFFCqxLp2ucw");'></div>
+<div class="relative h-full flex flex-col justify-center px-8 lg:px-16 text-white max-w-2xl">
+<h2 class="text-4xl lg:text-5xl font-bold mb-4 tracking-tight">Colección de Ojos</h2>
+<p class="text-lg opacity-90 leading-relaxed font-light">
+                    Descubre pigmentos intensos y texturas sedosas diseñadas para resaltar la mirada. Fórmulas de alta gama con acabados profesionales.
+                </p>
+</div>
+</section>
+<!-- Chips / Filters Bar -->
+<section class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-10 border-b border-[#f4f0f2] dark:border-white/10 pb-6">
+<div class="flex gap-2 overflow-x-auto pb-2 lg:pb-0 no-scrollbar">
+<button class="px-5 py-2 rounded-full bg-primary text-white text-xs font-bold uppercase tracking-widest whitespace-nowrap">Todo</button>
+<button class="px-5 py-2 rounded-full bg-white dark:bg-white/5 border border-[#f4f0f2] dark:border-white/10 text-xs font-bold uppercase tracking-widest hover:border-primary transition-all whitespace-nowrap">Paletas</button>
+<button class="px-5 py-2 rounded-full bg-white dark:bg-white/5 border border-[#f4f0f2] dark:border-white/10 text-xs font-bold uppercase tracking-widest hover:border-primary transition-all whitespace-nowrap">Máscaras</button>
+<button class="px-5 py-2 rounded-full bg-white dark:bg-white/5 border border-[#f4f0f2] dark:border-white/10 text-xs font-bold uppercase tracking-widest hover:border-primary transition-all whitespace-nowrap">Delineadores</button>
+<button class="px-5 py-2 rounded-full bg-white dark:bg-white/5 border border-[#f4f0f2] dark:border-white/10 text-xs font-bold uppercase tracking-widest hover:border-primary transition-all whitespace-nowrap">Cejas</button>
+</div>
+<div class="flex items-center gap-4 self-end">
+<span class="text-xs uppercase font-bold tracking-widest opacity-60">Ordenar por</span>
+<div class="flex items-center gap-1 cursor-pointer">
+<span class="text-xs font-bold uppercase tracking-widest">Relevancia</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</div>
+</div>
+</section>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-12 mb-20">
+<!-- Product Card 1 -->
+<div class="group product-card relative flex flex-col cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden rounded-xl bg-[#f4f0f2] dark:bg-white/5 relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Luxury eye shadow palette with neutral gold tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLMTh4rWVCt_oq7sKq8IrC5V4YejiBVBqX4anKeC6j_B_p2NPyFljzYNSEDtdhQBh7f0kHXSCDKViIZVB32OKXdDuzOOgga4B61Ap9DpR4ZQI4DSy5P0UnTrI_twyOzpk86IGU_YBTugQEYGBtu3AlcTLQDqPofgwEQyQ4pOOM-9af4QuPdiov_VmN76DyiC0kMEDKknh6qSKi2Av5YCJAHx01utIT-4uZLni0zyQjdfSgmVkzIhjrjKiJoUYYDTqjBs_bEBQ6CQ"/>
+<div class="quick-add absolute bottom-4 left-4 right-4 translate-y-2 opacity-0 transition-all duration-300">
+<button class="w-full bg-white dark:bg-background-dark py-3 rounded-lg text-xs font-bold uppercase tracking-widest shadow-xl hover:bg-primary hover:text-white transition-colors">Agregar al Carrito</button>
+</div>
+<div class="absolute top-4 left-4 bg-primary text-white px-2 py-1 text-[10px] font-bold uppercase rounded tracking-tighter">Nuevo</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<p class="text-[10px] uppercase font-bold tracking-[0.2em] text-primary">Paletas</p>
+<h3 class="text-sm font-semibold tracking-tight">Ethereal Nude Palette</h3>
+<p class="text-sm font-bold mt-1">$1,250 MXN</p>
+<div class="flex gap-1 mt-2">
+<div class="size-3 rounded-full bg-[#D4AF37] border border-black/10"></div>
+<div class="size-3 rounded-full bg-[#8B4513] border border-black/10"></div>
+<div class="size-3 rounded-full bg-[#E5AA70] border border-black/10"></div>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group product-card relative flex flex-col cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden rounded-xl bg-[#f4f0f2] dark:bg-white/5 relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Black mascara wand with intense volume effect" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhAykeLW0abmZZ5BRDq8Fe4Dcx24BJkqjFWwDdqDQqo_YL7ksolASzA2ULXgWlORopr0DQKYo-cuEk6LIpgLQje_RtAfkuDM_LNqmKuTFUlq_lsxY-rFpzGLmQuH4Of7CCDgAtlrZyXL-zslBKiy6sn3p1SoPahnCEtFc_9aGNgClfhUr6t_N8Wy_jMxZ-0ZRTdPXOSV3BNR2GY3Yf2CO4jFEobrcxXvTQSWKuLF-JKLv4GhcRdUFxJirvSRGcahOe8Ye7HEzP4A"/>
+<div class="quick-add absolute bottom-4 left-4 right-4 translate-y-2 opacity-0 transition-all duration-300">
+<button class="w-full bg-white dark:bg-background-dark py-3 rounded-lg text-xs font-bold uppercase tracking-widest shadow-xl hover:bg-primary hover:text-white transition-colors">Agregar al Carrito</button>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<p class="text-[10px] uppercase font-bold tracking-[0.2em] opacity-60">Máscaras</p>
+<h3 class="text-sm font-semibold tracking-tight">Midnight Volume Mascara</h3>
+<p class="text-sm font-bold mt-1">$580 MXN</p>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group product-card relative flex flex-col cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden rounded-xl bg-[#f4f0f2] dark:bg-white/5 relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Liquid eyeliner with precision brush tip" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdKKbg9kEUaUIWQRb070fJCrF1H-_qjIzsut-jbJPvqAxYz_PCqIgQ-buvQD9c-dvPgKCbG6f9bZLrFvqiojmKDwE6H7uPk4wp-lhUczFM6Rsn1TC4ck1rp4kLjTIUpo2MH-de2R20D9GGeXEOWf0aecOP39IppeOyxAJhVmUqIbRWgKbu17oqij4-aYdAbtEGiQYfz-s0R-se3tt8cHOSPHLNQcZ-GQm_KTYCnwSB-i-HmTr8PNQzkyMzzSqXvQ3SBu4kY6B5uQ"/>
+<div class="quick-add absolute bottom-4 left-4 right-4 translate-y-2 opacity-0 transition-all duration-300">
+<button class="w-full bg-white dark:bg-background-dark py-3 rounded-lg text-xs font-bold uppercase tracking-widest shadow-xl hover:bg-primary hover:text-white transition-colors">Agregar al Carrito</button>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<p class="text-[10px] uppercase font-bold tracking-[0.2em] opacity-60">Delineadores</p>
+<h3 class="text-sm font-semibold tracking-tight">Graphic Pen Eyeliner</h3>
+<p class="text-sm font-bold mt-1">$450 MXN</p>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group product-card relative flex flex-col cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden rounded-xl bg-[#f4f0f2] dark:bg-white/5 relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Brow styling gel and brush set" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6zElwKM5wTJ-yDF9vermcCj6KmG41bQ6_K3xAGTmHeL5DAlt3olh5nztysLOI4Ozw02mNABpKizbYS6p_da4eSDT_vtUkVUWF7bm7PtG2FGyubLQgPKck7GuiqFGxik6XlLZP9iLEVy8viafdyICfRx0a9dm5ADdwCDO-dVa6Pw1owVjdJR0HamD5eHxolt_2gC2HZRHFFWD1tKFlLqBpuAz8DLaN6bMOq5bbvDaISU3GN7yUR7Un2GX1uLxOSZEM9aLJ3jtqIA"/>
+<div class="quick-add absolute bottom-4 left-4 right-4 translate-y-2 opacity-0 transition-all duration-300">
+<button class="w-full bg-white dark:bg-background-dark py-3 rounded-lg text-xs font-bold uppercase tracking-widest shadow-xl hover:bg-primary hover:text-white transition-colors">Agregar al Carrito</button>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<p class="text-[10px] uppercase font-bold tracking-[0.2em] opacity-60">Cejas</p>
+<h3 class="text-sm font-semibold tracking-tight">Sculpt &amp; Lift Brow Gel</h3>
+<p class="text-sm font-bold mt-1">$620 MXN</p>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group product-card relative flex flex-col cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden rounded-xl bg-[#f4f0f2] dark:bg-white/5 relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Individual glitter eyeshadow pot in rose gold" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5Di-c9CQSh38VYy53KJ8K-TCwL57rEQSDtSIuQsKRu82BZ-9P8wNMA0GWyAKqnYkrzqI6VWDuOn-ubHC450Sb9vupVOvpriFiL4QKJZdWO-WnzBOvSE88h-33pczbEIOHwi-YeBqyB7yNHpXQP5545n9qyvjn60KsYOZfKVHJ3rELutNSebrDTiGqqKEEsiatMqrthwqm5BxayC87qe6wWPzF37LYBvOV4JUSD3oIYugJTyD_qCSPoGRV9CoSbtaCBdbWf798Cw"/>
+<div class="quick-add absolute bottom-4 left-4 right-4 translate-y-2 opacity-0 transition-all duration-300">
+<button class="w-full bg-white dark:bg-background-dark py-3 rounded-lg text-xs font-bold uppercase tracking-widest shadow-xl hover:bg-primary hover:text-white transition-colors">Agregar al Carrito</button>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<p class="text-[10px] uppercase font-bold tracking-[0.2em] opacity-60">Sombras</p>
+<h3 class="text-sm font-semibold tracking-tight">Star Dust Single Shadow</h3>
+<p class="text-sm font-bold mt-1">$380 MXN</p>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group product-card relative flex flex-col cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden rounded-xl bg-[#f4f0f2] dark:bg-white/5 relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Colorful vibrant eye shadow palette with blues and pinks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkOHHaTDtfWtmymOd1Mdng2R0FfNM880GAs6MeWsTS_OR3TggsJD9PgsRkNs018XjsmRI7KEqaS0F7RoZzLQWSJT_TjzYiIcL0GGFSY0iMz3OEXQk4v90qoAq3pCEWv6qOFWxlpI5lhnhHekV1vv41yH80x8_xFBWKMDcZg8pSVz5gBuMds4e9fMtG_9bfFXL2xw5Ynd_J8JCxVhX63j_08md2utN5Swc4YugY2EsxP5J5IhvXyxRMkOEM6lCg7FsJiOBL7m_DtA"/>
+<div class="quick-add absolute bottom-4 left-4 right-4 translate-y-2 opacity-0 transition-all duration-300">
+<button class="w-full bg-white dark:bg-background-dark py-3 rounded-lg text-xs font-bold uppercase tracking-widest shadow-xl hover:bg-primary hover:text-white transition-colors">Agregar al Carrito</button>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<p class="text-[10px] uppercase font-bold tracking-[0.2em] opacity-60">Paletas</p>
+<h3 class="text-sm font-semibold tracking-tight">Tropical Vibes Palette</h3>
+<p class="text-sm font-bold mt-1">$1,100 MXN</p>
+</div>
+</div>
+<!-- Product Card 7 -->
+<div class="group product-card relative flex flex-col cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden rounded-xl bg-[#f4f0f2] dark:bg-white/5 relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Eye makeup brush set in a premium leather roll" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnOPA481rn4LzoGnSNmoRWY9sXlL5cfMDPJbY5POJW9Gb8jVUlo9sg1haJH8OBgBbKIu5bhTyCXbu_ewpa-0VzbSCffCOP6YXP5ZlfxGZNDBX5G7acMdFSPvwGblb5tGXvSsresU0AK_IacjeD96oUFO3vzdxEb02eZBqb1ZPAtYnpXpCmojPemh2y3XlTW1OogP7R7e7WUxy-J2P5-eAasZrUj0E_240MdxeU_pveYh1dQmXznagVNp17qVYFYfqAGqnbayc29g"/>
+<div class="quick-add absolute bottom-4 left-4 right-4 translate-y-2 opacity-0 transition-all duration-300">
+<button class="w-full bg-white dark:bg-background-dark py-3 rounded-lg text-xs font-bold uppercase tracking-widest shadow-xl hover:bg-primary hover:text-white transition-colors">Agregar al Carrito</button>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<p class="text-[10px] uppercase font-bold tracking-[0.2em] opacity-60">Accesorios</p>
+<h3 class="text-sm font-semibold tracking-tight">Pro Eye Brush Set (12 pcs)</h3>
+<p class="text-sm font-bold mt-1">$2,450 MXN</p>
+</div>
+</div>
+<!-- Product Card 8 -->
+<div class="group product-card relative flex flex-col cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden rounded-xl bg-[#f4f0f2] dark:bg-white/5 relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Waterproof cream eyeshadow in a sleek glass jar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQY-qtm9dQqPc0Fb5yooNvXGhOnm8q03Q3F-Sl1kj_uE18BqauVwy2VLt82vovL6rccZD6GLIlTT0QJttdwvHeynRNXJfVXgS2alpEKgTj3SeF5nIAiQz_ot6k2CyrTy_tXkurqw1YP6V2hDjsnHIt4LUufpPtsLiMnkEDGQ9Xh92ZvtMP6q1b7E-CKub22cqXRIjmC3i1oScToWHWaUiywBG-aviJDLXCO4NUC_X6eaT3aSdLhQvqaDeDj_3uF1RFGX02d9DXvQ"/>
+<div class="quick-add absolute bottom-4 left-4 right-4 translate-y-2 opacity-0 transition-all duration-300">
+<button class="w-full bg-white dark:bg-background-dark py-3 rounded-lg text-xs font-bold uppercase tracking-widest shadow-xl hover:bg-primary hover:text-white transition-colors">Agregar al Carrito</button>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<p class="text-[10px] uppercase font-bold tracking-[0.2em] opacity-60">Sombras</p>
+<h3 class="text-sm font-semibold tracking-tight">Velvet Cream Shadow</h3>
+<p class="text-sm font-bold mt-1">$420 MXN</p>
+</div>
+</div>
+</div>
+<!-- Footer section for SEO / More Info -->
+<section class="mt-20 py-12 border-t border-[#f4f0f2] dark:border-white/10 text-center max-w-4xl mx-auto">
+<h4 class="text-xl font-bold mb-6 tracking-tight">El Arte de la Mirada</h4>
+<p class="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+                Nuestra colección de ojos ha sido curada para ofrecer la máxima versatilidad. Desde looks naturales para el día a día hasta maquillajes de noche impactantes. Cada producto es libre de crueldad animal y dermatológicamente probado para ojos sensibles.
+            </p>
+<div class="flex justify-center gap-12 mt-10 opacity-60">
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-4xl">eco</span>
+<span class="text-[10px] uppercase font-bold tracking-widest">Cruelty Free</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-4xl">verified</span>
+<span class="text-[10px] uppercase font-bold tracking-widest">Premium Quality</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-4xl">local_shipping</span>
+<span class="text-[10px] uppercase font-bold tracking-widest">Envío Nacional</span>
+</div>
+</div>
+</section>
+</main>
+
+</section>
+
+{% schema %}
+    {
+        "name": "hero-coleccion-ojos",
+        "settings": [
+        
+        ],
+
+        "presets": [
+            {
+                "name": "hero-coleccion-ojos",
+            }
+        ]
+    }
+{% endschema %}

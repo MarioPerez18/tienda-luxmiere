@@ -8,17 +8,21 @@
  * ------------------------------------------------------------
  */
 {
-  "type": "header",
-  "name": "t:general.header",
   "sections": {
-    "header": {
-      "type": "header",
+    "hero-labiales": {
+      "type": "hero-coleccion-labiales",
+      "settings": {}
+    },
+    "footer_luxmiere_J7Ea9w": {
+      "type": "footer-luxmiere",
+      "name": "footer_index",
       "settings": {
-        "menu": "luxmiere-menu"
+        "descripcvion": ""
       }
     }
   },
   "order": [
-    "header"
+    "hero-labiales",
+    "footer_luxmiere_J7Ea9w"
   ]
 }

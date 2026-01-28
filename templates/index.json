@@ -10,11 +10,49 @@
 {
   "sections": {
     "main": {
-      "type": "hello-world",
+      "type": "hero-luxmiere",
       "settings": {}
+    },
+    "valuepropositions_NFcDU4": {
+      "type": "valuepropositions",
+      "name": "valuepropositions_seccion",
+      "settings": {}
+    },
+    "categorias_C4jtXe": {
+      "type": "categorias",
+      "name": "categorias_seccion",
+      "settings": {}
+    },
+    "promobanner_z8U3Wf": {
+      "type": "promobanner",
+      "name": "banner_seccion",
+      "settings": {}
+    },
+    "productosdeseados_fXRw6W": {
+      "type": "productosdeseados",
+      "name": "productosdseados_seccion",
+      "settings": {}
+    },
+    "instagramseccion_fVHmAD": {
+      "type": "instagramseccion",
+      "name": "instagram_seccion",
+      "settings": {}
+    },
+    "footer_luxmiere_HPCr6b": {
+      "type": "footer-luxmiere",
+      "name": "footer_index",
+      "settings": {
+        "descripcvion": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "valuepropositions_NFcDU4",
+    "categorias_C4jtXe",
+    "promobanner_z8U3Wf",
+    "productosdeseados_fXRw6W",
+    "instagramseccion_fVHmAD",
+    "footer_luxmiere_HPCr6b"
   ]
 }

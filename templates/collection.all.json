@@ -8,17 +8,21 @@
  * ------------------------------------------------------------
  */
 {
-  "type": "header",
-  "name": "t:general.header",
   "sections": {
-    "header": {
-      "type": "header",
+    "hero-coleccion-all": {
+      "type": "hero-coleccion-all",
+      "settings": {}
+    },
+    "footer_luxmiere_9Ae63f": {
+      "type": "footer-luxmiere",
+      "name": "footer_index",
       "settings": {
-        "menu": "luxmiere-menu"
+        "descripcvion": ""
       }
     }
   },
   "order": [
-    "header"
+    "hero-coleccion-all",
+    "footer_luxmiere_9Ae63f"
   ]
 }

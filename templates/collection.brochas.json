@@ -8,17 +8,21 @@
  * ------------------------------------------------------------
  */
 {
-  "type": "header",
-  "name": "t:general.header",
   "sections": {
-    "header": {
-      "type": "header",
+    "hero-coleccion-brochas": {
+      "type": "hero-coleccion-brochas",
+      "settings": {}
+    },
+    "footer_luxmiere_mG8Deq": {
+      "type": "footer-luxmiere",
+      "name": "footer_index",
       "settings": {
-        "menu": "luxmiere-menu"
+        "descripcvion": ""
       }
     }
   },
   "order": [
-    "header"
+    "hero-coleccion-brochas",
+    "footer_luxmiere_mG8Deq"
   ]
 }

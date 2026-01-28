@@ -8,17 +8,21 @@
  * ------------------------------------------------------------
  */
 {
-  "type": "header",
-  "name": "t:general.header",
   "sections": {
-    "header": {
-      "type": "header",
+    "hero-coleccion-ojos": {
+      "type": "hero-coleccion-ojos",
+      "settings": {}
+    },
+    "footer_luxmiere_HqpVtm": {
+      "type": "footer-luxmiere",
+      "name": "footer_index",
       "settings": {
-        "menu": "luxmiere-menu"
+        "descripcvion": ""
       }
     }
   },
   "order": [
-    "header"
+    "hero-coleccion-ojos",
+    "footer_luxmiere_HqpVtm"
   ]
 }

@@ -8,17 +8,21 @@
  * ------------------------------------------------------------
  */
 {
-  "type": "header",
-  "name": "t:general.header",
   "sections": {
-    "header": {
-      "type": "header",
+    "hero-labios": {
+      "type": "hero-coleccion-labios",
+      "settings": {}
+    },
+    "footer_luxmiere_Yqm4hm": {
+      "type": "footer-luxmiere",
+      "name": "footer_index",
       "settings": {
-        "menu": "luxmiere-menu"
+        "descripcvion": ""
       }
     }
   },
   "order": [
-    "header"
+    "hero-labios",
+    "footer_luxmiere_Yqm4hm"
   ]
 }

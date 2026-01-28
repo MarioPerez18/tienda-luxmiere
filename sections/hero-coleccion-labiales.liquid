@@ -1,0 +1,269 @@
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e61980",
+                        "background-light": "#f8f6f7",
+                        "background-dark": "#211119",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .product-card:hover .quick-add {
+            opacity: 1;
+            transform: translateY(0);
+        }
+</style>
+
+
+
+
+<section class="bg-background-light dark:bg-background-dark text-[#181114] dark:text-white antialiased font-display">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Navigation -->
+
+<main class="flex-1 max-w-[1280px] mx-auto w-full px-4 lg:px-20 py-6 mt-20">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 mb-6">
+<a class="text-[#886375] text-sm font-medium hover:text-primary transition-colors" href="#">Inicio</a>
+<span class="text-[#886375] text-sm">/</span>
+<a class="text-[#886375] text-sm font-medium hover:text-primary transition-colors" href="#">Maquillaje</a>
+<span class="text-[#886375] text-sm">/</span>
+<span class="text-[#181114] dark:text-white text-sm font-bold">Labios</span>
+</div>
+<!-- Hero Banner -->
+<div class="relative rounded-xl overflow-hidden mb-8 group">
+<div class="aspect-[21/9] w-full bg-cover bg-center flex flex-col justify-end" data-alt="Luxury lipstick textures and vibrant colors" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0,0,0,0) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD2RhuVCkeI0tKqmw8g60UW1qsT3bXsY9eaCAq6fJjIOzufcd6hQjAC6S5d839Uqf3oFSkWmGz9prpYot7H0sMiYzgX0mnkswudSZH5Sqs8j2YHsjyrYm1U-kC7GZiolcKfkwWo459lDj92ATBLHdBX9yqzTc5FKbBLjaGeSV7cuf7QrVqYaUjf3X-wn1YU6r_DyWt6QmUEabKGUL7VOqDkWH77NPJCn3W6lKiZvrGSvTSK7IrU8_7pqN1c1--AEj2vXzBOcX4JOQ");'>
+<div class="p-8 lg:p-12">
+<h1 class="text-white text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">Colección de Labios</h1>
+<p class="text-white/90 max-w-xl text-lg font-medium leading-relaxed">
+                            Define tu estilo con nuestra curación premium de pigmentos intensos y fórmulas hidratantes. Desde nudes atemporales hasta rojos audaces.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Intro Text & Filters -->
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+<!-- Sidebar Filters -->
+<aside class="hidden lg:block space-y-8">
+<div>
+<h3 class="text-lg font-bold mb-4 uppercase tracking-widest text-xs opacity-70">Categorías</h3>
+<div class="flex flex-col gap-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded border-gray-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/>
+<span class="text-sm font-semibold group-hover:text-primary transition-colors">Labiales en Barra</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-gray-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/>
+<span class="text-sm font-semibold group-hover:text-primary transition-colors">Brillos Labiales</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-gray-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/>
+<span class="text-sm font-semibold group-hover:text-primary transition-colors">Delineadores</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-gray-300 text-primary focus:ring-primary h-5 w-5" type="checkbox"/>
+<span class="text-sm font-semibold group-hover:text-primary transition-colors">Bálsamos Tratamiento</span>
+</label>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-4 uppercase tracking-widest text-xs opacity-70">Acabado</h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm font-medium hover:border-primary transition-all">Mate</button>
+<button class="px-4 py-2 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm font-medium hover:border-primary transition-all">Satinado</button>
+<button class="px-4 py-2 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm font-medium hover:border-primary transition-all">Brillante</button>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-4 uppercase tracking-widest text-xs opacity-70">Gama de Color</h3>
+<div class="flex flex-wrap gap-2">
+<div class="w-8 h-8 rounded-full bg-[#800000] cursor-pointer ring-2 ring-transparent hover:ring-primary transition-all"></div>
+<div class="w-8 h-8 rounded-full bg-[#FF4500] cursor-pointer ring-2 ring-transparent hover:ring-primary transition-all"></div>
+<div class="w-8 h-8 rounded-full bg-[#DB7093] cursor-pointer ring-2 ring-transparent hover:ring-primary transition-all"></div>
+<div class="w-8 h-8 rounded-full bg-[#E9967A] cursor-pointer ring-2 ring-transparent hover:ring-primary transition-all"></div>
+<div class="w-8 h-8 rounded-full bg-[#C0C0C0] cursor-pointer ring-2 ring-transparent hover:ring-primary transition-all"></div>
+</div>
+</div>
+</aside>
+<!-- Product Grid Area -->
+<div class="lg:col-span-3">
+<!-- Chips and Sort for Mobile/All -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+<div class="flex gap-2 flex-wrap">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-bold shadow-lg shadow-primary/20">
+                                Todo Labios
+                            </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-[#f4f0f2] dark:bg-white/5 rounded-lg text-sm font-semibold">
+                                Best Sellers
+                                <span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+</button>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-sm font-medium text-[#886375]">Ordenar por:</span>
+<select class="bg-transparent border-none text-sm font-bold focus:ring-0 cursor-pointer">
+<option>Relevancia</option>
+<option>Precio: Menor a Mayor</option>
+<option>Precio: Mayor a Menor</option>
+<option>Novedades</option>
+</select>
+</div>
+</div>
+<!-- Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Product Card 1 -->
+<div class="product-card group relative bg-white dark:bg-white/5 rounded-xl overflow-hidden transition-all hover:shadow-2xl">
+<div class="aspect-square w-full relative overflow-hidden bg-[#f9f9f9] dark:bg-white/5">
+<img alt="Velvet Matte Lipstick" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Luxury lipstick in gold packaging" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfaMH1d6SxC36PpeR_2dd86tOyGBELiHSSIcbGI4g9fXYLTYPFk3zHoZU4Y6Q7dgo5-C2FFwmW4x6HQ341j2HoMPCY_O8bPrCyNtdEQizBWtnLnJCRgkDwlbaTerji2ELwkCOGhaj1G49xyqUqtcgTAjBa547N9qKGJeHGQhIKOQGeMh5Exlec-z_UPi78cFkfTzRNsc9cHapmfwVIJ2RpudJd4uJ3E1B626058e80_xpxLgLb30cym6nQoM_MfbwFehTbjkXBPQ"/>
+<div class="quick-add opacity-0 translate-y-4 absolute bottom-4 left-4 right-4 transition-all duration-300">
+<button class="w-full py-3 bg-primary text-white font-bold rounded-lg flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                                        Añadir a la Bolsa
+                                    </button>
+</div>
+<div class="absolute top-4 left-4">
+<span class="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-sm uppercase">Nuevo</span>
+</div>
+</div>
+<div class="p-5">
+<p class="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">MÉXICO EXCLUSIVE</p>
+<h4 class="text-lg font-bold leading-tight mb-2 group-hover:text-primary transition-colors">Velvet Matte Lipstick</h4>
+<div class="flex items-center gap-2 mb-3">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined !text-sm fill-1">star</span>
+<span class="material-symbols-outlined !text-sm fill-1">star</span>
+<span class="material-symbols-outlined !text-sm fill-1">star</span>
+<span class="material-symbols-outlined !text-sm fill-1">star</span>
+<span class="material-symbols-outlined !text-sm">star_half</span>
+</div>
+<span class="text-xs text-[#886375] font-medium">(124)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xl font-extrabold text-[#181114] dark:text-white">$750 MXN</span>
+<div class="flex -space-x-1">
+<div class="w-4 h-4 rounded-full border border-white dark:border-background-dark bg-[#922b3e]"></div>
+<div class="w-4 h-4 rounded-full border border-white dark:border-background-dark bg-[#c71585]"></div>
+<div class="w-4 h-4 rounded-full border border-white dark:border-background-dark bg-[#ff69b4]"></div>
+<div class="text-[10px] pl-2 font-bold">+12</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="product-card group relative bg-white dark:bg-white/5 rounded-xl overflow-hidden transition-all hover:shadow-2xl">
+<div class="aspect-square w-full relative overflow-hidden bg-[#f9f9f9] dark:bg-white/5">
+<img alt="High Shine Lip Gloss" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Glossy pink lip product applicator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9rxtrrEiMYvBpwtESCaRMz_tLiOHicuubQuo3IgWNarIclmeeClaIfA6-1l1dwR3VaiUJ6S7NL3aYKj8WAtRvzR2AKG3AMR3yrOiKJ69odW8z40cWSORU_aIqgKzVnPzsvdx5uFlCEWYkgKw5_1V5Fc1Gch1yiGgU0ugSsTohfe6r7_rQbTLu1KfBVtLyogEK5Ss37OBl7WOYzZcIKVCZVrQVaDmu5E6aWHjwjh1juwgn-bC4dHRrxsFtTSNE3xJrjG4Wnb0PYw"/>
+<div class="quick-add opacity-0 translate-y-4 absolute bottom-4 left-4 right-4 transition-all duration-300">
+<button class="w-full py-3 bg-primary text-white font-bold rounded-lg flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                                        Añadir a la Bolsa
+                                    </button>
+</div>
+</div>
+<div class="p-5">
+<p class="text-[10px] font-bold text-[#886375] uppercase tracking-widest mb-1">COLECCIÓN PERMANENTE</p>
+<h4 class="text-lg font-bold leading-tight mb-2 group-hover:text-primary transition-colors">Crystal Shine Gloss</h4>
+<div class="flex items-center gap-2 mb-3">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined !text-sm fill-1">star</span>
+<span class="material-symbols-outlined !text-sm fill-1">star</span>
+<span class="material-symbols-outlined !text-sm fill-1">star</span>
+<span class="material-symbols-outlined !text-sm fill-1">star</span>
+<span class="material-symbols-outlined !text-sm fill-1">star</span>
+</div>
+<span class="text-xs text-[#886375] font-medium">(89)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xl font-extrabold text-[#181114] dark:text-white">$620 MXN</span>
+<div class="flex -space-x-1">
+<div class="w-4 h-4 rounded-full border border-white dark:border-background-dark bg-[#fa8072]"></div>
+<div class="w-4 h-4 rounded-full border border-white dark:border-background-dark bg-[#ffb6c1]"></div>
+<div class="text-[10px] pl-2 font-bold">+5</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="product-card group relative bg-white dark:bg-white/5 rounded-xl overflow-hidden transition-all hover:shadow-2xl">
+<div class="aspect-square w-full relative overflow-hidden bg-[#f9f9f9] dark:bg-white/5">
+<img alt="Precision Lip Liner" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Sleek black lip liner pencil" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl8NYCdTYE3Jh1Rfgumm7TIMwsQTSB86H-w4RaEBpNkGZUlf2yl470qYFzFaA8t3pLeAT2hQkK4kXFnfI8k1x7y1ZG4OwuYZGe0PaCFKvXwbixAEGbgJvQs11Vcm6TOWAzlvJsqzwXma0WgN_ffi3hMPiuJCt9RSwtp6iba99VI_88WfdqfCvfzP8xqPfDQDQSt69INhaP8MubSIEtQWTR2rXF0aB5eWa7ijZ7NNMlun_b7WJmgI4vvrHzwVY8F1pDfHrmS2LeFA"/>
+<div class="quick-add opacity-0 translate-y-4 absolute bottom-4 left-4 right-4 transition-all duration-300">
+<button class="w-full py-3 bg-primary text-white font-bold rounded-lg flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                                        Añadir a la Bolsa
+                                    </button>
+</div>
+<div class="absolute top-4 left-4">
+<span class="bg-black text-white text-[10px] font-bold px-2 py-1 rounded-sm uppercase">Agotado</span>
+</div>
+</div>
+<div class="p-5">
+<p class="text-[10px] font-bold text-[#886375] uppercase tracking-widest mb-1">BEST SELLER</p>
+<h4 class="text-lg font-bold leading-tight mb-2 group-hover:text-primary transition-colors">Define &amp; Fill Liner</h4>
+<div class="flex items-center gap-2 mb-3">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined !text-sm fill-1">star</span>
+<span class="material-symbols-outlined !text-sm fill-1">star</span>
+<span class="material-symbols-outlined !text-sm fill-1">star</span>
+<span class="material-symbols-outlined !text-sm fill-1">star</span>
+<span class="material-symbols-outlined !text-sm">star</span>
+</div>
+<span class="text-xs text-[#886375] font-medium">(210)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xl font-extrabold text-[#181114] dark:text-white">$480 MXN</span>
+<div class="flex -space-x-1">
+<div class="w-4 h-4 rounded-full border border-white dark:border-background-dark bg-[#a0522d]"></div>
+<div class="w-4 h-4 rounded-full border border-white dark:border-background-dark bg-[#5d3954]"></div>
+<div class="text-[10px] pl-2 font-bold">+8</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-12 flex justify-center items-center gap-4">
+<button class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<span class="font-bold text-sm">1 de 4</span>
+<button class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- SEO Footer Text -->
+<section class="mt-24 border-t border-gray-200 dark:border-white/10 pt-12 pb-20">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="text-2xl font-bold mb-6">El Secreto de unos Labios Perfectos</h2>
+<p class="text-[#886375] dark:text-white/60 leading-relaxed text-base mb-6">
+                        Nuestra exclusiva colección de labios ha sido diseñada para la mujer mexicana que busca elegancia y durabilidad. Utilizamos ingredientes nutritivos como el aceite de argán y vitamina E para garantizar que tus labios se mantengan suaves mientras lucen colores vibrantes de larga duración.
+                    </p>
+<p class="text-[#886375] dark:text-white/60 leading-relaxed text-base">
+                        Desde el acabado <b>Silk Matte</b> que ofrece una cobertura total sin resecar, hasta nuestros <b>High-Gloss</b> con efecto plumping, cada producto es una declaración de lujo y sofisticación. Explora nuestra gama completa y encuentra el tono ideal para cada momento de tu vida.
+                    </p>
+</div>
+</section>
+</main>
+<!-- Newsletter / Footer Mini -->
+
+</div>
+
+</section>

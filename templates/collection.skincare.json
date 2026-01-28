@@ -8,17 +8,21 @@
  * ------------------------------------------------------------
  */
 {
-  "type": "header",
-  "name": "t:general.header",
   "sections": {
-    "header": {
-      "type": "header",
+    "hero-coleccion-skincare": {
+      "type": "hero-coleccion-skincare",
+      "settings": {}
+    },
+    "footer_luxmiere_WtpPTq": {
+      "type": "footer-luxmiere",
+      "name": "footer_index",
       "settings": {
-        "menu": "luxmiere-menu"
+        "descripcvion": ""
       }
     }
   },
   "order": [
-    "header"
+    "hero-coleccion-skincare",
+    "footer_luxmiere_WtpPTq"
   ]
 }
