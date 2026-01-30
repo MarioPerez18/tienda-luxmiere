@@ -40,7 +40,6 @@
     {{ form | payment_button }}
   {% endform %}
 </div> {% endcomment %}
-
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -135,7 +134,7 @@
 <p class="text-[#886375] dark:text-white/60 text-lg leading-relaxed italic">Radiancia instantánea y firmeza para un acabado profesional que dura 24 horas.</p>
 </div>
 <div class="flex items-baseline gap-4">
-<span class="text-3xl font-bold text-primary">$ {{ product.price }} MXN</span>
+<span class="text-3xl font-bold text-primary">{{ product.price | money }} MXN</span>
 <span class="text-lg text-[#886375] line-through">$2,100 MXN</span>
 </div>
 <!-- Shade Selector -->
@@ -163,12 +162,12 @@
 </div>
 </div>
 <!-- CTAs -->
-<div class="flex flex-col gap-3">
+<div class="flex flex-col gap-3"  x-data="{ contador: 0 }">
 <div class="flex gap-4">
 <div class="flex items-center border border-gray-200 dark:border-white/20 rounded-lg px-4 bg-white dark:bg-white/5">
-<button class="p-2">-</button>
-<span class="px-4 font-bold">1</span>
-<button class="p-2">+</button>
+<button @click="contador--" :disabled="contador == 0" class="p-2">-</button >
+<span class="px-4 font-bold" x-text=contador></span>
+<button @click="contador++" class="p-2">+</button>
 </div>
 <button class="flex-1 bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-lg shadow-xl shadow-primary/20 transition-all transform hover:-translate-y-1 uppercase tracking-widest text-sm">
                             Agregar al carrito
@@ -367,7 +366,7 @@
 <div class="size-12 rounded bg-cover bg-center hidden sm:block" data-alt="Sticky preview thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVfKa04qOq8Qx2__NGcXyQF_cjOipgAe76XgsceJO60tYHDvanFocQczK0-noxlG-8exVPzWW469yHJ_cQHtihAXxvGyoCaqQmLxmCglIS4MEDY_afOyRNgYgKCSJ7jcoC-4p9XlipWxNGBKpZCway2cSCBzyIRU7fC1WamG72c-enhPIWsutbUyz4GLQM6Oed8e7X5mRpbH_NCVXmQPTPHzaZ3DjURqEjHJnKAE4RuhvkGfFhErXMuwOW-mkCG48AlA8pxq6bcQ");'></div>
 <div>
 <p class="font-bold text-sm truncate max-w-[150px]">{{ product.title }}</p>
-<p class="text-primary font-bold text-xs">${{ product.price }} MXN</p>
+<p class="text-primary font-bold text-xs">{{ product.price | money }} MXN</p>
 </div>
 </div>
 <button class="bg-primary text-white font-bold py-3 px-8 rounded-lg text-sm uppercase tracking-widest hover:scale-105 active:scale-95 transition-all">
