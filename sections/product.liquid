@@ -104,8 +104,12 @@
 </div>
 </div>
 <!-- Main Image -->
-<div class="flex-1 aspect-[4/5] bg-white dark:bg-white/5 rounded-xl overflow-hidden relative group">
-<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-110" data-alt="Main product photograph premium lighting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMvLLMrRqH4MyLT_PF3XrTOxNeMvuV-TvHddI8zvPApAW1ueZlbeg8wQj4tAtwKtqYtGRmdFsusVgljk1OcZBEGxL3uWWmVlFYw-OQX_ywCLL94qHIMvUGe8WhYBDJbJIgNuAfQgdNSAjXq39FMYPsNydn5Rx9RV3yzc8aCP7AiFkMXkpjvM3CQk4UB0CQazSPnH0a92ElDcoLuZzVbzfoAB7PchO-imv2QXDNDTLwnLSuchJ6-SFDJxPeU3_41UoRSwLEzLcVrA");'></div>
+<div class="flex-1 aspect-[5/5] bg-white dark:bg-white/5 rounded-xl overflow-hidden relative group">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-110" data-alt="Main product photograph premium lighting" style=''>
+  {% for image in product.images %}
+    {% render 'image', class: 'product-image', image: image %}
+  {% endfor %}
+</div>
 <button class="absolute bottom-4 right-4 bg-white/80 backdrop-blur rounded-full p-2 text-background-dark shadow-lg">
 <span class="material-symbols-outlined">zoom_in</span>
 </button>
@@ -127,11 +131,11 @@
 <span class="ml-2 text-xs text-[#886375] font-medium">(128 reseñas)</span>
 </div>
 </div>
-<h1 class="text-4xl font-black leading-tight tracking-tight mb-2">Base de Rostro 'Luz Infinita'</h1>
+<h1 class="text-4xl font-black leading-tight tracking-tight mb-2">{{ product.title }}</h1>
 <p class="text-[#886375] dark:text-white/60 text-lg leading-relaxed italic">Radiancia instantánea y firmeza para un acabado profesional que dura 24 horas.</p>
 </div>
 <div class="flex items-baseline gap-4">
-<span class="text-3xl font-bold text-primary">$1,850 MXN</span>
+<span class="text-3xl font-bold text-primary">$ {{ product.price }} MXN</span>
 <span class="text-lg text-[#886375] line-through">$2,100 MXN</span>
 </div>
 <!-- Shade Selector -->
@@ -196,16 +200,16 @@
 </div>
 <!-- Accordions -->
 <div class="space-y-4">
-<details class="group border-b border-gray-100 dark:border-white/10 pb-4" open="">
+<details class="group border-b border-gray-100 dark:border-white/10 pb-4 flex-col" open="">
 <summary class="flex items-center justify-between cursor-pointer list-none">
-<span class="font-bold text-sm uppercase tracking-widest">Descripción Emocional</span>
+<span class="font-bold text-sm uppercase tracking-widest">Descripción</span>
 <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
 </summary>
 <div class="mt-4 text-[#886375] dark:text-white/70 text-sm leading-relaxed">
-                            Diseñada para la mujer mexicana que no se detiene. Nuestra base 'Luz Infinita' no solo cubre imperfecciones, sino que celebra la textura natural de tu piel, aportando un brillo saludable que parece venir desde el interior. Enriquecida con extractos botánicos locales.
-                        </div>
+  {{ product.description }}
+</div>
 </details>
-<details class="group border-b border-gray-100 dark:border-white/10 pb-4">
+<details class="group border-b border-gray-100 dark:border-white/10 pb-4 flex-col">
 <summary class="flex items-center justify-between cursor-pointer list-none">
 <span class="font-bold text-sm uppercase tracking-widest">Modo de Uso</span>
 <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
@@ -225,7 +229,7 @@
 </div>
 </div>
 </details>
-<details class="group border-b border-gray-100 dark:border-white/10 pb-4">
+<details class="group border-b border-gray-100 dark:border-white/10 pb-4 flex-col">
 <summary class="flex items-center justify-between cursor-pointer list-none">
 <span class="font-bold text-sm uppercase tracking-widest">Ingredientes Técnicos</span>
 <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
@@ -313,7 +317,7 @@
 </div>
 </section>
 <!-- Related Products -->
-<section class="mt-24 mb-16">
+{% comment %} <section class="mt-24 mb-16">
 <h2 class="text-3xl font-black mb-8 uppercase tracking-tight">Completa tu rutina</h2>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
 <!-- Related Item 1 -->
@@ -355,15 +359,15 @@
 </div>
 
 
-</section>
+</section> {% endcomment %}
 </main>
 
 <div class="fixed bottom-0 left-0 right-0 p-4 bg-white/90 dark:bg-background-dark/90 backdrop-blur-lg border-t border-gray-200 dark:border-white/10 flex items-center justify-between z-40 transform translate-y-full md:translate-y-0 opacity-0 md:opacity-100 hover:translate-y-0 transition-all duration-300">
 <div class="flex items-center gap-4">
 <div class="size-12 rounded bg-cover bg-center hidden sm:block" data-alt="Sticky preview thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVfKa04qOq8Qx2__NGcXyQF_cjOipgAe76XgsceJO60tYHDvanFocQczK0-noxlG-8exVPzWW469yHJ_cQHtihAXxvGyoCaqQmLxmCglIS4MEDY_afOyRNgYgKCSJ7jcoC-4p9XlipWxNGBKpZCway2cSCBzyIRU7fC1WamG72c-enhPIWsutbUyz4GLQM6Oed8e7X5mRpbH_NCVXmQPTPHzaZ3DjURqEjHJnKAE4RuhvkGfFhErXMuwOW-mkCG48AlA8pxq6bcQ");'></div>
 <div>
-<p class="font-bold text-sm truncate max-w-[150px]">Luz Infinita</p>
-<p class="text-primary font-bold text-xs">$1,850 MXN</p>
+<p class="font-bold text-sm truncate max-w-[150px]">{{ product.title }}</p>
+<p class="text-primary font-bold text-xs">${{ product.price }} MXN</p>
 </div>
 </div>
 <button class="bg-primary text-white font-bold py-3 px-8 rounded-lg text-sm uppercase tracking-widest hover:scale-105 active:scale-95 transition-all">
@@ -376,9 +380,6 @@
 {% schema %}
 {
   "name": "t:general.product",
-  "settings": [],
-  "disabled_on": {
-    "groups": ["header", "footer"]
-  }
+  "settings": []
 }
 {% endschema %}
