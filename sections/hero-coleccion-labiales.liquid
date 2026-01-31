@@ -127,50 +127,54 @@
 </div>
 <!-- Grid -->
 <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-    {% for product in collection.products %}
-        <a href="{{ product.url }}">
-            <div class="product-card group relative bg-white dark:bg-white/5 rounded-xl overflow-hidden transition-all hover:shadow-2xl">
-                <div class="aspect-square w-full relative overflow-hidden bg-[#f9f9f9] dark:bg-white/5">
-                    <img alt="Velvet Matte Lipstick" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Luxury lipstick in gold packaging" src="{{ product.featured_image | image_url: width: 400 | image_tag }}"/>
-                    <div class="quick-add opacity-0 translate-y-4 absolute bottom-4 left-4 right-4 transition-all duration-300">
-                        <button class="w-full py-3 bg-primary text-white font-bold rounded-lg flex items-center justify-center gap-2">
-                        <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
-                                                                Añadir a la Bolsa
-                                                            </button>
-                    </div>
-                    <div class="absolute top-4 left-4">
-                        <span class="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-sm uppercase">Nuevo</span>
-                    </div>
-                </div>
-                <div class="p-5">
-                    <p class="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">MÉXICO EXCLUSIVE </p>
-                    <h4 class="text-lg font-bold leading-tight mb-2 group-hover:text-primary transition-colors">{{ product.title }}</h4>
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="flex text-yellow-400">
-                            <span class="material-symbols-outlined !text-sm fill-1">star</span>
-                            <span class="material-symbols-outlined !text-sm fill-1">star</span>
-                            <span class="material-symbols-outlined !text-sm fill-1">star</span>
-                            <span class="material-symbols-outlined !text-sm fill-1">star</span>
-                            <span class="material-symbols-outlined !text-sm">star_half</span>
+    {% paginate collection.products by 3 %}
+        {% for product in collection.products %}
+            <a href="{{ product.url }}">
+                <div class="product-card group relative bg-white dark:bg-white/5 rounded-xl overflow-hidden transition-all hover:shadow-2xl">
+                    <div class="aspect-square w-full relative overflow-hidden bg-[#f9f9f9] dark:bg-white/5">
+                        <img alt="Velvet Matte Lipstick" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Luxury lipstick in gold packaging" src="{{ product.featured_image | image_url: width: 400 | image_tag }}"/>
+                        <div class="quick-add opacity-0 translate-y-6 absolute bottom-4 left-4 right-4 transition-all duration-300">
+                            {% comment %} <button class="w-full py-3 bg-primary text-white font-bold rounded-lg flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                                Añadir al carrito
+                            </button> {% endcomment %}
                         </div>
-                        <span class="text-xs text-[#886375] font-medium">(124)</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <span class="text-xl font-extrabold text-[#181114] dark:text-white">
-                            {{ product.price | money }} MXN
-                        </span>
-                        <div class="flex -space-x-1">
-                            <div class="w-4 h-4 rounded-full border border-white dark:border-background-dark bg-[#922b3e]"></div>
-                            <div class="w-4 h-4 rounded-full border border-white dark:border-background-dark bg-[#c71585]"></div>
-                            <div class="w-4 h-4 rounded-full border border-white dark:border-background-dark bg-[#ff69b4]"></div>
-                            <div class="text-[10px] pl-2 font-bold">+12</div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-sm uppercase">Nuevo</span>
                         </div>
                     </div>
+                    <div class="p-5">
+                        <p class="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">MÉXICO EXCLUSIVE </p>
+                        <h4 class="text-lg font-bold leading-tight mb-2 group-hover:text-primary transition-colors">{{ product.title }}</h4>
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="flex text-yellow-400">
+                                <span class="material-symbols-outlined !text-sm fill-1">star</span>
+                                <span class="material-symbols-outlined !text-sm fill-1">star</span>
+                                <span class="material-symbols-outlined !text-sm fill-1">star</span>
+                                <span class="material-symbols-outlined !text-sm fill-1">star</span>
+                                <span class="material-symbols-outlined !text-sm">star_half</span>
+                            </div>
+                            <span class="text-xs text-[#886375] font-medium">(124)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xl font-extrabold text-[#181114] dark:text-white">
+                                {{ product.price | money }} MXN
+                            </span>
+                            <div class="flex -space-x-1">
+                                <div class="w-4 h-4 rounded-full border border-white dark:border-background-dark bg-[#922b3e]"></div>
+                                <div class="w-4 h-4 rounded-full border border-white dark:border-background-dark bg-[#c71585]"></div>
+                                <div class="w-4 h-4 rounded-full border border-white dark:border-background-dark bg-[#ff69b4]"></div>
+                                <div class="text-[10px] pl-2 font-bold">+12</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </a>
-        
-    {% endfor %}
+            </a>
+        {% endfor %}
+         {{ paginate | default_pagination }}
+
+    {% endpaginate %}
+
 <!-- Product Card 1 -->
 
 <!-- Product Card 2 -->
@@ -250,7 +254,8 @@
 <button class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
 <span class="material-symbols-outlined">chevron_left</span>
 </button>
-<span class="font-bold text-sm">1 de 4</span>
+
+<span class="font-bold text-sm">{{ collection.products.size }}</span>
 <button class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
 <span class="material-symbols-outlined">chevron_right</span>
 </button>
