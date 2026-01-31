@@ -12,9 +12,17 @@
     "main": {
       "type": "product",
       "settings": {}
+    },
+    "footer_luxmiere_JWPfhx": {
+      "type": "footer-luxmiere",
+      "name": "footer_index",
+      "settings": {
+        "descripcvion": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "footer_luxmiere_JWPfhx"
   ]
 }

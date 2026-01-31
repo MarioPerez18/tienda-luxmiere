@@ -5,7 +5,7 @@
   https://shopify.dev/docs/storefronts/themes/architecture/templates/product
 {% endcomment %}
 
-<div class="product-images">
+{% comment %} <div class="product-images">
   {% for image in product.images %}
     {% render 'image', class: 'product-image', image: image %}
   {% endfor %}
@@ -39,14 +39,346 @@
     <input type="submit" value="Add to cart">
     {{ form | payment_button }}
   {% endform %}
+</div> {% endcomment %}
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e61980",
+                        "background-light": "#f8f6f7",
+                        "background-dark": "#211119",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+
+<section class="bg-background-light dark:bg-background-dark text-[#181114] dark:text-white transition-colors duration-300">
+  <main class="max-w-[1280px] mx-auto px-4 py-6">
+<!-- Breadcrumbs -->
+<nav class="flex flex-wrap gap-2 py-4 mb-4 items-center">
+<a class="text-[#886375] dark:text-white/60 text-sm font-medium hover:text-primary" href="#">Inicio</a>
+<span class="material-symbols-outlined text-sm text-[#886375]">chevron_right</span>
+<a class="text-[#886375] dark:text-white/60 text-sm font-medium hover:text-primary" href="#">Maquillaje</a>
+<span class="material-symbols-outlined text-sm text-[#886375]">chevron_right</span>
+<span class="text-[#181114] dark:text-white text-sm font-bold">Base Perfeccionadora</span>
+</nav>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Gallery (Sticky) -->
+<div class="lg:col-span-7">
+<div class="sticky top-24 space-y-4">
+<div class="flex gap-4">
+<!-- Thumbnail vertical strip -->
+<div class="hidden md:flex flex-col gap-3">
+<div class="size-20 rounded-lg border-2 border-primary overflow-hidden cursor-pointer">
+<div class="w-full h-full bg-center bg-cover" data-alt="High resolution product main view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA4gUi2RDtsPJlHhlo6gBO-aXATG-TUWfczFD5tONSFqU4d1gNJgxAQLzFrkar3lT78EhLd20TzbIfIYcSfuIvXMaDm0sAMkSB9gTFH1SmXMJBSVxmFWa8vGHXTxe_X8o4t4-tl9AVAaEhEc35-HMG5MvLLj3oWhbpCBjWvHXpK3QOHqDF4aTm7RRailpDM2iRI453WbbYCuBpntT4XBvjg3jbq7jcfA7_APpBmPAEH_U5Vi0FW-OE1HftQLYumDuEfAJxJRc5Fkg");'></div>
 </div>
+<div class="size-20 rounded-lg border border-transparent hover:border-primary/50 overflow-hidden cursor-pointer">
+<div class="w-full h-full bg-center bg-cover opacity-80" data-alt="Creamy texture of the cosmetic product" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB2jJIaZXEOQNOIi3Ucleh_61xekfC8nz8H7VCBnvPfBUNw5cGefydj_Q3i9Dow9bWt8U-Qb7gypdHpH_SMM81_knQ4_EHiDAVd8ZM3QGTgWN-LYYRCTh7g7gNuRhoO3KMi61tvr_RbUtBkTqutKgo_89RIGpHVM98AVUrmPKrn2wDi4IpG4_4fJBf_I8gQM26rB9JtjSbZwAegryTSCCB90GSmV5dgvf3UrRTXZQH_3Bze3klLex4Ofo46UuI4r6bh9LVaoZHB_Q");'></div>
+</div>
+<div class="size-20 rounded-lg border border-transparent hover:border-primary/50 overflow-hidden cursor-pointer">
+<div class="w-full h-full bg-center bg-cover opacity-80" data-alt="Model applying the product to skin" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCYvXtX_HFvZmLcJMyogJMbTc8UQfI0WCheOjBZIBW4dVzJ3bEAsmQ2uAg3xnWbxrEkmkgna4K4lVYgmXttGUklGXN0gvT0Y_QyukFtOdviMVGKsWxToB2JGvsgQXT2ekLFAKHnvCHZ2bj-ywLUcXYsqJuNf5U22LM0FziSdIx0OjI4iTPQTzqzTwNGP9Qkah-FjeZCZpegcJgY2NewFk1D3DkvzTaPGabfFIKnbBrphx63PGoYpYkRCF405mk5BbaE9G-v3R-mXQ");'></div>
+</div>
+<div class="size-20 rounded-lg border border-transparent hover:border-primary/50 overflow-hidden cursor-pointer">
+<div class="w-full h-full bg-center bg-cover opacity-80" data-alt="Luxury packaging details" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-tRHheuLCqihqgESlMfWd84hxuJiMTle0xigFBo1kekJUdI6_MRXUleaDQ5S-lOHNQ6fQtZY6aUSX2-bL7S2PPxAtGab3ozxhlgcX9eOVzxUthq7B7qFGx9tnX7li71jA7k2llf-fCDDpNi3KdNohx4HUx9x2vtV5mqyKMNQnUYSIrlPeCkHuczZO0BGDTklrUjXS3qtZq1uKqCG1VWPb430G3qH5b_JKH1YzIjATWfDLIPlltrXhezuvjTS2fTUzqncrQvv0Nw");'></div>
+</div>
+</div>
+<!-- Main Image -->
+<div class="flex-1 aspect-[5/5] bg-white dark:bg-white/5 rounded-xl overflow-hidden relative group">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-110" data-alt="Main product photograph premium lighting" style=''>
+  {% for image in product.images %}
+    {% render 'image', class: 'product-image', image: image %}
+  {% endfor %}
+</div>
+<button class="absolute bottom-4 right-4 bg-white/80 backdrop-blur rounded-full p-2 text-background-dark shadow-lg">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Product Info -->
+<div class="lg:col-span-5 space-y-8">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider rounded">Best Seller</span>
+<div class="flex items-center text-yellow-400">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star_half</span>
+<span class="ml-2 text-xs text-[#886375] font-medium">(128 reseñas)</span>
+</div>
+</div>
+<h1 class="text-4xl font-black leading-tight tracking-tight mb-2">{{ product.title }}</h1>
+<p class="text-[#886375] dark:text-white/60 text-lg leading-relaxed italic">Radiancia instantánea y firmeza para un acabado profesional que dura 24 horas.</p>
+</div>
+<div class="flex items-baseline gap-4">
+<span class="text-3xl font-bold text-primary">{{ product.price | money }} MXN</span>
+<span class="text-lg text-[#886375] line-through">$2,100 MXN</span>
+</div>
+<!-- Shade Selector -->
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<p class="text-sm font-bold uppercase tracking-widest">Tono: <span class="font-normal capitalize text-primary">Rosa Mexicano</span></p>
+<button class="text-xs font-bold text-primary underline underline-offset-4">Guía de Tonos</button>
+</div>
+<div class="flex flex-wrap gap-3">
+<label class="size-10 rounded-full border border-gray-200 dark:border-white/20 ring-primary has-[:checked]:ring-2 has-[:checked]:ring-offset-2 dark:ring-offset-background-dark cursor-pointer overflow-hidden transition-all" style="background-color: rgb(245, 209, 181);">
+<input checked="" class="hidden" name="shade" type="radio"/>
+</label>
+<label class="size-10 rounded-full border border-gray-200 dark:border-white/20 ring-primary has-[:checked]:ring-2 has-[:checked]:ring-offset-2 dark:ring-offset-background-dark cursor-pointer overflow-hidden transition-all" style="background-color: rgb(232, 178, 145);">
+<input class="hidden" name="shade" type="radio"/>
+</label>
+<label class="size-10 rounded-full border border-gray-200 dark:border-white/20 ring-primary has-[:checked]:ring-2 has-[:checked]:ring-offset-2 dark:ring-offset-background-dark cursor-pointer overflow-hidden transition-all" style="background-color: rgb(212, 148, 112);">
+<input class="hidden" name="shade" type="radio"/>
+</label>
+<label class="size-10 rounded-full border border-gray-200 dark:border-white/20 ring-primary has-[:checked]:ring-2 has-[:checked]:ring-offset-2 dark:ring-offset-background-dark cursor-pointer overflow-hidden transition-all" style="background-color: rgb(193, 119, 84);">
+<input class="hidden" name="shade" type="radio"/>
+</label>
+<label class="size-10 rounded-full border border-gray-200 dark:border-white/20 ring-primary has-[:checked]:ring-2 has-[:checked]:ring-offset-2 dark:ring-offset-background-dark cursor-pointer overflow-hidden transition-all" style="background-color: rgb(163, 93, 61);">
+<input class="hidden" name="shade" type="radio"/>
+</label>
+</div>
+</div>
+<!-- CTAs -->
+<div class="flex flex-col gap-3"  x-data="{ contador: 0 }">
+<div class="flex gap-4">
+<div class="flex items-center border border-gray-200 dark:border-white/20 rounded-lg px-4 bg-white dark:bg-white/5">
+<button @click="contador--" :disabled="contador == 0" class="p-2">-</button >
+<span class="px-4 font-bold" x-text=contador></span>
+<button @click="contador++" class="p-2">+</button>
+</div>
+<button class="flex-1 bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-lg shadow-xl shadow-primary/20 transition-all transform hover:-translate-y-1 uppercase tracking-widest text-sm">
+                            Agregar al carrito
+                        </button>
+</div>
+<p class="text-[11px] text-center text-[#886375] font-medium">
+<span class="material-symbols-outlined align-middle text-sm mr-1">local_shipping</span>
+                        Envío GRATIS en pedidos mayores a $999 MXN
+                    </p>
+</div>
+<!-- Product Features Mini Grid -->
+<div class="grid grid-cols-2 gap-4 py-6 border-y border-gray-100 dark:border-white/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<span class="text-xs font-medium">Dermatológicamente probado</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">eco</span>
+<span class="text-xs font-medium">Fórmula Vegana</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<span class="text-xs font-medium">24h Larga Duración</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">water_drop</span>
+<span class="text-xs font-medium">Ácido Hialurónico</span>
+</div>
+</div>
+<!-- Accordions -->
+<div class="space-y-4">
+<details class="group border-b border-gray-100 dark:border-white/10 pb-4 flex-col" open="">
+<summary class="flex items-center justify-between cursor-pointer list-none">
+<span class="font-bold text-sm uppercase tracking-widest">Descripción</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-4 text-[#886375] dark:text-white/70 text-sm leading-relaxed">
+  {{ product.description }}
+</div>
+</details>
+<details class="group border-b border-gray-100 dark:border-white/10 pb-4 flex-col">
+<summary class="flex items-center justify-between cursor-pointer list-none">
+<span class="font-bold text-sm uppercase tracking-widest">Modo de Uso</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-4 space-y-4">
+<div class="flex gap-4">
+<div class="size-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs shrink-0">1</div>
+<p class="text-sm">Aplica dos gotas en el dorso de tu mano.</p>
+</div>
+<div class="flex gap-4">
+<div class="size-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs shrink-0">2</div>
+<p class="text-sm">Usa una brocha de cerdas densas para difuminar desde el centro hacia afuera.</p>
+</div>
+<div class="flex gap-4">
+<div class="size-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs shrink-0">3</div>
+<p class="text-sm">Sella con polvos traslúcidos para un acabado ultra mate si lo prefieres.</p>
+</div>
+</div>
+</details>
+<details class="group border-b border-gray-100 dark:border-white/10 pb-4 flex-col">
+<summary class="flex items-center justify-between cursor-pointer list-none">
+<span class="font-bold text-sm uppercase tracking-widest">Ingredientes Técnicos</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-4 text-[12px] font-mono text-[#886375] dark:text-white/50 bg-[#f4f0f2] dark:bg-white/5 p-4 rounded-lg">
+                            Aqua, Cyclopentasiloxane, Ethylhexyl Methoxycinnamate, Zinc Oxide, Hyaluronic Acid, Aloe Barbadensis Leaf Extract, Tocopherol, Phenoxyethanol, Ethylhexylglycerin...
+                        </div>
+</details>
+</div>
+</div>
+</div>
+<!-- Reviews Section -->
+<section class="mt-24 border-t border-gray-100 dark:border-white/10 pt-16">
+<div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
+<div>
+<h2 class="text-3xl font-black mb-2">Opiniones Reales</h2>
+<p class="text-[#886375]">Lo que nuestras clientas dicen sobre Luz Infinita.</p>
+</div>
+<button class="px-8 py-3 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-all uppercase text-sm tracking-widest">Escribir Reseña</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Review Card -->
+<div class="bg-white dark:bg-white/5 p-6 rounded-xl border border-gray-100 dark:border-white/10">
+<div class="flex justify-between mb-4">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+<span class="text-xs text-green-600 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">verified</span> Compra Verificada
+                        </span>
+</div>
+<p class="font-bold mb-2">"Simplemente espectacular"</p>
+<p class="text-sm text-[#886375] leading-relaxed mb-4">El tono se adapta perfecto a mi piel. Dura todo el día incluso con el calor de CDMX. Vale cada peso.</p>
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary text-xs">MV</div>
+<span class="text-xs font-bold uppercase tracking-widest">Mariana V.</span>
+</div>
+</div>
+<!-- Review Card 2 -->
+<div class="bg-white dark:bg-white/5 p-6 rounded-xl border border-gray-100 dark:border-white/10">
+<div class="flex justify-between mb-4">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+<span class="text-xs text-green-600 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">verified</span> Compra Verificada
+                        </span>
+</div>
+<p class="font-bold mb-2">"Textura de seda"</p>
+<p class="text-sm text-[#886375] leading-relaxed mb-4">No se siente pesada y deja un glow increíble. He probado muchas marcas de lujo y esta es mi favorita.</p>
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary text-xs">AR</div>
+<span class="text-xs font-bold uppercase tracking-widest">Alejandra R.</span>
+</div>
+</div>
+<!-- Review Card 3 -->
+<div class="bg-white dark:bg-white/5 p-6 rounded-xl border border-gray-100 dark:border-white/10">
+<div class="flex justify-between mb-4">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star_outline</span>
+</div>
+<span class="text-xs text-green-600 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">verified</span> Compra Verificada
+                        </span>
+</div>
+<p class="font-bold mb-2">"Muy buena cobertura"</p>
+<p class="text-sm text-[#886375] leading-relaxed mb-4">Me encanta como cubre mis rojeces sin parecer máscara. Me gustaría que el empaque fuera más ligero.</p>
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary text-xs">CP</div>
+<span class="text-xs font-bold uppercase tracking-widest">Carla P.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Related Products -->
+{% comment %} <section class="mt-24 mb-16">
+<h2 class="text-3xl font-black mb-8 uppercase tracking-tight">Completa tu rutina</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<!-- Related Item 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] rounded-xl overflow-hidden mb-4 relative">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Luxury serum product" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC06UsDQo1qNttXi6mVMQqY4lLNhseYdfgLOBSFefm3Lu9n7Sfe-mVRKzwk1sAcYaFdmUr2xIyOMWQgQqS5fEmLwJLA1BsKUaKQMHjqeX8OmD-uB-CYdhe-IXP0NOfoIOVgosYpSbIIvt7I-JulkmLKjdDYCGus5OxE5vk1z40aJKqw-1AXvNtaDdY89_vUzD7yOsQrDCSdjMo8pY7gfQhfn0ldTIdRZzNl3NDxJmLP0tEIPCATZcF_KmGn0MMwrVTl1T9rr7tdGA");'></div>
+<button class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur py-2 text-xs font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity">Vista Rápida</button>
+</div>
+<h3 class="font-bold text-sm mb-1">Suero Iluminador Noche</h3>
+<p class="text-primary font-bold text-sm">$1,450 MXN</p>
+</div>
+<!-- Related Item 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] rounded-xl overflow-hidden mb-4 relative">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Compact face powder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAJIyR4SplsNu1NFYqQoyk1YnsIykCVaSskmCtwZeHwJOCUS7CyNRAC1qZkN9BmF6Z9oV8hyp5dheRLFn6C2PyzNZBDmxo7gae1c_1uUfBnhKyp5iw1894nMPoRXMD2r5zXPLNLNyxPs8pUubRJfaD4myhU0Bksp6Qf40u2CwsDxW8W8QXcSqqjYb6YtAnlLAbZHUN0BsJRrr7uQddy3iZUnON-WBl3gNday8tB4qDp0sNgbxD6IRcJQMRUz06xCexGk9cDwFLdiQ");'></div>
+<button class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur py-2 text-xs font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity">Vista Rápida</button>
+</div>
+<h3 class="font-bold text-sm mb-1">Polvo Traslúcido HD</h3>
+<p class="text-primary font-bold text-sm">$890 MXN</p>
+</div>
+<!-- Related Item 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] rounded-xl overflow-hidden mb-4 relative">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Make-up brushes set" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMkP1cFamZGQYn7B5vT7Hex4a-0pmRFLReoW_Mo1U_DGwwVaeMnhQ-QOokDPEUFzhp7gggkZfRt314A4X5H92BmDRTTJWNs7aIMakh2RTQdhPwtrwyITdUQsPbZZCdLQ9RrRxg5pYXBzXoat-E3ton437oo9mTZGGnBYtUU1pRwlKliLGl5SXw-cx3NNYPOIQBNb7K1ACrNJuIx-0ONQiCBFoJ6yKW1vYwvRE3LELfMCGN3knjo-K6NawXxdZoN1akKDswH8DgBw");'></div>
+<button class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur py-2 text-xs font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity">Vista Rápida</button>
+</div>
+<h3 class="font-bold text-sm mb-1">Set Brochas Profesionales</h3>
+<p class="text-primary font-bold text-sm">$2,200 MXN</p>
+</div>
+<!-- Related Item 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] rounded-xl overflow-hidden mb-4 relative">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Facial oil bottle" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAxl1WSX9I5IR3aj_ObneWr5PkIRI-uUdVE4adK4dMAnt8uk4sW2YXzJ9F02TK6vVur_nQx6JuoSl0XP6P0Ov1KMLftd3vK-0CsXCt4Z_0OTdMqiam7Dgl4FzuM3pciupmqZz64TUPoRPsWIGXEQMv2Mz5GsPluIZdsXRlkh5c-QFTvH7kdC-dNL6mSUm-mEiJlDONU-DNnuMI0SYoQFsSQTB43vffSjwz1a36EsBSA9_Z5Snw1KAxYNPUCI2TNq0tYH0AkD_CRYw");'></div>
+<button class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur py-2 text-xs font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity">Vista Rápida</button>
+</div>
+<h3 class="font-bold text-sm mb-1">Aceite Revitalizante</h3>
+<p class="text-primary font-bold text-sm">$1,100 MXN</p>
+</div>
+</div>
+
+
+</section> {% endcomment %}
+</main>
+
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-white/90 dark:bg-background-dark/90 backdrop-blur-lg border-t border-gray-200 dark:border-white/10 flex items-center justify-between z-40 transform translate-y-full md:translate-y-0 opacity-0 md:opacity-100 hover:translate-y-0 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded bg-cover bg-center hidden sm:block" data-alt="Sticky preview thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVfKa04qOq8Qx2__NGcXyQF_cjOipgAe76XgsceJO60tYHDvanFocQczK0-noxlG-8exVPzWW469yHJ_cQHtihAXxvGyoCaqQmLxmCglIS4MEDY_afOyRNgYgKCSJ7jcoC-4p9XlipWxNGBKpZCway2cSCBzyIRU7fC1WamG72c-enhPIWsutbUyz4GLQM6Oed8e7X5mRpbH_NCVXmQPTPHzaZ3DjURqEjHJnKAE4RuhvkGfFhErXMuwOW-mkCG48AlA8pxq6bcQ");'></div>
+<div>
+<p class="font-bold text-sm truncate max-w-[150px]">{{ product.title }}</p>
+<p class="text-primary font-bold text-xs">{{ product.price | money }} MXN</p>
+</div>
+</div>
+<button class="bg-primary text-white font-bold py-3 px-8 rounded-lg text-sm uppercase tracking-widest hover:scale-105 active:scale-95 transition-all">
+            Agregar
+        </button>
+</div>
+
+</section>
 
 {% schema %}
 {
   "name": "t:general.product",
-  "settings": [],
-  "disabled_on": {
-    "groups": ["header", "footer"]
-  }
+  "settings": []
 }
 {% endschema %}
