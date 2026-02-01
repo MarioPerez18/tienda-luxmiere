@@ -1,4 +1,4 @@
- <style>
+ {% comment %} <style>
   .header {
       position: fixed;
       top: 0;
@@ -125,10 +125,13 @@
 
     /* Mobile Menu */
     .mobile-menu {
-      display: none;
       background-color: var(--background);
       border-top: 1px solid var(--border);
       padding: 1.5rem 1rem;
+    }
+
+    .mobile-menu .dropdown{
+      text-align: left;
     }
 
     .mobile-menu.active {
@@ -169,13 +172,17 @@
       border-top: 1px solid var(--border);
     }
 
+    [x-cloak] {
+      display: none !important;
+    }
+
  </style>
  
- <header class="header">
-    <nav class="header-nav container">
+ <header class="header" x-data="{openmenu: false}" x-cloak >
+    <nav class="header-nav container" >
       <a href="/" class="logo">{{ shop.name }}</a>
 
-      <div x-data="{ open: false }" class="desktop-nav relative">
+      <div x-data="{ open: false }" x-cloak class="desktop-nav relative">
          {% for link in section.settings.menu.links %}
           {% if link.links != blank %}
             <button class="hover:text-red-500 text-sm font-medium text-muted-foreground  transition-colors uppercase tracking-widest" @click="open = ! open">
@@ -235,7 +242,7 @@
           </svg>
           <span class="cart-badge">0</span>
         </button>
-        <button class="icon-btn menu-btn" aria-label="Toggle menu" id="menuToggle">
+        <button @click="openmenu = !openmenu" class="icon-btn menu-btn" aria-label="Toggle menu" id="menuToggle">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" id="menuIcon">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
@@ -243,12 +250,44 @@
       </div>
     </nav>
 
-    <div class="mobile-menu" id="mobileMenu">
-      <div class="mobile-menu-links">
-        <a href="#shop" class="mobile-nav-link">Shop</a>
+    <div class="mobile-menu" id="mobileMenu" x-show="openmenu">
+      <div class="mobile-menu-links" x-data="{ open: false }">
+
+        {% for link in section.settings.menu.links %}
+          {% if link.links != blank %}
+            <button class="mobile-nav-link dropdown" @click="open = ! open">
+              {{ link.title }} 
+            </button>
+            {% if link.links.size > 0 %}
+              <div @click.away = "open = false" x-show="open" class=" bg-white p-5 rounded">
+                  <ul>
+                    {% for sublink in link.links %}
+                      <li class="p-1">
+                        <a 
+                            href="{{ sublink.url }}"
+                            class="mobile-nav-link"
+                          >
+                            {{ sublink.title }}
+                          </a>  
+                      </li>
+                       {% endfor %}
+                  </ul>
+              </div>
+            {% endif %}
+            {% else %}
+              <a
+              href="{{ link.url }}"
+              class="mobile-nav-link"
+              >
+                {{ link.title }}
+              </a>
+          {% endif %}
+          {% endfor %}
+        
+        {% comment %} <a href="#shop" class="mobile-nav-link">Shop</a>
         <a href="#collections" class="mobile-nav-link">Collections</a>
         <a href="#about" class="mobile-nav-link">About</a>
-        <a href="#contact" class="mobile-nav-link">Contact</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a> {% endcomment %}
       </div>
       <div class="mobile-menu-icons">
         <button class="icon-btn" aria-label="Search">
@@ -263,11 +302,272 @@
         </button>
       </div>
     </div>
-  </header>
+  </header> {% endcomment %}
 
 
 
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #E9ECEF;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
 
+
+
+  .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .nav-container .desktop-icons {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+  .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+  }
+  .nav-logo a{
+      text-decoration: none;
+  }
+
+  .logo-icon {
+      background-color: var(--orange);
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+  }
+  .logo-icon svg{
+      color: var(--white);
+      margin: auto;
+      display: block;
+  }
+
+  .logo-icon i {
+      color: var(--white);
+      font-size: 24px;
+  }
+
+  .logo-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy-blue);
+  }
+
+  .nav-menu {
+      display: flex;
+      gap: 32px;
+  }
+
+  .nav-menu .dropdown-mobile{
+    padding: 20px;
+  }
+
+  .desktop-icons .icon-btn {
+      color: var(--foreground);
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 0;
+      background: none;
+      border: none;
+    }
+
+     .desktop-icons .icon-btn .cart-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: var(--accent);
+      color: var(--accent-foreground);
+      font-size: 0.75rem;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon-btn:hover {
+      color: var(--accent);
+    }
+
+    .icon-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+  .nav-link {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s ;
+  }
+
+ 
+  .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+  }
+
+  .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #0A2540;
+      margin: 3px 0;
+      transition: var(--transition);
+  }
+
+  @media (max-width: 768px) {
+    .nav-menu {
+          position: fixed;
+          left: -100%;
+          top: 62px;
+          flex-direction: column;
+          background-color: #ffffff;
+          width: 100%;
+          text-align: center;
+          transition: 0.3s;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          padding: 20px 0;
+      }
+
+      .nav-menu .dropdown-mobile{
+        position: static;
+        margin: 0px auto;
+        padding: 10px;
+      }
+
+      .nav-menu .btn-dropdown{
+        justify-content: center;
+      }
+
+      .nav-menu.active {
+          left: 0;
+      }
+
+      .hamburger {
+          display: flex;
+      }
+
+      .hamburger.active .bar:nth-child(2) {
+          opacity: 0;
+      }
+
+      .hamburger.active .bar:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+      }
+
+      .hamburger.active .bar:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+      }
+    
+  }
+
+    [x-cloak] {
+      display: none !important;
+    }
+</style>
+
+  <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                
+                <a href="#home">
+                    <span class="logo-text">{{ shop.name }}</span>
+                </a>
+                
+            </div>
+            <div class="nav-menu relative" id="nav-menu" x-data="{open: false}" x-cloak>
+              {% for link in section.settings.menu.links %}
+                {% if link.links != blank %}
+                  <button class="nav-link" @click="open = ! open">
+                    <div class=" flex  items-center btn-dropdown">
+                       {{ link.title }} 
+                       {% render 'dropdown-icon' %}
+                    </div>
+                   
+                  {% if link.links.size > 0 %}
+                    <div @click.away = "open = false" x-show="open" class="dropdown-mobile absolute w-80 top-12 bg-white  rounded">
+                        <ul>
+                          {% for sublink in link.links %}
+                            <li class="p-1">
+                              <a 
+                                  href="{{ sublink.url }}"
+                                  class="nav-link hover:text-pink-400"
+                                >
+                                  {{ sublink.title }}
+                                </a>  
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                  {% endif %}
+                  
+                  </button>
+                  {% else %}
+                    <a
+                    href="{{ link.url }}"
+                    class="nav-link hover:text-pink-400"
+                    >
+                      {{ link.title }}
+                    </a>
+                {% endif %}
+              {% endfor %}
+                {% comment %} <a href="#home" class="nav-link">Inicio</a>
+                <a href="#services" class="nav-link">Servicios</a>
+                <a href="#projects" class="nav-link">Proyectos</a>
+                <a href="#about" class="nav-link">Sobre mí</a>
+                <a href="#contact" class="nav-link">Contacto</a> {% endcomment %}
+            </div>
+            <div class="desktop-icons">
+              <button class="icon-btn" aria-label="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+              </button>
+              <button class="icon-btn" aria-label="Account">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                </svg>
+              </button>
+              <button class="icon-btn" aria-label="Shopping cart">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                </svg>
+                <span class="cart-badge">0</span>
+              </button>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('nav-menu');
+
+      hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          navMenu.classList.toggle('active');
+      });
+    </script>
 
 
 {% schema %}
