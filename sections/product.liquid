@@ -105,9 +105,7 @@
 <!-- Main Image -->
 <div class="flex-1 aspect-[5/5] bg-white dark:bg-white/5 rounded-xl overflow-hidden relative group">
 <div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-110" data-alt="Main product photograph premium lighting" style=''>
-  {% for image in product.images %}
-    {% render 'image', class: 'product-image', image: image %}
-  {% endfor %}
+  {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '100vw', widths: '375, 550, 750, 1100' }}
 </div>
 <button class="absolute bottom-4 right-4 bg-white/80 backdrop-blur rounded-full p-2 text-background-dark shadow-lg">
 <span class="material-symbols-outlined">zoom_in</span>
@@ -322,20 +320,22 @@
 </div>
 </section>
 <!-- Related Products -->
-{% comment %} <section class="mt-24 mb-16">
+ <section class="mt-24 mb-16">
 <h2 class="text-3xl font-black mb-8 uppercase tracking-tight">Completa tu rutina</h2>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
 <!-- Related Item 1 -->
-<div class="group cursor-pointer">
+<div class="group cursor-pointer flex-col">
 <div class="aspect-[3/4] rounded-xl overflow-hidden mb-4 relative">
-<div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Luxury serum product" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC06UsDQo1qNttXi6mVMQqY4lLNhseYdfgLOBSFefm3Lu9n7Sfe-mVRKzwk1sAcYaFdmUr2xIyOMWQgQqS5fEmLwJLA1BsKUaKQMHjqeX8OmD-uB-CYdhe-IXP0NOfoIOVgosYpSbIIvt7I-JulkmLKjdDYCGus5OxE5vk1z40aJKqw-1AXvNtaDdY89_vUzD7yOsQrDCSdjMo8pY7gfQhfn0ldTIdRZzNl3NDxJmLP0tEIPCATZcF_KmGn0MMwrVTl1T9rr7tdGA");'></div>
+<div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Luxury serum product" style='background-image: url("");'>
+  <img class="w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC06UsDQo1qNttXi6mVMQqY4lLNhseYdfgLOBSFefm3Lu9n7Sfe-mVRKzwk1sAcYaFdmUr2xIyOMWQgQqS5fEmLwJLA1BsKUaKQMHjqeX8OmD-uB-CYdhe-IXP0NOfoIOVgosYpSbIIvt7I-JulkmLKjdDYCGus5OxE5vk1z40aJKqw-1AXvNtaDdY89_vUzD7yOsQrDCSdjMo8pY7gfQhfn0ldTIdRZzNl3NDxJmLP0tEIPCATZcF_KmGn0MMwrVTl1T9rr7tdGA" alt="">
+</div>
 <button class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur py-2 text-xs font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity">Vista Rápida</button>
 </div>
 <h3 class="font-bold text-sm mb-1">Suero Iluminador Noche</h3>
 <p class="text-primary font-bold text-sm">$1,450 MXN</p>
 </div>
 <!-- Related Item 2 -->
-<div class="group cursor-pointer">
+<div class="group cursor-pointer flex-col">
 <div class="aspect-[3/4] rounded-xl overflow-hidden mb-4 relative">
 <div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Compact face powder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAJIyR4SplsNu1NFYqQoyk1YnsIykCVaSskmCtwZeHwJOCUS7CyNRAC1qZkN9BmF6Z9oV8hyp5dheRLFn6C2PyzNZBDmxo7gae1c_1uUfBnhKyp5iw1894nMPoRXMD2r5zXPLNLNyxPs8pUubRJfaD4myhU0Bksp6Qf40u2CwsDxW8W8QXcSqqjYb6YtAnlLAbZHUN0BsJRrr7uQddy3iZUnON-WBl3gNday8tB4qDp0sNgbxD6IRcJQMRUz06xCexGk9cDwFLdiQ");'></div>
 <button class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur py-2 text-xs font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity">Vista Rápida</button>
@@ -344,7 +344,7 @@
 <p class="text-primary font-bold text-sm">$890 MXN</p>
 </div>
 <!-- Related Item 3 -->
-<div class="group cursor-pointer">
+<div class="group cursor-pointer flex-col">
 <div class="aspect-[3/4] rounded-xl overflow-hidden mb-4 relative">
 <div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Make-up brushes set" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMkP1cFamZGQYn7B5vT7Hex4a-0pmRFLReoW_Mo1U_DGwwVaeMnhQ-QOokDPEUFzhp7gggkZfRt314A4X5H92BmDRTTJWNs7aIMakh2RTQdhPwtrwyITdUQsPbZZCdLQ9RrRxg5pYXBzXoat-E3ton437oo9mTZGGnBYtUU1pRwlKliLGl5SXw-cx3NNYPOIQBNb7K1ACrNJuIx-0ONQiCBFoJ6yKW1vYwvRE3LELfMCGN3knjo-K6NawXxdZoN1akKDswH8DgBw");'></div>
 <button class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur py-2 text-xs font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity">Vista Rápida</button>
@@ -353,7 +353,7 @@
 <p class="text-primary font-bold text-sm">$2,200 MXN</p>
 </div>
 <!-- Related Item 4 -->
-<div class="group cursor-pointer">
+<div class="group cursor-pointer flex-col">
 <div class="aspect-[3/4] rounded-xl overflow-hidden mb-4 relative">
 <div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Facial oil bottle" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAxl1WSX9I5IR3aj_ObneWr5PkIRI-uUdVE4adK4dMAnt8uk4sW2YXzJ9F02TK6vVur_nQx6JuoSl0XP6P0Ov1KMLftd3vK-0CsXCt4Z_0OTdMqiam7Dgl4FzuM3pciupmqZz64TUPoRPsWIGXEQMv2Mz5GsPluIZdsXRlkh5c-QFTvH7kdC-dNL6mSUm-mEiJlDONU-DNnuMI0SYoQFsSQTB43vffSjwz1a36EsBSA9_Z5Snw1KAxYNPUCI2TNq0tYH0AkD_CRYw");'></div>
 <button class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur py-2 text-xs font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity">Vista Rápida</button>
@@ -364,7 +364,7 @@
 </div>
 
 
-</section> {% endcomment %}
+</section>
 </main>
 
 <div class="fixed bottom-0 left-0 right-0 p-4 bg-white/90 dark:bg-background-dark/90 backdrop-blur-lg border-t border-gray-200 dark:border-white/10 flex items-center justify-between z-40 transform translate-y-full md:translate-y-0 opacity-0 md:opacity-100 hover:translate-y-0 transition-all duration-300">

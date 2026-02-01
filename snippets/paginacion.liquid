@@ -1,25 +1,25 @@
 {% if paginacion.pages > 0 %}
-    <nav role="navegacion" class="flex justify-center my-8">
+    <nav role="navegacion" class="mt-16 flex items-center justify-center gap-4">
         {% if paginacion.previous %}
-              <a href="{{ paginacion.previous.url }}" class="border border-gray-600 text-gray-600 hover:bg-primary hover:text-white transition-all px-8 py-3 rounded-sm font-medium">
-                {{ paginacion.previous.title }}
+              <a href="{{ paginacion.previous.url }}" class="flex items-center justify-center size-10 rounded-lg border border-[#f4f0f2] dark:border-[#3a2a33] hover:bg-primary hover:text-white transition-colors">
+               <span class="material-symbols-outlined">chevron_left</span>
               </a>
         {% endif %}
 
         {% for part  in paginacion.parts %}
             {% if part.is_link %}
-                <a href="{{ part.url }}" class="border border-gray-600 text-gray-600 hover:bg-primary hover:text-white transition-all px-8 py-3 rounded-sm font-medium">
+                <a href="{{ part.url }}" class="flex items-center justify-center size-10 rounded-lg border border-[#f4f0f2] dark:border-[#3a2a33] hover:bg-primary hover:text-white transition-colors">
                     {{ part.title }}
                 </a>
                 {% else %}
-                    <span class="border border-gray-600 text-white bg-primary px-8 py-3 rounded-sm font-medium">{{ part.title }}</span>
+                    <span class="flex items-center justify-center size-10 rounded-lg bg-primary text-white font-bold">{{ part.title }}</span>
             {% endif %}
            
         {% endfor %}
 
         {% if paginacion.next %}
-            <a href="{{ paginacion.next.url }}" class="border border-gray-600 text-gray-600 hover:bg-primary hover:text-white transition-all px-8 py-3 rounded-sm font-medium">
-                {{ paginacion.next.title }}
+            <a href="{{ paginacion.next.url }}" class="flex items-center justify-center size-10 rounded-lg border border-[#f4f0f2] dark:border-[#3a2a33] hover:bg-primary hover:text-white transition-colors">
+                <span class="material-symbols-outlined">chevron_right</span>
             </a>
             
         {% endif %}
