@@ -90,13 +90,13 @@
   {% for item in cart.items %}
   <tr class="group" x-data="{ precio: {{ item.price }}, cantidad: {{item.quantity }},  lineKey: '{{ item.key }}',
   increment() {
-      this.qty++
+      this.cantidad++
       this.updateCart()
     },
 
     decrement() {
-      if (this.qty > 1) {
-        this.qty--
+      if (this.cantidad > 1) {
+        this.cantidad--
         this.updateCart()
       }
     },
@@ -106,13 +106,13 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           id: this.lineKey,
-          quantity: this.qty
+          quantity: this.cantidad
         })
       })
     },
 
     get subtotal() {
-      return this.price * this.qty
+      return this.price * this.cantidad
     } }">
   <td class="px-6 py-6">
   <div class="flex gap-4">
