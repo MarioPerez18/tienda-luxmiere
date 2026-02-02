@@ -87,85 +87,92 @@
   </thead>
   <tbody class="divide-y divide-[#e5dce0] dark:divide-white/5">
   <!-- Product 1 -->
-  {% for item in cart.items %}
-  <tr class="group" x-data="{ precio: {{ item.price }}, cantidad: {{item.quantity }},  lineKey: '{{ item.key }}',
-  increment() {
-      this.cantidad++
-      this.updateCart()
-    },
+    {% if cart.items.size == 0 %}
+      <div>
+        <p>No hay productos</p>
+      </div>
+    {% else %}
+      {% for item in cart.items %}
+        <tr class="group" x-data="{ precio: {{ item.price }}, cantidad: {{item.quantity }},  lineKey: '{{ item.key }}',
+        increment() {
+            this.cantidad++
+            this.updateCart()
+          },
 
-    decrement() {
-      if (this.cantidad > 1) {
-        this.cantidad--
-        this.updateCart()
-      }
-    },
-    updateCart() {
-      fetch('/cart/change.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          id: this.lineKey,
-          quantity: this.cantidad
-        })
-      })
-    },
+          decrement() {
+            if (this.cantidad > 1) {
+              this.cantidad--
+              this.updateCart()
+            }
+          },
+          updateCart() {
+            fetch('/cart/change.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                id: this.lineKey,
+                quantity: this.cantidad
+              })
+            })
+          },
 
-    get subtotal() {
-      return this.precio * this.cantidad
-    } }">
-  <td class="px-6 py-6">
-  <div class="flex gap-4">
-  <div class="w-24 h-24 flex-shrink-0 bg-background-light dark:bg-white/10 rounded-lg overflow-hidden border border-[#e5dce0] dark:border-white/5">
-  <div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Serum facial premium bottle in white background" >
-    <img src="{{ item.image | image_url: width: 600 }}" alt="{{ item.product.title }}">
-  </div>
-  </div>
-  <div class="flex flex-col justify-between py-1">
-  <div>
-  <h3 class="font-bold text-base">{{item.title }}</h3>
-  <p class="text-sm text-[#886375]">30ml • Edición Especial</p>
-  </div>
-  <button 
-    @click.prevent="
-    fetch('/cart/change.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        id: '{{ item.key }}',
-        quantity: 0
-      })
-    }).then(() => window.location.reload())
-  "
-    class="flex items-center gap-1 text-xs text-[#886375] hover:text-red-500 transition-colors mt-2" >
-  <span class="material-symbols-outlined text-lg">delete</span>
-    Eliminar
-  </button>
-  </div>
-  </div>
-  <!-- Mobile Quantity -->
-  <div class="md:hidden mt-4 flex items-center justify-between">
-  <div class="flex items-center border border-[#e5dce0] dark:border-white/10 rounded-lg overflow-hidden h-8" x-data="{producto: 1}">
-    <button @click="producto--" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5">-</button>
-    <span class="px-3 font-bold text-sm" show-text></span>
-    <button @click="producto++" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5">+</button>
-  </div>
-  <span class="font-bold">{{ item.price | money }} MXN</span>
-  </div>
-  </td>
-  <td class="px-6 py-6 hidden md:table-cell align-top">
-  <div class="flex items-center border border-[#e5dce0] dark:border-white/10 rounded-lg overflow-hidden w-fit h-10">
-  <button @click="decrement" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">-</button>
-  <span class="px-4 font-bold" x-text="cantidad" ></span>
-  <button @click="increment" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">+</button>
-  </div>
-  </td>
-  <td class="px-6 py-6 hidden md:table-cell align-top text-right">
-  <p class="font-bold text-base" x-text=" '$' +' '+ (subtotal / 100).toFixed(2) + ' ' + 'MXN'"></p>
-  <p class="text-xs text-[#886375]">{{ item.price | money }} c/u</p>
-  </td>
-  </tr>
-  {% endfor %}
+          get subtotal() {
+            return this.precio * this.cantidad
+          } }">
+        <td class="px-6 py-6">
+        <div class="flex gap-4">
+        <div class="w-24 h-24 flex-shrink-0 bg-background-light dark:bg-white/10 rounded-lg overflow-hidden border border-[#e5dce0] dark:border-white/5">
+        <div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Serum facial premium bottle in white background" >
+          <img src="{{ item.image | image_url: width: 600 }}" alt="{{ item.product.title }}">
+        </div>
+        </div>
+        <div class="flex flex-col justify-between py-1">
+        <div>
+        <h3 class="font-bold text-base">{{item.title }}</h3>
+        <p class="text-sm text-[#886375]">30ml • Edición Especial</p>
+        </div>
+        <button 
+          @click.prevent="
+          fetch('/cart/change.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              id: '{{ item.key }}',
+              quantity: 0
+            })
+          }).then(() => window.location.reload())
+        "
+          class="flex items-center gap-1 text-xs text-[#886375] hover:text-red-500 transition-colors mt-2" >
+        <span class="material-symbols-outlined text-lg">delete</span>
+          Eliminar
+        </button>
+        </div>
+        </div>
+        <!-- Mobile Quantity -->
+        <div class="md:hidden mt-4 flex items-center justify-between">
+        <div class="flex items-center border border-[#e5dce0] dark:border-white/10 rounded-lg overflow-hidden h-8" x-data="{producto: 1}">
+          <button @click="producto--" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5">-</button>
+          <span class="px-3 font-bold text-sm" show-text></span>
+          <button @click="producto++" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5">+</button>
+        </div>
+        <span class="font-bold">{{ item.price | money }} MXN</span>
+        </div>
+        </td>
+        <td class="px-6 py-6 hidden md:table-cell align-top">
+        <div class="flex items-center border border-[#e5dce0] dark:border-white/10 rounded-lg overflow-hidden w-fit h-10">
+        <button @click="decrement" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">-</button>
+        <span class="px-4 font-bold" x-text="cantidad" ></span>
+        <button @click="increment" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">+</button>
+        </div>
+        </td>
+        <td class="px-6 py-6 hidden md:table-cell align-top text-right">
+        <p class="font-bold text-base" x-text=" '$' +' '+ (subtotal / 100).toFixed(2) + ' ' + 'MXN'"></p>
+        <p class="text-xs text-[#886375]">{{ item.price | money }} c/u</p>
+        </td>
+        </tr>
+      {% endfor %}
+    {% endif %}
+  
  
   <!-- Product 2 -->
   {% comment %} <tr class="group">
