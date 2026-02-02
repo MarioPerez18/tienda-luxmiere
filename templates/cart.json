@@ -12,9 +12,17 @@
     "main": {
       "type": "cart",
       "settings": {}
+    },
+    "footer_luxmiere_H3FmTC": {
+      "type": "footer-luxmiere",
+      "name": "footer_index",
+      "settings": {
+        "descripcvion": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "footer_luxmiere_H3FmTC"
   ]
 }
