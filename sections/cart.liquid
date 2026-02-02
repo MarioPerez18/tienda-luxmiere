@@ -126,10 +126,18 @@
   <h3 class="font-bold text-base">{{item.title }}</h3>
   <p class="text-sm text-[#886375]">30ml • Edición Especial</p>
   </div>
-  <a href="/cart/change?id={{ item.key }}&quantity=0" class="flex items-center gap-1 text-xs text-[#886375] hover:text-red-500 transition-colors mt-2" >
+  <button @click.prevent="
+    fetch('/cart/change.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id: '{{ item.key }}',
+        quantity: 0
+      })
+    }).then(() => window.location.reload())" class="flex items-center gap-1 text-xs text-[#886375] hover:text-red-500 transition-colors mt-2" >
   <span class="material-symbols-outlined text-lg">delete</span>
     Eliminar
-  </a>
+  </button>
   </div>
   </div>
   <!-- Mobile Quantity -->
