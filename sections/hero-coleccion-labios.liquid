@@ -28,11 +28,18 @@
         body {
             font-family: 'Manrope', sans-serif;
         }
+
+        @media (max-width: 768px) {
+    
+            .toolbar{
+                display:block;
+            }
+        }
     </style>
 
 
 
-<section class="flex-1">
+<section class="flex-1 ">
     <div class="max-w-[1280px] mx-auto px-4 md:px-10 mt-20">
         <!-- Breadcrumbs -->
         <div class="flex flex-wrap gap-2 py-6">
@@ -139,7 +146,7 @@
             <!-- Product Grid Area -->
             <div class="flex-1">
                 <!-- Toolbar -->
-                <div class="flex justify-between items-center mb-6 border-b border-[#f4f0f2] dark:border-[#3a2a33] pb-4">
+                <div class="toolbar flex justify-between items-center mb-6 border-b border-[#f4f0f2] dark:border-[#3a2a33] pb-4">
                     <p class="text-sm text-gray-500 font-medium">Mostrando 24 de 86 productos</p>
                     <div class="flex gap-4">
                         <div class="flex items-center gap-2 px-3 py-2 bg-white dark:bg-[#3a2a33] rounded-lg border border-[#f4f0f2] dark:border-[#4d3a45]">
@@ -164,29 +171,36 @@
                 <!-- Grid -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
                 <!-- Product Card 1 -->
-                    <div class="group flex flex-col">
-                        <div class="relative aspect-[4/5] overflow-hidden rounded-xl bg-gray-100 mb-4">
-                            <img alt="Luxury Liquid Foundation" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Premium glass bottle of liquid foundation on a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8_5WqqKYvXNNZeNknDkH2k_x5F7mkCXtRBNJdH_NVu_dS6jIYa5-_t97ObKrKVlkZTfwAK3SfZNSMyzkiWu8KpfFnuFRM7DZjzSoqUkW0e6YQgv6voF5YLMh_wOCDmIpUKA_RTK7oQuRQfLgdyFj9n01E3ICe5-DcNGjSPQdG1yxI1ml21o4e0wsvqEwUUAECISDKwEoyyboyLpcJ3PFmIKTLrvYY0H4ldthumBJUmSdrPRRljSa2Y7owD9lEOIvZM29VjVwoVQ"/>
-                            <button class="absolute bottom-4 left-4 right-4 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 bg-white text-black py-3 rounded-lg text-sm font-bold shadow-xl">
-                                Compra Rápida
-                            </button>
-                            <span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-black uppercase px-2 py-1 rounded">Nuevo</span>
-                        </div>
-                        <div class="space-y-1 px-1">
-                            <p class="text-[11px] font-bold text-primary uppercase tracking-widest">Ethereal Skin</p>
-                            <h3 class="text-base font-bold text-[#181114] dark:text-white">Base Perfeccionadora Velvet</h3>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">Acabado mate natural, 24hrs.</p>
-                            <div class="flex items-center gap-2 pt-1">
-                                <div class="size-3 rounded-full bg-[#f3d3b6] border border-black/10"></div>
-                                <div class="size-3 rounded-full bg-[#e8be99] border border-black/10"></div>
-                                <div class="size-3 rounded-full bg-[#d0a47e] border border-black/10"></div>
-                                <span class="text-[10px] text-gray-400">+12 tonos</span>
+                {% paginate collection.products by 3 %}
+                    {% for product in collection.products %}
+                        <a href="{{ product.url }}">
+                            <div class="group flex flex-col">
+                                <div class="relative aspect-[4/5] overflow-hidden rounded-xl bg-gray-100 mb-4">
+                                    <img alt="Luxury Liquid Foundation" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Premium glass bottle of liquid foundation on a neutral background" src="{{ product.featured_image | image_url: width: 600  }}"/>
+                                    {% comment %} <button class="absolute bottom-4 left-4 right-4 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 bg-white text-black py-3 rounded-lg text-sm font-bold shadow-xl">
+                                        Compra Rápida
+                                    </button> {% endcomment %}
+                                    <span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-black uppercase px-2 py-1 rounded">Nuevo</span>
+                                </div>
+                                <div class="space-y-1 px-1">
+                                    <p class="text-[11px] font-bold text-primary uppercase tracking-widest">{{ product.tags }}</p>
+                                    <h3 class="text-base font-bold text-[#181114] dark:text-white">{{ produt.title }}</h3>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">{{ product.description }}</p>
+                                    <div class="flex items-center gap-2 pt-1">
+                                        <div class="size-3 rounded-full bg-[#f3d3b6] border border-black/10"></div>
+                                        <div class="size-3 rounded-full bg-[#e8be99] border border-black/10"></div>
+                                        <div class="size-3 rounded-full bg-[#d0a47e] border border-black/10"></div>
+                                        <span class="text-[10px] text-gray-400">+12 tonos</span>
+                                    </div>
+                                    <p class="text-lg font-black pt-2">{{ product.price | money }} MXN</p>
+                                </div>
                             </div>
-                            <p class="text-lg font-black pt-2">$1,250 MXN</p>
-                        </div>
-                    </div>
+                        </a>
+                    {% endfor %}
+                {% endpaginate %}
+                    
                 <!-- Product Card 2 -->
-                <div class="group flex flex-col">
+                {% comment %} <div class="group flex flex-col">
                     <div class="relative aspect-[4/5] overflow-hidden rounded-xl bg-gray-100 mb-4">
                         <img alt="Setting Powder" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Elegant cosmetic container of translucent setting powder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCymrdyou91NARDARTVOnXmkV3pcHGOPrxeJdYudLWm4CiL8Ux0Xvb8SnSB-Sj_Y-emyoZjRaQ8pbmwRiVEwyvwMwpi5J1LddYmVCe5A2lLNkmuopwOej-CxCWnOpO0lu5ohgBcR60NKbiVoB4ykSe83X_zJXq9KpNQZ8-xLUS-G2mkuhDBn3_zJxZIYwr4eZxqUAMiOombqCvkM4R7kTl3R1b6SARlvIhajiLbO7rzgEmyiMxIIYPsr92SOADNz6M4bVIquuIq4w"/>
                         <button class="absolute bottom-4 left-4 right-4 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 bg-white text-black py-3 rounded-lg text-sm font-bold shadow-xl">
@@ -199,94 +213,15 @@
                         <p class="text-sm text-gray-500 dark:text-gray-400">Control de brillo ultra fino.</p>
                         <p class="text-lg font-black pt-2">$890 MXN</p>
                     </div>
-                </div>
-                <!-- Product Card 3 -->
-                <div class="group flex flex-col">
-                    <div class="relative aspect-[4/5] overflow-hidden rounded-xl bg-gray-100 mb-4">
-                        <img alt="Radiant Concealer" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Set of concealers in various skin tones on a pink background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp5a6IzP3Cq2fZSh2YIqFUh2Q5aUsrNKxmoF3lTFivnra3VNPW0hA2pY7m-ahTpl-iOHIdIFFHzFFCRiNY7JaqRmc9Y8r89rZWoRE5rNEqCJ6WYd1i13pUn-F_DJNeDJbnrTvm84x2Q1N3Soz8LB8Vw07FDjIOzBWpxlPX7yNnDud5ynWZ1lVlLTz3e09YTW834PRAw3Z_HsxFQnf-84ryW4kuo3UqzGvBCn81kbCVDLktJrmcNT7UEwSxzhySAfQx9gw2BXrWXg"/>
-                        <button class="absolute bottom-4 left-4 right-4 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 bg-white text-black py-3 rounded-lg text-sm font-bold shadow-xl">
-                            Compra Rápida
-                        </button>
-                        <span class="absolute top-4 left-4 bg-black text-white text-[10px] font-black uppercase px-2 py-1 rounded">Best Seller</span>
-                    </div>
-                    <div class="space-y-1 px-1">
-                        <p class="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Lumiere</p>
-                        <h3 class="text-base font-bold text-[#181114] dark:text-white">Corrector Iluminador Pro</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Cobertura total hidratante.</p>
-                        <div class="flex items-center gap-2 pt-1">
-                            <div class="size-3 rounded-full bg-[#f9e5d4] border border-black/10"></div>
-                            <div class="size-3 rounded-full bg-[#f3d3b6] border border-black/10"></div>
-                            <span class="text-[10px] text-gray-400">+8 tonos</span>
-                        </div>
-                        <p class="text-lg font-black pt-2">$640 MXN</p>
-                    </div>
-                </div>
-                <!-- Product Card 4 -->
-                <div class="group flex flex-col">
-                    <div class="relative aspect-[4/5] overflow-hidden rounded-xl bg-gray-100 mb-4">
-                        <img alt="Luminous Primer" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Luxury primer bottle with elegant golden details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1BsyfMBIAzD7jZZjcSo8knwteDuojjzZJO0nXkqukulp0DXunsU0D04f3eTUnBpCJFx-GQ7mq-VJkO-UHnOcj4JraTh6Y7VQmdlb4PoGJBhjPNH8ElKSxUOyAyyK1ldvlUxcrTqLPrRe4X7S0a8CVJg_kVH5sLqa8LUF8BqTu8ivwvc4yB-DMml7yXU2ZngUIhbx7gugvbxXvLaqlVLuvDFPB84_5xl9hObs1U37uMiW6AFY5AjGl4DMaAe9iCay346J2V5-FWg"/>
-                        <button class="absolute bottom-4 left-4 right-4 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 bg-white text-black py-3 rounded-lg text-sm font-bold shadow-xl">
-                            Compra Rápida
-                        </button>
-                    </div>
-                    <div class="space-y-1 px-1">
-                        <p class="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Skin Prep</p>
-                        <h3 class="text-base font-bold text-[#181114] dark:text-white">Primer Hidratante Glow</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Base perfeccionadora con hialurónico.</p>
-                        <p class="text-lg font-black pt-2">$980 MXN</p>
-                    </div>
-                </div>
-                <!-- Product Card 5 -->
-                <div class="group flex flex-col">
-                    <div class="relative aspect-[4/5] overflow-hidden rounded-xl bg-gray-100 mb-4">
-                        <img alt="Rose Blush" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="High-end compact blush in a rose shade" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB4b7tQBJZH1EUHQbbTFL6qe2AQ_a8DQSk7LjDAgLgd_n5Yvyucgklg-MPCXvWx0jGoADnFmL9nXW9KOZqyw5L7E0v_gVAvS12lHePol74fUQfnEy78sC-Rjp9BlIsSo8ZqpIrftp-g_5SGUNwdLglyMpcOvsIFAuzfc0OmMKICzzfxRJNRQGEcLW8nvowKg8ZN8TCy-te9DhxSnxq8t5WZBkMgjdYAmac1cwo1J6WiL-mHdLHK4q48E_6rxLpbi2y2OiRxqw6Ww"/>
-                        <button class="absolute bottom-4 left-4 right-4 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 bg-white text-black py-3 rounded-lg text-sm font-bold shadow-xl">
-                            Compra Rápida
-                        </button>
-                    </div>
-                    <div class="space-y-1 px-1">
-                        <p class="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Ethereal Skin</p>
-                        <h3 class="text-base font-bold text-[#181114] dark:text-white">Rubor Compacto Silk</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Pigmentación rica y suave.</p>
-                        <div class="flex items-center gap-2 pt-1">
-                            <div class="size-3 rounded-full bg-[#f1aeb5] border border-black/10"></div>
-                            <div class="size-3 rounded-full bg-[#d87a7a] border border-black/10"></div>
-                            <span class="text-[10px] text-gray-400">+5 tonos</span>
-                        </div>
-                        <p class="text-lg font-black pt-2">$720 MXN</p>
-                    </div>
-                </div>
-                <!-- Product Card 6 -->
-                <div class="group flex flex-col">
-                    <div class="relative aspect-[4/5] overflow-hidden rounded-xl bg-gray-100 mb-4">
-                    <img alt="Compact Foundation" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Premium powder foundation compact case" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM5oi6eWDmiQ4mFov4EFycch0G_Sp8OyJEAJ9vGnoRs5xJEcbY9lweZo-Ajcv-f-0BpEK2nWsqaLy0YoslklALleEZsUIWx-54-qLWEas9Pr21Dpbeya2tCQ_rfElHC7d2N2MxNVKuX5PsxWVqXRBZvTE_xMCko1qcGd81duytG8IG8cBjElNXWrhoNNsh4JNNc_OB5l3lE7qoZYJiMwmrRRe5mbZylbR1KuCK3m31fU8962mfsQlJkPMF-U88H-1CHBdqpy9l9Q"/>
-                    <button class="absolute bottom-4 left-4 right-4 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 bg-white text-black py-3 rounded-lg text-sm font-bold shadow-xl">
-                        Compra Rápida
-                        </button>
-                    </div>
-                    <div class="space-y-1 px-1">
-                        <p class="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Matte Luxe</p>
-                        <h3 class="text-base font-bold text-[#181114] dark:text-white">Base en Polvo Infinito</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Control total y larga duración.</p>
-                        <p class="text-lg font-black pt-2">$1,100 MXN</p>
-                    </div>
-                </div>
+                </div> {% endcomment %}
+                
                 </div>
                 <!-- Pagination -->
-                <div class="flex items-center justify-center gap-4 mt-16 mb-10">
-                    <button class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800">
-                        <span class="material-symbols-outlined">chevron_left</span>
-                    </button>
-                    <button class="w-10 h-10 rounded-full bg-primary text-white font-bold">1</button>
-                    <button class="w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">2</button>
-                    <button class="w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">3</button>
-                    <span class="text-gray-400 px-2">...</span>
-                    <button class="w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">12</button>
-                    <button class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <span class="material-symbols-outlined">chevron_right</span>
-                    </button>
-                </div>
+                {% paginate collection.products by 3 %}
+                   {% render 'paginacion' paginacion: paginate %}
+                {% endpaginate %}
             </div>
         </div>
     </div>
 </section>
+

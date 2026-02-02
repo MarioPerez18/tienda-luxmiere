@@ -166,21 +166,31 @@
 </div>
 </div>
 <!-- CTAs -->
-<div class="flex flex-col gap-3"  x-data="{ contador: 0 }">
-<div class="flex gap-4">
-<div class="flex items-center border border-gray-200 dark:border-white/20 rounded-lg px-4 bg-white dark:bg-white/5">
-<button @click="contador--" :disabled="contador == 0" class="p-2">-</button >
-<span class="px-4 font-bold" x-text=contador></span>
-<button @click="contador++" class="p-2">+</button>
-</div>
-<button class="flex-1 bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-lg shadow-xl shadow-primary/20 transition-all transform hover:-translate-y-1 uppercase tracking-widest text-sm">
-                            Agregar al carrito
-                        </button>
-</div>
+
+<div class="flex flex-col gap-3"  >
+  <form action="/cart/add" method="post" x-data="{ qty: 1 }">
+  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+  <div class="flex gap-4">
+  
+    <div class="flex items-center border border-gray-200 dark:border-white/20 rounded-lg px-4 bg-white dark:bg-white/5">
+      <button type="button"  @click="qty > 1 && qty--" :disabled="contador == 0" class="p-2">-</button >
+      <input type="number" name="quantity" x-model="qty" min="1" class="px-4 font-bold">
+      {% comment %} <span class="px-4 font-bold" x-text=contador></span> {% endcomment %}
+      <button type="button" @click="qty++" class="p-2">+</button>
+    </div>
+
+    <button type="submit" class="flex-1 bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-lg shadow-xl shadow-primary/20 transition-all transform hover:-translate-y-1 uppercase tracking-widest text-sm">
+      Agregar al carrito
+    </button>
+
+  </div>
+</form>
+
 <p class="text-[11px] text-center text-[#886375] font-medium">
-<span class="material-symbols-outlined align-middle text-sm mr-1">local_shipping</span>
-                        Envío GRATIS en pedidos mayores a $999 MXN
-                    </p>
+  <span class="material-symbols-outlined align-middle text-sm mr-1">local_shipping</span>
+    Envío GRATIS en pedidos mayores a $999 MXN
+  </p>
 </div>
 <!-- Product Features Mini Grid -->
 <div class="grid grid-cols-2 gap-4 py-6 border-y border-gray-100 dark:border-white/10">

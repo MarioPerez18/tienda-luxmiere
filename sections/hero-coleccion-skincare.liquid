@@ -37,7 +37,7 @@
 <div class="bg-cover bg-center flex flex-col justify-center items-start overflow-hidden rounded-xl min-h-[340px] relative" data-alt="Macro photography of silky pink cosmetic cream texture" style='background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.2) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBFTX6BFw9Tu73Bpnm2Q9Pn7AKwIeyBxIQnV-fOQ6JClvawv2oOfeNxn2FgoTWbDj2eCSXbYei-b84I9SS5jk6K0cfgCvZy-W1-shxlLkqYNy0Hicjz4tKeGxPqRqB4VzTf6vbi3d3c2W2EjCFmrLbkvDiRkDWPQt9bbz35G-rOedjkrxNZ66sWHvS4uZN1YkizQzDyqRP6IY1Np7Y3N3qIEwtSl43GnP3Rkh6rdL2H4IbQcN-a6wNb-3CHUWswqwC71R5aOmDIgw");'>
 <div class="flex flex-col p-8 md:p-16 max-w-xl">
 <div class="flex flex-wrap gap-2 mb-4">
-<span class="text-primary text-sm font-bold tracking-widest uppercase">Colección 2024</span>
+<span class="text-primary text-sm font-bold tracking-widest uppercase">Colección 2026</span>
 </div>
 <h1 class="text-[#181114] tracking-tight text-4xl md:text-5xl font-extrabold leading-tight mb-4">Cuidado de la Piel</h1>
 <p class="text-[#4d3641] text-lg font-medium leading-relaxed mb-6">
@@ -130,72 +130,47 @@
 <!-- Grid -->
 <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
 <!-- Product Card 1 -->
-<div class="bg-white dark:bg-background-dark border border-[#f4f0f2] dark:border-[#3d2633] rounded-xl overflow-hidden group hover:shadow-xl transition-all duration-300">
-<div class="relative h-[280px] overflow-hidden bg-[#f4f0f2]">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Clear glass serum bottle with dropper" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc3Q-jEsxY_qOQfjp8wnN6X_DUUdlXcvdL1Pq1P2QtBAtb5cvndc1Hnd692vn-Ia9U1DB819vELBxsAV-KrvhvqTEzGAusAzLNOjrsA3Fp6dwoanhCLYz1tiQEYd_BzxXQ0pGL928vfkcseu9Fcl7LtgVmLQlVtSn6o2kKOcVAjpCx5CXH1ZiXQx56HDYaZMfsWB1-i9RV-szVfvKSBhcDJNzXHNaytyPEIVP-adNEk9x5yK6-NZ4mhksFWbibaZds-WQf8ARzzw"/>
-<div class="absolute top-3 left-3 bg-primary text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest">Best Seller</div>
-<button class="absolute top-3 right-3 bg-white/80 backdrop-blur rounded-full p-2 text-[#181114] hover:text-primary transition-colors shadow-sm">
-<span class="material-symbols-outlined text-xl">favorite</span>
-</button>
-<div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-<button class="w-full bg-white text-[#181114] font-bold py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 text-sm">
-<span class="material-symbols-outlined text-lg">visibility</span> Vista Rápida
-                                        </button>
-</div>
-</div>
-<div class="p-5">
-<p class="text-[#886375] text-[10px] font-bold uppercase tracking-widest mb-1">Serum</p>
-<h3 class="text-[#181114] dark:text-white font-bold text-base mb-2 group-hover:text-primary transition-colors">Vitamina C + Ácido Hialurónico</h3>
-<div class="flex items-center gap-1 mb-3">
-<span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-<span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-<span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-<span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-<span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-<span class="text-xs text-[#886375] font-bold ml-1">(124)</span>
-</div>
-<div class="flex items-center justify-between">
-<p class="text-lg font-black text-[#181114] dark:text-white">$1,450 MXN</p>
-<button class="bg-primary text-white p-2 rounded-lg hover:bg-primary/90 transition-colors">
-<span class="material-symbols-outlined">add_shopping_cart</span>
-</button>
-</div>
-</div>
-</div>
+{% paginate collection.products by 3 %}
+    {% for product in collection.products %}
+        <div class="bg-white dark:bg-background-dark border border-[#f4f0f2] dark:border-[#3d2633] rounded-xl overflow-hidden group hover:shadow-xl transition-all duration-300">
+            <div class="relative h-[280px] overflow-hidden bg-[#f4f0f2]">
+                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Clear glass serum bottle with dropper" src="{{ product.featured_image | image_url: width: 600  }}"/>
+                <div class="absolute top-3 left-3 bg-primary text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest">Best Seller</div>
+                <button class="absolute top-3 right-3 bg-white/80 backdrop-blur rounded-full p-2 text-[#181114] hover:text-primary transition-colors shadow-sm">
+                    <span class="material-symbols-outlined text-xl">favorite</span>
+                </button>
+                <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    {% comment %} <button class="w-full bg-white text-[#181114] font-bold py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 text-sm">
+                        <span class="material-symbols-outlined text-lg">visibility</span> Vista Rápida
+                    </button> {% endcomment %}
+                </div>
+            </div>
+            <div class="p-5">
+                <p class="text-[#886375] text-[10px] font-bold uppercase tracking-widest mb-1">{{ product.tags }}</p>
+                <h3 class="text-[#181114] dark:text-white font-bold text-base mb-2 group-hover:text-primary transition-colors">{{ product.title }}</h3>
+                <div class="flex items-center gap-1 mb-3">
+                    <span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
+                    <span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
+                    <span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
+                    <span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
+                    <span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
+                    <span class="text-xs text-[#886375] font-bold ml-1">(124)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <p class="text-lg font-black text-[#181114] dark:text-white">{{ product.price | money }} MXN</p>
+                    {% comment %} <button class="bg-primary text-white p-2 rounded-lg hover:bg-primary/90 transition-colors">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                    </button> {% endcomment %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endpaginate %}
+
 <!-- Product Card 2 -->
-<div class="bg-white dark:bg-background-dark border border-[#f4f0f2] dark:border-[#3d2633] rounded-xl overflow-hidden group hover:shadow-xl transition-all duration-300">
-<div class="relative h-[280px] overflow-hidden bg-[#f4f0f2]">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Moisturizing cream jar with open lid" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxUDZwAuG7uxkMnnD33D3fN_XuX4gQGPJxJAeRBPS9uR5jIVr_tyfTOlDbgeSuNBKB8NlgcvzkxHsdVqrnwfwfraQolsiDox_fDCLJp8VLZsf-OYhzYWc1DJ0uFohN25sm-fQ3q6hL8CtrPr0Ke6mBxLLxwwOgmZYfuxILt3fB-reT32NW_03Y4ZTnYbxOHlVG8EEq9oyc75lfhCqsggUzT4eU2XOLt3o8XyRGll36gyB9-2L-TVdQ29W0HdZ3-wU2GsDgBEzVpQ"/>
-<button class="absolute top-3 right-3 bg-white/80 backdrop-blur rounded-full p-2 text-[#181114] hover:text-primary transition-colors shadow-sm">
-<span class="material-symbols-outlined text-xl">favorite</span>
-</button>
-<div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-<button class="w-full bg-white text-[#181114] font-bold py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 text-sm">
-<span class="material-symbols-outlined text-lg">visibility</span> Vista Rápida
-                                        </button>
-</div>
-</div>
-<div class="p-5">
-<p class="text-[#886375] text-[10px] font-bold uppercase tracking-widest mb-1">Hidratante</p>
-<h3 class="text-[#181114] dark:text-white font-bold text-base mb-2 group-hover:text-primary transition-colors">Crema Renovadora de Noche</h3>
-<div class="flex items-center gap-1 mb-3">
-<span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-<span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-<span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-<span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-<span class="material-symbols-outlined text-sm text-yellow-400">star</span>
-<span class="text-xs text-[#886375] font-bold ml-1">(89)</span>
-</div>
-<div class="flex items-center justify-between">
-<p class="text-lg font-black text-[#181114] dark:text-white">$1,100 MXN</p>
-<button class="bg-primary text-white p-2 rounded-lg hover:bg-primary/90 transition-colors">
-<span class="material-symbols-outlined">add_shopping_cart</span>
-</button>
-</div>
-</div>
-</div>
+
 <!-- Product Card 3 -->
-<div class="bg-white dark:bg-background-dark border border-[#f4f0f2] dark:border-[#3d2633] rounded-xl overflow-hidden group hover:shadow-xl transition-all duration-300">
+{% comment %} <div class="bg-white dark:bg-background-dark border border-[#f4f0f2] dark:border-[#3d2633] rounded-xl overflow-hidden group hover:shadow-xl transition-all duration-300">
 <div class="relative h-[280px] overflow-hidden bg-[#f4f0f2]">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Blue face serum bottle in light water ripples" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALZv2TxGWuIJ4qS_Hrof_X0PVuys8JNypVIv9EWWuyMJcmXJBOY8C2GcZH7X-4hzDTbzawauxpszfd-e5dnn56zGPxx3lG6n4fr4HtfTebxWE-4OJI3Yl_ma8c6TgtMaKuWhXQxik6jE60rcoEzwt5gUROrggR65Ctv3cM1oh_diXULWzDzoKZu7YstGS4GxDvOstiJyIAV8mA4zEMzzwSeA_h6uJNKrJAI9jxtwwNuwhlZwzLu0faYer-Z4zOrPR7ZSH81exOsw"/>
 <div class="absolute top-3 left-3 bg-[#181114] text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest">Nuevo</div>
@@ -226,86 +201,16 @@
 </button>
 </div>
 </div>
-</div>
+</div> {% endcomment %}
 <!-- Product Card 4 -->
-<div class="bg-white dark:bg-background-dark border border-[#f4f0f2] dark:border-[#3d2633] rounded-xl overflow-hidden group hover:shadow-xl transition-all duration-300">
-<div class="relative h-[280px] overflow-hidden bg-[#f4f0f2]">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Elegant white sunscreen tube" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm7JHpgHsxAsggqVV8kMcOQ_IE5xJHLRpFqoVGWh_B9SejklgWIrusdYgntFb2qG-AvfQYX9c1hpU-E3xDZNV84zDLeXFcvd9qD1ZfwJzv-zSf27nYQ7nUrxv4l1loW432SxXzg7094Zgzp7DbgqW4vX0j9MoSluZF9RHyMfkFug1ZNLgPwUgXEsC6bxeBPzZURbhrn6K7P69AvNnOSpfGB-decc5E_4W_soRV48Ag2LCIaTc-NNq1RfAeVp-afdCTXdJl5bmqQQ"/>
-<button class="absolute top-3 right-3 bg-white/80 backdrop-blur rounded-full p-2 text-[#181114] hover:text-primary transition-colors shadow-sm">
-<span class="material-symbols-outlined text-xl">favorite</span>
-</button>
-<div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-<button class="w-full bg-white text-[#181114] font-bold py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 text-sm">
-<span class="material-symbols-outlined text-lg">visibility</span> Vista Rápida
-                                        </button>
-</div>
-</div>
-<div class="p-5">
-<p class="text-[#886375] text-[10px] font-bold uppercase tracking-widest mb-1">Protector Solar</p>
-<h3 class="text-[#181114] dark:text-white font-bold text-base mb-2 group-hover:text-primary transition-colors">Pantalla Solar Invisible FPS 50+</h3>
-<div class="flex items-center gap-1 mb-3">
-<span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-<span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-<span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-<span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-<span class="material-symbols-outlined text-sm text-yellow-400">star</span>
-<span class="text-xs text-[#886375] font-bold ml-1">(210)</span>
-</div>
-<div class="flex items-center justify-between">
-<p class="text-lg font-black text-[#181114] dark:text-white">$1,250 MXN</p>
-<button class="bg-primary text-white p-2 rounded-lg hover:bg-primary/90 transition-colors">
-<span class="material-symbols-outlined">add_shopping_cart</span>
-</button>
-</div>
-</div>
-</div>
+
 <!-- Product Card 5 (Variant consistency) -->
-<div class="bg-white dark:bg-background-dark border border-[#f4f0f2] dark:border-[#3d2633] rounded-xl overflow-hidden group hover:shadow-xl transition-all duration-300">
-<div class="relative h-[280px] overflow-hidden bg-[#f4f0f2]">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Rose oil serum in pink bottle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLTEojN5wzwMPXpaXjA2oOPEDfvedTXUfvlpqTrT7wYKDHM7gwDz3ASy2DdVruEF_E9n-kInLNnBiDkFv7usxjS0Df4j5oVwvrSBSd6qhXv4JBvmand_oSc_hrAAqVUYTgkJ9wVAiIx_cfrcBkEPh4Ri6Go34pqetwcscoZQ0WbFed5BvtGa8UiOJ8UFmsVRU4bC-Vr3volh5DLIno9qzEcbsZoH8vTEUG--oBMm39t1rRRsonbN7_YhE8lU124Ky2eLFNmRFOZg"/>
-<button class="absolute top-3 right-3 bg-white/80 backdrop-blur rounded-full p-2 text-[#181114] hover:text-primary transition-colors shadow-sm">
-<span class="material-symbols-outlined text-xl">favorite</span>
-</button>
-<div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-<button class="w-full bg-white text-[#181114] font-bold py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 text-sm">
-<span class="material-symbols-outlined text-lg">visibility</span> Vista Rápida
-                                        </button>
-</div>
-</div>
-<div class="p-5">
-<p class="text-[#886375] text-[10px] font-bold uppercase tracking-widest mb-1">Aceite Facial</p>
-<h3 class="text-[#181114] dark:text-white font-bold text-base mb-2 group-hover:text-primary transition-colors">Aceite Botánico Nutritivo</h3>
-<div class="flex items-center gap-1 mb-3">
-<span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-<span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-<span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-<span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-<span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-<span class="text-xs text-[#886375] font-bold ml-1">(67)</span>
-</div>
-<div class="flex items-center justify-between">
-<p class="text-lg font-black text-[#181114] dark:text-white">$1,680 MXN</p>
-<button class="bg-primary text-white p-2 rounded-lg hover:bg-primary/90 transition-colors">
-<span class="material-symbols-outlined">add_shopping_cart</span>
-</button>
-</div>
-</div>
-</div>
+
 </div>
 <!-- Pagination -->
-<div class="mt-16 flex justify-center items-center gap-4">
-<button class="flex items-center justify-center w-10 h-10 border border-[#f4f0f2] rounded-lg text-[#886375] hover:border-primary hover:text-primary transition-all">
-<span class="material-symbols-outlined">chevron_left</span>
-</button>
-<button class="w-10 h-10 bg-primary text-white font-bold rounded-lg shadow-md shadow-primary/20">1</button>
-<button class="w-10 h-10 border border-[#f4f0f2] text-[#886375] font-bold rounded-lg hover:border-primary transition-all">2</button>
-<button class="w-10 h-10 border border-[#f4f0f2] text-[#886375] font-bold rounded-lg hover:border-primary transition-all">3</button>
-<span class="text-[#886375]">...</span>
-<button class="w-10 h-10 border border-[#f4f0f2] text-[#886375] font-bold rounded-lg hover:border-primary transition-all">12</button>
-<button class="flex items-center justify-center w-10 h-10 border border-[#f4f0f2] rounded-lg text-[#886375] hover:border-primary hover:text-primary transition-all">
-<span class="material-symbols-outlined">chevron_right</span>
-</button>
-</div>
+{% paginate collection.products by 3 %}
+   {% render 'paginacion' paginacion: paginate %}
+{% endpaginate %}
 </div>
 </div>
 </main>
