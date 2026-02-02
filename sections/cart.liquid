@@ -60,7 +60,7 @@
   <main class="max-w-[1280px] mx-auto px-4 lg:px-20 py-10">
   <!-- Page Title -->
   <div class="mb-8  mt-16">
-    <h2 class="text-3xl font-black tracking-tight mb-2">Tu Carrito <span class="text-[#886375] font-normal text-2xl">(2 productos)</span></h2>
+    <h2 class="text-3xl font-black tracking-tight mb-2">Tu Carrito <span class="text-[#886375] font-normal text-2xl">({{ cart.item_count }} productos)</span></h2>
     <!-- Progress Bar Section -->
     <div class="max-w-3xl mt-6 p-4 bg-white dark:bg-[#2d1a24] rounded-xl border border-[#e5dce0] dark:border-white/5">
     <div class="flex justify-between items-center mb-2">
@@ -88,38 +88,54 @@
   <tbody class="divide-y divide-[#e5dce0] dark:divide-white/5">
   <!-- Product 1 -->
   {% for item in cart.items %}
-  <tr class="group">
+  <tr class="group" x-data="precio: {{ item.price }}, cantidad: {{item.quantity }}, linekey: {{ item.key }}, incrementar(){this.cantidad++, this.updateCart()}, decrementar(){if(this.cantidad--, this.upateCart())}, 
+    updateCart() {
+      fetch('/cart/change.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: this.lineKey,
+          quantity: this.qty
+        })
+      })
+    },
+
+    get subtotal() {
+      return this.price * this.qty
+    }">
   <td class="px-6 py-6">
   <div class="flex gap-4">
   <div class="w-24 h-24 flex-shrink-0 bg-background-light dark:bg-white/10 rounded-lg overflow-hidden border border-[#e5dce0] dark:border-white/5">
-  <div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Serum facial premium bottle in white background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAw83q1y4IrabBoY5LqC4DXEDP8NnVq3FL1UprmhcCDn1eNCBA1SIvsBYpFMr9z-X-21-J3bhlgNZyrT7gy-Da6s6uXF-y5XUrc6PkUAojbPSd3-g_DOOoPHYs0xI5Eb-l0-JI3VD04LGrrk-JwVI7Hq9fIM2Jh4YMqKNcgn70CKa-EY1TBvebT-O9RqN60Gpb9-wOaBcJTmgkvbUwBPacS6c4kyQJCP-r4vm0R0rATO5vXJt8pDqSUywXrVn77mntauUMpqTBnjA')"></div>
+  <div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Serum facial premium bottle in white background" >
+    <img src="{{ item.image | image_url: width: 600 }}" alt="{{ item.product.title }}">
+  </div>
   </div>
   <div class="flex flex-col justify-between py-1">
   <div>
   <h3 class="font-bold text-base">{{item.title }}</h3>
   <p class="text-sm text-[#886375]">30ml • Edición Especial</p>
   </div>
-  <button class="flex items-center gap-1 text-xs text-[#886375] hover:text-red-500 transition-colors mt-2">
+  <button class="flex items-center gap-1 text-xs text-[#886375] hover:text-red-500 transition-colors mt-2" >
   <span class="material-symbols-outlined text-lg">delete</span>
-                                                  Eliminar
-                                              </button>
+    Eliminar
+  </button>
   </div>
   </div>
   <!-- Mobile Quantity -->
   <div class="md:hidden mt-4 flex items-center justify-between">
-  <div class="flex items-center border border-[#e5dce0] dark:border-white/10 rounded-lg overflow-hidden h-8">
-  <button class="px-3 hover:bg-gray-100 dark:hover:bg-white/5">-</button>
-  <span class="px-3 font-bold text-sm">1</span>
-  <button class="px-3 hover:bg-gray-100 dark:hover:bg-white/5">+</button>
+  <div class="flex items-center border border-[#e5dce0] dark:border-white/10 rounded-lg overflow-hidden h-8" x-data="{producto: 1}">
+    <button @click="producto--" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5">-</button>
+    <span class="px-3 font-bold text-sm" show-text></span>
+    <button @click="producto++" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5">+</button>
   </div>
   <span class="font-bold">{{ item.price | money }} MXN</span>
   </div>
   </td>
   <td class="px-6 py-6 hidden md:table-cell align-top">
   <div class="flex items-center border border-[#e5dce0] dark:border-white/10 rounded-lg overflow-hidden w-fit h-10">
-  <button class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">-</button>
-  <span class="px-4 font-bold">1</span>
-  <button class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">+</button>
+  <button @click="decrement" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">-</button>
+  <span class="px-4 font-bold" x-text="cantidad"></span>
+  <button @click="increment" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">+</button>
   </div>
   </td>
   <td class="px-6 py-6 hidden md:table-cell align-top text-right">
@@ -130,7 +146,7 @@
   {% endfor %}
  
   <!-- Product 2 -->
-  {% comment %} <tr class="group">
+  {% comment %} <tr class="group" x-data="">
   <td class="px-6 py-6">
   <div class="flex gap-4">
   <div class="w-24 h-24 flex-shrink-0 bg-background-light dark:bg-white/10 rounded-lg overflow-hidden border border-[#e5dce0] dark:border-white/5">
@@ -148,27 +164,27 @@
   </div>
   </div>
   <!-- Mobile Quantity -->
-  <div class="md:hidden mt-4 flex items-center justify-between">
-  <div class="flex items-center border border-[#e5dce0] dark:border-white/10 rounded-lg overflow-hidden h-8">
-  <button class="px-3 hover:bg-gray-100 dark:hover:bg-white/5">-</button>
-  <span class="px-3 font-bold text-sm">1</span>
-  <button class="px-3 hover:bg-gray-100 dark:hover:bg-white/5">+</button>
+  <div class="md:hidden mt-4 flex items-center justify-between" >
+  <div class="flex items-center border border-[#e5dce0] dark:border-white/10 rounded-lg overflow-hidden h-8" >
+  <button  class="px-3 hover:bg-gray-100 dark:hover:bg-white/5">-</button>
+  <span class="px-3 font-bold text-sm" x-text="producto"></span>
+  <button  class="px-3 hover:bg-gray-100 dark:hover:bg-white/5">+</button>
   </div>
   <span class="font-bold">$890.00 MXN</span>
   </div>
   </td>
   <td class="px-6 py-6 hidden md:table-cell align-top">
-  <div class="flex items-center border border-[#e5dce0] dark:border-white/10 rounded-lg overflow-hidden w-fit h-10">
-  <button class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">-</button>
-  <span class="px-4 font-bold">1</span>
-  <button class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">+</button>
+  <div class="flex items-center border border-[#e5dce0] dark:border-white/10 rounded-lg overflow-hidden w-fit h-10" >
+  <button @click="calculaCantidadMenos(), restaSubtotal()" :disabled="productoCantidad == 0" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">-</button>
+  <span class="px-4 font-bold" x-text="productoCantidad"></span>
+  <button  @click="calculaCantidadMas(), calculaSubtotal()" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">+</button>
   </div>
   </td>
   <td class="px-6 py-6 hidden md:table-cell align-top text-right">
-  <p class="font-bold text-base">$890.00 MXN</p>
+  <p class="font-bold text-base" x-text="subTotal"></p>
   <p class="text-xs text-[#886375]">$890.00 c/u</p>
   </td>
-  </tr> {% endcomment %}
+  </tr>  {% endcomment %}
   </tbody>
   </table>
   </div>
