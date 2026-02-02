@@ -132,7 +132,7 @@
   {% endfor %}
  
   <!-- Product 2 -->
-  {% comment %} <tr class="group" x-data="">
+  {% comment %} <tr class="group">
   <td class="px-6 py-6">
   <div class="flex gap-4">
   <div class="w-24 h-24 flex-shrink-0 bg-background-light dark:bg-white/10 rounded-lg overflow-hidden border border-[#e5dce0] dark:border-white/5">
@@ -161,13 +161,13 @@
   </td>
   <td class="px-6 py-6 hidden md:table-cell align-top">
   <div class="flex items-center border border-[#e5dce0] dark:border-white/10 rounded-lg overflow-hidden w-fit h-10" >
-  <button @click="calculaCantidadMenos(), restaSubtotal()" :disabled="productoCantidad == 0" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">-</button>
-  <span class="px-4 font-bold" x-text="productoCantidad"></span>
-  <button  @click="calculaCantidadMas(), calculaSubtotal()" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">+</button>
+  <button  class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">-</button>
+  <span class="px-4 font-bold"></span>
+  <button   class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">+</button>
   </div>
   </td>
   <td class="px-6 py-6 hidden md:table-cell align-top text-right">
-  <p class="font-bold text-base" x-text="subTotal"></p>
+  <p class="font-bold text-base"></p>
   <p class="text-xs text-[#886375]">$890.00 c/u</p>
   </td>
   </tr>  {% endcomment %}
