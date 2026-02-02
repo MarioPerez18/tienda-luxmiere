@@ -88,7 +88,7 @@
   <tbody class="divide-y divide-[#e5dce0] dark:divide-white/5">
   <!-- Product 1 -->
   {% for item in cart.items %}
-  <tr class="group" x-data="{ precio: {{ item.price }}, cantidad: 1 }">
+  <tr class="group" x-data="{ precio: {{ item.price }}, cantidad: {{item.quantity }} }">
   <td class="px-6 py-6">
   <div class="flex gap-4">
   <div class="w-24 h-24 flex-shrink-0 bg-background-light dark:bg-white/10 rounded-lg overflow-hidden border border-[#e5dce0] dark:border-white/5">
