@@ -45,7 +45,21 @@
       format(value) {
         return (value / 100).toFixed(2)
       }
+
+      this.updateCart();
     }
+  }
+
+  function updateCart() {
+    items: {{ cart.items | json }},
+    fetch('/cart/change.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id: this.items.key,
+        quantity: this.cart();
+      })
+    })
   }
   
 </script>
