@@ -50,35 +50,7 @@
       
     }
   }
-
-  function subtotall(){
-  let items: {{ cart.items | json }}
-  increment() {
-      this.items.quantity++
-      this.updateCart()
-    },
-
-    decrement() {
-      if (this.items.quantity > 1) {
-        this.items.quantity--
-        this.updateCart()
-      }
-    },
-    updateCart() {
-      fetch('/cart/change.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          id: this.items.key,
-          quantity: this.items.quantity
-        })
-      })
-    },
-
-    get subtotal() {
-      return this.items.price * this.items.quantity
-    }
-  }
+  
 
   
   
@@ -112,7 +84,7 @@
 
 <section class="bg-background-light dark:bg-background-dark text-[#181114] dark:text-white transition-colors duration-200">
   <h1>{{ 'cart.title' | t }}</h1>
-  <main class="max-w-[1280px] mx-auto px-4 lg:px-20 py-10" x-data="subtotall()">
+  <main class="max-w-[1280px] mx-auto px-4 lg:px-20 py-10" x-data="cart()">
   <!-- Page Title -->
   <div class="mb-8  mt-16">
     <h2 class="text-3xl font-black tracking-tight mb-2">Tu Carrito <span class="text-[#886375] font-normal text-2xl">({{ cart.item_count }} producto(s))</span></h2>
@@ -194,7 +166,7 @@
               <div class="flex items-center border border-[#e5dce0] dark:border-white/10 rounded-lg overflow-hidden w-fit h-10">
                 <button @click="decrement" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">-</button>
                 <span class="px-4 font-bold" x-text="cantidad" ></span>
-                <button @click="subtotal.increment" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">+</button>
+                <button @click="increment" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">+</button>
               </div>
               </td>
               <td class="px-6 py-6 hidden md:table-cell align-top text-right">
