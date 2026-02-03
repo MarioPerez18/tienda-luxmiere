@@ -29,6 +29,25 @@
   <input type="submit" name="checkout" value="{{ 'cart.checkout' | t }}">
 </form> {% endcomment %}
 
+<script> 
+  function cart() {
+  return {
+    items: {{ cart.items | json }},
+    get subtotal() {
+      return this.items.reduce(
+        (sum, item) => sum + item.final_line_price,
+        0
+      )
+    },
+    get total() {
+      return this.subtotal
+    },
+    format(value) {
+      return (value / 100).toFixed(2)
+    }
+  }
+}
+</script>
 
 <script id="tailwind-config">
     tailwind.config = {
@@ -58,7 +77,7 @@
 
 <section class="bg-background-light dark:bg-background-dark text-[#181114] dark:text-white transition-colors duration-200">
   <h1>{{ 'cart.title' | t }}</h1>
-  <main class="max-w-[1280px] mx-auto px-4 lg:px-20 py-10">
+  <main class="max-w-[1280px] mx-auto px-4 lg:px-20 py-10" x-data="cart()">
   <!-- Page Title -->
   <div class="mb-8  mt-16">
     <h2 class="text-3xl font-black tracking-tight mb-2">Tu Carrito <span class="text-[#886375] font-normal text-2xl">({{ cart.item_count }} producto(s))</span></h2>
@@ -266,7 +285,7 @@
   <div class="space-y-4 mb-6">
   <div class="flex justify-between text-[#886375]">
   <span>Subtotal ({{ cart.item_count }} producto(s))</span>
-  <span class="text-[#181114] dark:text-white font-medium">$1,440.00 MXN</span>
+  <span class="text-[#181114] dark:text-white font-medium" x-text="format(subtotal)"></span>
   </div>
   <div class="flex justify-between text-[#886375]">
   <span>Envío</span>
@@ -333,3 +352,5 @@
   "settings": []
 }
 {% endschema %}
+
+
