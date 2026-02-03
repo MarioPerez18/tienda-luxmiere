@@ -39,19 +39,7 @@
       },
       format(value) {
         return (value / 100).toFixed(2)
-      }
-      get lineTotal() {
-        return this.items.map(item => ({
-          title: item.title,
-          total: item.price * item.quantity
-        }))
-
-        format(price) {
-          return (price / 100).toFixed(2)
-        }
-}
-
-      
+      } 
     }
   }
 
