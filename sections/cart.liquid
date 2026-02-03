@@ -51,6 +51,35 @@
     }
   }
 
+  function subtotall(){
+  let items: {{ cart.items | json }}
+  increment() {
+      this.items.quantity++
+      this.updateCart()
+    },
+
+    decrement() {
+      if (this.items.quantity > 1) {
+        this.items.quantity--
+        this.updateCart()
+      }
+    },
+    updateCart() {
+      fetch('/cart/change.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: this.items.key,
+          quantity: this.items.quantity
+        })
+      })
+    },
+
+    get subtotal() {
+      return this.items.price * this.items.quantity
+    }
+  }
+
   
   
 </script>
@@ -83,7 +112,7 @@
 
 <section class="bg-background-light dark:bg-background-dark text-[#181114] dark:text-white transition-colors duration-200">
   <h1>{{ 'cart.title' | t }}</h1>
-  <main class="max-w-[1280px] mx-auto px-4 lg:px-20 py-10" x-data="cart()">
+  <main class="max-w-[1280px] mx-auto px-4 lg:px-20 py-10" x-data="subtotall()">
   <!-- Page Title -->
   <div class="mb-8  mt-16">
     <h2 class="text-3xl font-black tracking-tight mb-2">Tu Carrito <span class="text-[#886375] font-normal text-2xl">({{ cart.item_count }} producto(s))</span></h2>
@@ -121,31 +150,7 @@
             <!-- Product 1 -->
             {% for item in cart.items %}
               <tr class="group" x-data="{ precio: {{ item.price }}, cantidad: {{item.quantity }},  lineKey: '{{ item.key }}',
-              increment() {
-                  this.cantidad++
-                  this.updateCart()
-                },
-
-                decrement() {
-                  if (this.cantidad > 1) {
-                    this.cantidad--
-                    this.updateCart()
-                  }
-                },
-                updateCart() {
-                  fetch('/cart/change.js', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                      id: this.lineKey,
-                      quantity: this.cantidad
-                    })
-                  })
-                },
-
-                get subtotal() {
-                  return this.precio * this.cantidad
-                } }">
+               }">
               <td class="px-6 py-6">
               <div class="flex gap-4">
                 <div class="w-24 h-24 flex-shrink-0 bg-background-light dark:bg-white/10 rounded-lg overflow-hidden border border-[#e5dce0] dark:border-white/5">
