@@ -140,7 +140,7 @@ document.addEventListener('alpine:init', () => {
     lineKey: '{{ item.key }}',
     get sub(){
       return this.precio * this.cantidad
-    }
+    },
     increment() {
       this.cantidad++
       $store.cart.updateItem(this.lineKey, this.cantidad)
