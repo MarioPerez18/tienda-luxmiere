@@ -285,7 +285,7 @@
   <div class="space-y-4 mb-6">
   <div class="flex justify-between text-[#886375]">
   <span>Subtotal ({{ cart.item_count }} producto(s))</span>
-  <span class="text-[#181114] dark:text-white font-medium" x-text="format(subtotal)"></span>
+  <span class="text-[#181114] dark:text-white font-medium" x-text="'$' + ' ' + format(subtotal) + ' MXN'"></span>
   </div>
   <div class="flex justify-between text-[#886375]">
   <span>Envío</span>
