@@ -127,16 +127,7 @@
                     this.updateCart()
                   }
                 },
-                updateCart() {
-                  fetch('/cart/change.js', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                      id: this.lineKey,
-                      quantity: this.cantidad
-                    })
-                  })
-                },
+                
 
                 get subtotal() {
                   return this.precio * this.cantidad
