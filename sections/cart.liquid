@@ -45,20 +45,7 @@
       format(value) {
         return (value / 100).toFixed(2)
       }
-      updateItem(key, qty) {
-      fetch('/cart/change.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          id: key,
-          quantity: qty
-        })
-      })
-      .then(res => res.json())
-      .then(cart => {
-        this.items = cart.items
-      })
-    }
+      
 
       
     }
