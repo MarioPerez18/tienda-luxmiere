@@ -46,14 +46,7 @@
         return (value / 100).toFixed(2)
       }
 
-      fetch('/cart/change.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        id: this.items.key,
-        quantity: this.subtotal
-      })
-    })
+      
     }
   }
 
