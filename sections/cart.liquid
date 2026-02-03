@@ -64,7 +64,10 @@ document.addEventListener('alpine:init', () => {
       )
     }
 
-     
+    get sub(precio, cantidad){
+      return precio * cantidad
+    }
+  })
 })
 </script>
 
@@ -136,7 +139,6 @@ document.addEventListener('alpine:init', () => {
               <tr class="group" 
                x-data="{
     cantidad: {{ item.quantity }},
-    precio: {{ item.price }},
     lineKey: '{{ item.key }}',
     increment() {
       this.cantidad++
@@ -196,7 +198,7 @@ document.addEventListener('alpine:init', () => {
               </div>
               </td>
               <td class="px-6 py-6 hidden md:table-cell align-top text-right">
-                <p class="font-bold text-base"x-text="'$' + ' ' + (subtotal / 100).toFixed(2) + ' MXN'"></p>
+                <p class="font-bold text-base"x-text="'$' + ' ' + ($store.cart.subtotal / 100).toFixed(2) + ' MXN'"></p>
                 <p class="text-xs text-[#886375]"> c/u</p>
               </td>
               </tr>
