@@ -33,30 +33,17 @@
   function cart() {
     return {
       items: {{ cart.items | json }},
-      get increment() {
-          return this.items.forEach((item) => {item.quantity++, this.updateCart()});
-        },
-
-      decrement() {
-        items: {{ cart.items | json }},
-        return this.items.forEach((item) => {item.quantity--, this.updateCart()});
-      },
-      updateCart() {
-        this.items.forEach((item) => {
-          fetch('/cart/change.js', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            id: item.key,
-            quantity: item.quantity
-          })
-        })
-        });
-        
-      },
-
       get subtotal() {
-        return this.items.forEach((item) => {item.price * item.quantity});
+        return this.items.reduce(
+          (sum, item) => sum + item.final_line_price,
+          0
+        )
+      },
+      get total() {
+        return this.subtotal
+      },
+      format(value) {
+        return (value / 100).toFixed(2)
       }
       
 
@@ -134,7 +121,31 @@
             <!-- Product 1 -->
             {% for item in cart.items %}
               <tr class="group" x-data="{ precio: {{ item.price }}, cantidad: {{item.quantity }},  lineKey: '{{ item.key }}',
-               }">
+              increment() {
+                  this.cantidad++
+                  this.updateCart()
+                },
+
+                decrement() {
+                  if (this.cantidad > 1) {
+                    this.cantidad--
+                    this.updateCart()
+                  }
+                },
+                updateCart() {
+                  fetch('/cart/change.js', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                      id: this.lineKey,
+                      quantity: this.cantidad
+                    })
+                  })
+                },
+
+                get subtotal() {
+                  return this.precio * this.cantidad
+                } }">
               <td class="px-6 py-6">
               <div class="flex gap-4">
                 <div class="w-24 h-24 flex-shrink-0 bg-background-light dark:bg-white/10 rounded-lg overflow-hidden border border-[#e5dce0] dark:border-white/5">
