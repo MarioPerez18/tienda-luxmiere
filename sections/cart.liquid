@@ -33,13 +33,18 @@
   function cart() {
     return {
       items: {{ cart.items | json }},
-      
+      get subtotal() {
+        return this.items.reduce(
+          (sum, item) => sum + item.final_line_price,
+          0
+        )
+      },
       get total() {
         return this.subtotal
       },
       format(value) {
         return (value / 100).toFixed(2)
-      } 
+      }
     }
   }
 
