@@ -40,7 +40,16 @@
       format(value) {
         return (value / 100).toFixed(2)
       }
-      
+      get lineTotal() {
+        return this.items.map(item => ({
+          title: item.title,
+          total: item.price * item.quantity
+        }))
+
+        format(price) {
+          return (price / 100).toFixed(2)
+        }
+}
 
       
     }
@@ -127,7 +136,16 @@
                     this.updateCart()
                   }
                 },
-                
+                updateCart() {
+                  fetch('/cart/change.js', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                      id: this.lineKey,
+                      quantity: this.cantidad
+                    })
+                  })
+                },
 
                 get subtotal() {
                   return this.precio * this.cantidad
@@ -277,7 +295,7 @@
   <div class="space-y-4 mb-6">
   <div class="flex justify-between text-[#886375]">
   <span>Subtotal ({{ cart.item_count }} producto(s))</span>
-  <span class="text-[#181114] dark:text-white font-medium" x-text="'$' + ' ' + format(subtotal) + ' MXN'"></span>
+  <span class="text-[#181114] dark:text-white font-medium" x-text="'$' + ' ' + format(item.final_line_price) + ' MXN'"></span>
   </div>
   <div class="flex justify-between text-[#886375]">
   <span>Envío</span>
