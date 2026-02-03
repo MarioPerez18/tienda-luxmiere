@@ -34,7 +34,6 @@
     return {
       items: {{ cart.items | json }},
       get subtotal() {
-        updateCart(),
         return this.items.reduce(
           (sum, item) => sum + item.final_line_price,
           0
@@ -47,18 +46,6 @@
         return (value / 100).toFixed(2)
       }
     }
-  }
-
-  function updateCart() {
-    items: {{ cart.items | json }},
-    fetch('/cart/change.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        id: items.lineKey,
-        quantity: items.quantity
-      })
-    })
   }
 </script>
 
