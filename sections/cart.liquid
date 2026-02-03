@@ -147,13 +147,11 @@ document.addEventListener('alpine:init', () => {
     increment() {
       this.cantidad++
       $store.cart.updateItem(this.lineKey, this.cantidad)
-      $store.cart.sub(this.precio, this.cantidad)
     },
     decrement() {
       if (this.cantidad > 1) {
         this.cantidad--
         $store.cart.updateItem(this.lineKey, this.cantidad)
-        $store.cart.sub(this.precio, this.cantidad)
       }
     }
   }">
