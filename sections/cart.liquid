@@ -34,7 +34,7 @@
     return {
       items: {{ cart.items | json }},
       get subtotal() {
-        return this.items.reduce(
+        return this.items.forEach(
           (item) => item.price + item.quantity
         )
       },
