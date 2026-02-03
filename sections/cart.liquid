@@ -63,6 +63,10 @@ document.addEventListener('alpine:init', () => {
         0
       )
     }
+
+    get sub(precio, cantidad){
+      return precio * cantidad
+    }
   })
 })
 </script>
@@ -135,15 +139,16 @@ document.addEventListener('alpine:init', () => {
               <tr class="group" 
                x-data="{
     cantidad: {{ item.quantity }},
+    precio: {{ item.price }},
     lineKey: '{{ item.key }}',
     increment() {
       this.cantidad++
-      $store.cart.updateItem(this.lineKey, this.cantidad)
+      $store.cart.updateItem(this.lineKey, this.cantidad, this.precio)
     },
     decrement() {
       if (this.cantidad > 1) {
         this.cantidad--
-        $store.cart.updateItem(this.lineKey, this.cantidad)
+        $store.cart.updateItem(this.lineKey, this.cantidad,  this.precio)
       }
     }
   }">
@@ -194,7 +199,7 @@ document.addEventListener('alpine:init', () => {
               </div>
               </td>
               <td class="px-6 py-6 hidden md:table-cell align-top text-right">
-                <p class="font-bold text-base"x-text="'$' + ' ' + ($store.cart.subtotal / 100).toFixed(2) + ' MXN'"></p>
+                <p class="font-bold text-base"x-text="'$' + ' ' + (sub / 100).toFixed(2) + ' MXN'"></p>
                 <p class="text-xs text-[#886375]"> c/u</p>
               </td>
               </tr>
