@@ -65,9 +65,7 @@ document.addEventListener('alpine:init', () => {
     }
 
     get sub(precio, cantidad){
-      return{
-        precio * cantidad
-      }
+      return precio * cantidad
     }
   })
 })
@@ -146,11 +144,13 @@ document.addEventListener('alpine:init', () => {
     increment() {
       this.cantidad++
       $store.cart.updateItem(this.lineKey, this.cantidad, this.precio)
+      $store.cart.sub(this.precio, this.cantidad)
     },
     decrement() {
       if (this.cantidad > 1) {
         this.cantidad--
-        $store.cart.updateItem(this.lineKey, this.cantidad,  this.precio)
+        $store.cart.updateItem(this.lineKey, this.cantidad)
+        $store.cart.sub(this.precio, this.cantidad)
       }
     }
   }">
