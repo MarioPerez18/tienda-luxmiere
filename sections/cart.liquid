@@ -147,7 +147,7 @@ document.addEventListener('alpine:init', () => {
         $store.cart.updateItem(this.lineKey, this.cantidad)
       }
     }
-  }" x-for="item in $store.cart.items" :key="item.key">
+  }">
               <td class="px-6 py-6">
               <div class="flex gap-4">
                 <div class="w-24 h-24 flex-shrink-0 bg-background-light dark:bg-white/10 rounded-lg overflow-hidden border border-[#e5dce0] dark:border-white/5">
@@ -195,7 +195,7 @@ document.addEventListener('alpine:init', () => {
               </div>
               </td>
               <td class="px-6 py-6 hidden md:table-cell align-top text-right">
-                <p class="font-bold text-base"x-text=" (item.final_line_price / 100).toFixed(2)  "></p>
+                <p class="font-bold text-base"x-text=" {{ item.final_line_price | divided_by: 100 }}  "></p>
                 <p class="text-xs text-[#886375]"> c/u</p>
               </td>
               </tr>
