@@ -65,7 +65,9 @@ document.addEventListener('alpine:init', () => {
     }
 
     get sub(precio, cantidad){
-      return precio * cantidad
+      return {
+        precio * cantidad
+      }
     }
   })
 })
