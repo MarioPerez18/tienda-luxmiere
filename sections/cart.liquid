@@ -47,6 +47,48 @@
       }
     }
   }
+
+  function increment() {
+    return {
+      items: {{ cart.items | json }},
+      this.items.quantity++;
+      this.updateCart();
+    }
+    
+  },
+
+    function decrement() {
+      return {
+        items: {{ cart.items | json }},
+        if (this.items.quantity > 1) {
+          this.items.quantity--;
+          this.updateCart();
+        }
+      }
+      
+    },
+
+    function updateCart() {
+      return {
+        items: {{ cart.items | json }},
+        fetch('/cart/change.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: this.items.key,
+          quantity: this.items.quantity
+        })
+      })
+      }
+      
+    },
+
+    get subtotal() {
+      return {
+        this.items.price * this.items.quantity
+      }
+    }
+  
 </script>
 
 <script id="tailwind-config">
@@ -114,32 +156,7 @@
           <tbody class="divide-y divide-[#e5dce0] dark:divide-white/5">
             <!-- Product 1 -->
             {% for item in cart.items %}
-              <tr class="group" x-data="{ precio: {{ item.price }}, cantidad: {{item.quantity }},  lineKey: '{{ item.key }}',
-              increment() {
-                  this.cantidad++
-                  this.updateCart()
-                },
-
-                decrement() {
-                  if (this.cantidad > 1) {
-                    this.cantidad--
-                    this.updateCart()
-                  }
-                },
-                updateCart() {
-                  fetch('/cart/change.js', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                      id: this.lineKey,
-                      quantity: this.cantidad
-                    })
-                  })
-                },
-
-                get subtotal() {
-                  return this.precio * this.cantidad
-                } }">
+              <tr class="group" x-data="{ precio: {{ item.price }}, cantidad: {{item.quantity }},  lineKey: '{{ item.key }}' }">
               <td class="px-6 py-6">
               <div class="flex gap-4">
                 <div class="w-24 h-24 flex-shrink-0 bg-background-light dark:bg-white/10 rounded-lg overflow-hidden border border-[#e5dce0] dark:border-white/5">
