@@ -34,8 +34,9 @@
     return {
       items: {{ cart.items | json }},
       get subtotal() {
-        return this.items.forEach(
-          (item) => item.price + item.quantity
+        return this.items.reduce(
+          (sum, item) => sum + item.final_line_price,
+          0
         )
       },
       get total() {
@@ -44,7 +45,6 @@
       format(value) {
         return (value / 100).toFixed(2)
       }
-      
       
 
       
