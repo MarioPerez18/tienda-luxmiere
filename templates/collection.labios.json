@@ -19,10 +19,18 @@
       "settings": {
         "descripcvion": ""
       }
+    },
+    "header_irBQqH": {
+      "type": "header",
+      "name": "header",
+      "settings": {
+        "menu": "luxmiere-menu"
+      }
     }
   },
   "order": [
     "hero-labiales",
-    "footer_luxmiere_J7Ea9w"
+    "footer_luxmiere_J7Ea9w",
+    "header_irBQqH"
   ]
 }
