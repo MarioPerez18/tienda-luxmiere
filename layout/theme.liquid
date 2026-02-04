@@ -24,7 +24,7 @@
 
     {% # Load and preload the critical CSS %}
     {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
-    {{ 'cart.js' | asset_url }}
+    
 
     {% # Social, title, etc. %}
     {% render 'meta-tags' %}
@@ -33,7 +33,7 @@
     
   </head>
 
-  <body -data="cartStore()" x-init="fetchCart()">
+  <body>
     {% sections 'header-group' %}
 
     {{ content_for_layout }}
