@@ -140,7 +140,7 @@
         <div class="flex gap-4">
           <div class="w-24 h-24 rounded-lg overflow-hidden border">
             <img
-              :src="item.image"
+              :src="item.image || item.featured_image.url"
               :alt="item.product_title"
               class="w-full h-full object-cover"
             >
