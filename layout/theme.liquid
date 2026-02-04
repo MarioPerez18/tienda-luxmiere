@@ -29,6 +29,7 @@
     {% render 'meta-tags' %}
 
     {{ content_for_header }}
+    <script src="{{ 'cart.js' | asset_url }}" defer></script>
   </head>
 
   <body>
@@ -37,6 +38,7 @@
     {{ content_for_layout }}
 
     {% comment %} {% sections 'footer-group' %} {% endcomment %}
-     {{ 'cart.js' | asset_url }}
+    
+
   </body>
 </html>
