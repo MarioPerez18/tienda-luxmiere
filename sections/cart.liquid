@@ -29,7 +29,7 @@
   <input type="submit" name="checkout" value="{{ 'cart.checkout' | t }}">
 </form> {% endcomment %}
 
-{% comment %} <script>
+<script>
   document.addEventListener('alpine:init', () => {
   Alpine.store('cart', {
     items: [],
@@ -66,7 +66,7 @@
     
   })
 })
-</script> {% endcomment %}
+</script>
 
 <script id="tailwind-config">
     tailwind.config = {
@@ -193,13 +193,13 @@
               </td>
               <td class="px-6 py-6 hidden md:table-cell align-top">
               <div class="flex items-center border border-[#e5dce0] dark:border-white/10 rounded-lg overflow-hidden w-fit h-10">
-                <button @click="$store.cart.updateItem(item.key, item.quantity - 1)" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">-</button>
+                <button @click="decrement" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">-</button>
                 <span class="w-10 font-bold text-center" x-text="cantidad" ></span>
-                <button @click="$store.cart.updateItem(item.key, item.quantity + 1)" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">+</button>
+                <button @click="increment" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5 text-lg leading-none">+</button>
               </div>
               </td>
               <td class="px-6 py-6 hidden md:table-cell align-top text-right">
-                <p class="font-bold text-base" x-text=" '$' + ' ' + ($store.cart.sub / 100).toFixed(0)"></p>
+                <p class="font-bold text-base" x-text=" '$' + ' ' + (sub / 100).toFixed(0)"></p>
                 <p class="text-xs text-[#886375]">MXN</p>
               </td>
               </tr>
@@ -291,7 +291,7 @@
   </div>
   </div>
   <!-- Right Side: Order Summary Sidebar -->
-  <aside class="w-full lg:w-1/3 sticky top-28" >
+  <aside class="w-full lg:w-1/3 sticky top-28" x-data x-init="$store.cart.fetchCart()">
   <div class="bg-white dark:bg-[#2d1a24] p-6 rounded-xl border border-[#e5dce0] dark:border-white/5 shadow-sm">
   <h3 class="text-xl font-bold mb-6">Resumen de Compra</h3>
   <div class="space-y-4 mb-6">

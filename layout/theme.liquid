@@ -33,14 +33,13 @@
     
   </head>
 
-  <body x-data x-init="$store.cart.fetchCart(), $store.cart.fetchCartTotal">
+  <body>
     {% sections 'header-group' %}
 
     {{ content_for_layout }}
 
     {% comment %} {% sections 'footer-group' %} {% endcomment %}
-   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-   <script src="{{ 'cart.js' | asset_url }}" defer></script>
+   
 
   </body>
 </html>
