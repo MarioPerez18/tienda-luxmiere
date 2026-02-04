@@ -39,6 +39,9 @@ document.addEventListener('alpine:init', () => {
       this.loading = true
       fetch('/cart.js')
         .then(res => res.json())
+        .then(data => {
+          this.cart = data
+        })
         .then(cart => {
           this.items = cart.items
           this.loading = false
