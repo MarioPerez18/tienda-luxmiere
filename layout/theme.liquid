@@ -29,9 +29,36 @@
     {% render 'meta-tags' %}
 
     {{ content_for_header }}
+    <script>
+      function cartStore() {
+        return {
+          cart: null,
+
+          fetchCart() {
+            fetch('/cart.js')
+              .then(res => res.json())
+              .then(data => {
+                this.cart = data
+              })
+          },
+
+          updateItem(key, quantity) {
+            fetch('/cart/change.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                id: key,
+                quantity: quantity
+              })
+            })
+            .then(() => this.fetchCart())
+          }
+        }
+      }
+    </script>
   </head>
 
-  <body>
+  <body  x-data="cartStore()" x-init="fetchCart()">
     {% sections 'header-group' %}
 
     {{ content_for_layout }}
