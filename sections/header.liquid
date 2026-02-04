@@ -497,7 +497,7 @@
                     </div>
                    
                   {% if link.links.size > 0 %}
-                    <div @click.away = "open = false" x-show="open" class="dropdown-mobile absolute w-80 top-12 bg-white  rounded">
+                    <div @click.away = "open = false" x-show="open" class="dropdown-mobile absolute w-80 top-12 bg-white shadow-lg   rounded">
                         <ul>
                           {% for sublink in link.links %}
                             <li class="p-1">
