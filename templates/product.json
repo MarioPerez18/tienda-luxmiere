@@ -19,10 +19,18 @@
       "settings": {
         "descripcvion": ""
       }
+    },
+    "header_a39Ra6": {
+      "type": "header",
+      "name": "header",
+      "settings": {
+        "menu": "luxmiere-menu"
+      }
     }
   },
   "order": [
     "main",
-    "footer_luxmiere_JWPfhx"
+    "footer_luxmiere_JWPfhx",
+    "header_a39Ra6"
   ]
 }
