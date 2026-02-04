@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('alpine:init', () => {
    if (!window.Alpine) {
     console.error('Alpine no está cargado')
     return
