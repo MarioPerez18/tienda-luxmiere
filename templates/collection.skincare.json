@@ -9,6 +9,13 @@
  */
 {
   "sections": {
+    "header_BGixp6": {
+      "type": "header",
+      "name": "header",
+      "settings": {
+        "menu": "luxmiere-menu"
+      }
+    },
     "hero-coleccion-skincare": {
       "type": "hero-coleccion-skincare",
       "settings": {}
@@ -22,6 +29,7 @@
     }
   },
   "order": [
+    "header_BGixp6",
     "hero-coleccion-skincare",
     "footer_luxmiere_WtpPTq"
   ]
