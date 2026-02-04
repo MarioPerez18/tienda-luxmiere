@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "header": {
+      "type": "header",
+      "settings": {}
+    },
     "main": {
       "type": "hero-luxmiere",
       "settings": {}
@@ -47,6 +51,7 @@
     }
   },
   "order": [
+    "header",
     "main",
     "valuepropositions_NFcDU4",
     "categorias_C4jtXe",
