@@ -35,6 +35,7 @@
     Alpine.store('cart', {
       items: [],
       loading: false,
+      cart:null,
 
       fetchCart() {
         this.loading = true
@@ -43,6 +44,9 @@
           .then(cart => {
             this.items = cart.items
             this.loading = false
+          })
+          .then(data => {
+            this.cart = data
           })
       },
 
