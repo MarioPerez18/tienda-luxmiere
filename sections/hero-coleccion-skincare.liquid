@@ -132,38 +132,41 @@
 <!-- Product Card 1 -->
 {% paginate collection.products by 3 %}
     {% for product in collection.products %}
-        <div class="bg-white dark:bg-background-dark border border-[#f4f0f2] dark:border-[#3d2633] rounded-xl overflow-hidden group hover:shadow-xl transition-all duration-300">
-            <div class="relative h-[280px] overflow-hidden bg-[#f4f0f2]">
-                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Clear glass serum bottle with dropper" src="{{ product.featured_image | image_url: width: 600  }}"/>
-                <div class="absolute top-3 left-3 bg-primary text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest">Best Seller</div>
-                <button class="absolute top-3 right-3 bg-white/80 backdrop-blur rounded-full p-2 text-[#181114] hover:text-primary transition-colors shadow-sm">
-                    <span class="material-symbols-outlined text-xl">favorite</span>
-                </button>
-                <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    {% comment %} <button class="w-full bg-white text-[#181114] font-bold py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 text-sm">
-                        <span class="material-symbols-outlined text-lg">visibility</span> Vista Rápida
-                    </button> {% endcomment %}
+        <a href="{{ product.url }}" aria-label="detalle de producto">
+            <div class="bg-white dark:bg-background-dark border border-[#f4f0f2] dark:border-[#3d2633] rounded-xl overflow-hidden group hover:shadow-xl transition-all duration-300">
+                <div class="relative h-[280px] overflow-hidden bg-[#f4f0f2]">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Clear glass serum bottle with dropper" src="{{ product.featured_image | image_url: width: 600  }}"/>
+                    <div class="absolute top-3 left-3 bg-primary text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest">Best Seller</div>
+                    <button class="absolute top-3 right-3 bg-white/80 backdrop-blur rounded-full p-2 text-[#181114] hover:text-primary transition-colors shadow-sm">
+                        <span class="material-symbols-outlined text-xl">favorite</span>
+                    </button>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        {% comment %} <button class="w-full bg-white text-[#181114] font-bold py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 text-sm">
+                            <span class="material-symbols-outlined text-lg">visibility</span> Vista Rápida
+                        </button> {% endcomment %}
+                    </div>
+                </div>
+                <div class="p-5">
+                    <p class="text-[#886375] text-[10px] font-bold uppercase tracking-widest mb-1">{{ product.tags }}</p>
+                    <h3 class="text-[#181114] dark:text-white font-bold text-base mb-2 group-hover:text-primary transition-colors">{{ product.title }}</h3>
+                    <div class="flex items-center gap-1 mb-3">
+                        <span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
+                        <span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
+                        <span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
+                        <span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
+                        <span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
+                        <span class="text-xs text-[#886375] font-bold ml-1">(124)</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <p class="text-lg font-black text-[#181114] dark:text-white">{{ product.price | money }} MXN</p>
+                        {% comment %} <button class="bg-primary text-white p-2 rounded-lg hover:bg-primary/90 transition-colors">
+                            <span class="material-symbols-outlined">add_shopping_cart</span>
+                        </button> {% endcomment %}
+                    </div>
                 </div>
             </div>
-            <div class="p-5">
-                <p class="text-[#886375] text-[10px] font-bold uppercase tracking-widest mb-1">{{ product.tags }}</p>
-                <h3 class="text-[#181114] dark:text-white font-bold text-base mb-2 group-hover:text-primary transition-colors">{{ product.title }}</h3>
-                <div class="flex items-center gap-1 mb-3">
-                    <span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-                    <span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-                    <span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-                    <span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-                    <span class="material-symbols-outlined text-sm text-yellow-400 fill-[1]">star</span>
-                    <span class="text-xs text-[#886375] font-bold ml-1">(124)</span>
-                </div>
-                <div class="flex items-center justify-between">
-                    <p class="text-lg font-black text-[#181114] dark:text-white">{{ product.price | money }} MXN</p>
-                    {% comment %} <button class="bg-primary text-white p-2 rounded-lg hover:bg-primary/90 transition-colors">
-                        <span class="material-symbols-outlined">add_shopping_cart</span>
-                    </button> {% endcomment %}
-                </div>
-            </div>
-        </div>
+        </a>
+        
     {% endfor %}
 {% endpaginate %}
 

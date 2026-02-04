@@ -173,7 +173,7 @@
                 <!-- Product Card 1 -->
                 {% paginate collection.products by 3 %}
                     {% for product in collection.products %}
-                        <a href="{{ product.url }}">
+                        <a href="{{ product.url }}"  aria-label="detalle de producto">
                             <div class="group flex flex-col">
                                 <div class="relative aspect-[4/5] overflow-hidden rounded-xl bg-gray-100 mb-4">
                                     <img alt="Luxury Liquid Foundation" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Premium glass bottle of liquid foundation on a neutral background" src="{{ product.featured_image | image_url: width: 600  }}"/>

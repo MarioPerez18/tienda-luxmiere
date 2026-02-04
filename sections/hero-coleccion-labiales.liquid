@@ -129,7 +129,7 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
     {% paginate collection.products by 3 %}
         {% for product in collection.products %}
-            <a href="{{ product.url }}">
+            <a href="{{ product.url }}"  aria-label="detalle de producto">
                 <div class="product-card group relative bg-white dark:bg-white/5 rounded-xl overflow-hidden transition-all hover:shadow-2xl">
                     <div class="aspect-square w-full relative overflow-hidden bg-[#f9f9f9] dark:bg-white/5">
                         <img alt="Velvet Matte Lipstick" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Luxury lipstick in gold packaging" src="{{ product.featured_image | image_url: width: 400 | image_tag }}"/>

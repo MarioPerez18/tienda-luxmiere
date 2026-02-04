@@ -149,7 +149,7 @@
 <!-- Product Card 1 -->
 {% paginate collection.products by 3 %}
     {% for product in collection.products %}
-        <a href="{{ product.url }}">
+        <a href="{{ product.url }}"  aria-label="detalle de producto">
             <div class="group relative flex flex-col bg-white dark:bg-background-dark/20 rounded-2xl border border-[#f4f0f2] dark:border-[#3a2a33] overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div class="relative aspect-square overflow-hidden">
                     <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Luxury face serum in a frosted glass bottle" src="{{ product.featured_image | image_url: width: 400 | image_tag }}"/>
