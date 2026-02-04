@@ -9,6 +9,13 @@
  */
 {
   "sections": {
+    "header_bXMngL": {
+      "type": "header",
+      "name": "header",
+      "settings": {
+        "menu": "luxmiere-menu"
+      }
+    },
     "hero-coleccion-all": {
       "type": "hero-coleccion-all",
       "settings": {}
@@ -19,18 +26,11 @@
       "settings": {
         "descripcvion": ""
       }
-    },
-    "header_bXMngL": {
-      "type": "header",
-      "name": "header",
-      "settings": {
-        "menu": "luxmiere-menu"
-      }
     }
   },
   "order": [
+    "header_bXMngL",
     "hero-coleccion-all",
-    "footer_luxmiere_9Ae63f",
-    "header_bXMngL"
+    "footer_luxmiere_9Ae63f"
   ]
 }
