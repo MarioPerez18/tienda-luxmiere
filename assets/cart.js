@@ -13,14 +13,6 @@ document.addEventListener('alpine:init', () => {
         })
     },
 
-    fetchCartTotal() {
-      fetch('/cart.js')
-        .then(res => res.json())
-        .then(data => {
-          this.cart = data
-        })
-    },
-
     updateItem(key, quantity) {
       this.loading = true
       fetch('/cart/change.js', {
