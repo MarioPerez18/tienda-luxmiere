@@ -19,10 +19,18 @@
       "settings": {
         "descripcvion": ""
       }
+    },
+    "header_4yGGih": {
+      "type": "header",
+      "name": "header",
+      "settings": {
+        "menu": "luxmiere-menu"
+      }
     }
   },
   "order": [
     "hero-coleccion-brochas",
-    "footer_luxmiere_mG8Deq"
+    "footer_luxmiere_mG8Deq",
+    "header_4yGGih"
   ]
 }
