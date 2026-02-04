@@ -97,7 +97,7 @@
   }
 </style>
 
-<section class="bg-background-light dark:bg-background-dark text-[#181114] dark:text-white transition-colors duration-200" x-data="cart()">
+<section class="bg-background-light dark:bg-background-dark text-[#181114] dark:text-white transition-colors duration-200">
   <h1>{{ 'cart.title' | t }}</h1>
   <main class="max-w-[1280px] mx-auto px-4 lg:px-20 py-10">
     <!-- Page Title -->
@@ -146,18 +146,19 @@
                     class="group"
                     x-data="
                       { cantidad: {{ item.quantity }},
-                      precio: {{ item.price }}, lineKey: '{{ item.key }}',
-                      increment() {
-                        this.cantidad++
-                        $store.cart.updateItem(this.lineKey, this.cantidad)
-                      },
-                      decrement() {
-                        if (this.cantidad > 1) {
-                          this.cantidad--
+                        precio: {{ item.price }}, lineKey: '{{ item.key }}',
+                        increment() {
+                          this.cantidad++
                           $store.cart.updateItem(this.lineKey, this.cantidad)
+                        },
+                        decrement() {
+                          if (this.cantidad > 1) {
+                            this.cantidad--
+                            $store.cart.updateItem(this.lineKey, this.cantidad)
+                          }
                         }
-                      }
-                      get sub(){ return this.precio * this.cantidad } }
+                        get sub(){ return this.precio * this.cantidad } 
+                     }
                     "
                   >
                     <td class="px-6 py-6">
