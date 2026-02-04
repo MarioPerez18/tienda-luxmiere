@@ -19,10 +19,18 @@
       "settings": {
         "descripcvion": ""
       }
+    },
+    "header_bXMngL": {
+      "type": "header",
+      "name": "header",
+      "settings": {
+        "menu": "luxmiere-menu"
+      }
     }
   },
   "order": [
     "hero-coleccion-all",
-    "footer_luxmiere_9Ae63f"
+    "footer_luxmiere_9Ae63f",
+    "header_bXMngL"
   ]
 }
