@@ -1,37 +1,30 @@
 document.addEventListener('alpine:init', () => {
+  console.log('🔥 Alpine iniciado');
+
   Alpine.store('cart', {
     items: [],
-    loading: false,
-    
+
+    init() {
+      console.log('🛒 Store cart iniciado');
+      this.fetchCart();
+    },
 
     fetchCart() {
-      this.loading = true
+      console.log('📦 Fetch cart');
       fetch('/cart.js')
         .then(res => res.json())
         .then(cart => {
-          this.items = cart.items
-          this.loading = false
-        })
+          console.log('✅ Cart data', cart);
+          this.items = cart.items;
+        });
     },
 
     updateItem(key, quantity) {
-      this.loading = true
       fetch('/cart/change.js', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          id: key,
-          quantity
-        })
-      }).then(() => this.fetchCart())
-    },
-
-    get subtotal() {
-      return this.items.reduce(
-        (sum, item) => sum + item.final_line_price,
-        0
-      )
+        body: JSON.stringify({ id: key, quantity })
+      }).then(() => this.fetchCart());
     }
-    
-  })
-})
+  });
+});
