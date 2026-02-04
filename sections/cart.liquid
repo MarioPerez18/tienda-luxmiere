@@ -145,19 +145,26 @@
                   <tr
                     class="group"
                     x-data="
-                      { cantidad: {{ item.quantity }},
-                        precio: {{ item.price }}, lineKey: '{{ item.key }}',
+                      { 
+                        cantidad: {{ item.quantity }},
+                        precio: {{ item.price }}, 
+                        lineKey: '{{ item.key }}',
+
                         increment() {
                           this.cantidad++
                           $store.cart.updateItem(this.lineKey, this.cantidad)
                         },
+
                         decrement() {
                           if (this.cantidad > 1) {
                             this.cantidad--
                             $store.cart.updateItem(this.lineKey, this.cantidad)
                           }
-                        }
-                        get sub(){ return this.precio * this.cantidad } 
+                        },
+                        
+                        get sub(){ 
+                          return this.precio * this.cantidad 
+                        } 
                      }
                     "
                   >
