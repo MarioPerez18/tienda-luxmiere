@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+   if (!window.Alpine) {
+    console.error('Alpine no está cargado')
+    return
+  } 
   console.log('🔥 Alpine iniciado');
   Alpine.store('cart', {
     items: [],
