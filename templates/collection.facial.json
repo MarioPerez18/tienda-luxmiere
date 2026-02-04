@@ -19,10 +19,18 @@
       "settings": {
         "descripcvion": ""
       }
+    },
+    "header_BLPRzj": {
+      "type": "header",
+      "name": "header",
+      "settings": {
+        "menu": "luxmiere-menu"
+      }
     }
   },
   "order": [
     "hero-labios",
-    "footer_luxmiere_Yqm4hm"
+    "footer_luxmiere_Yqm4hm",
+    "header_BLPRzj"
   ]
 }
