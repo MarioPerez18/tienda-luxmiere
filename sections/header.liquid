@@ -546,7 +546,7 @@
                 </svg>
                 {% if  cart.item_count > 0 %}
                 <span class="cart-badge bg-red-500 text-white" x-text="$store.cart.item_count">
-                 
+                 {{ cart.item_count }}
                 </span>
               {% else %}
                 <span class="cart-badge">
