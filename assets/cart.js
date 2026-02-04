@@ -3,10 +3,6 @@ document.addEventListener('alpine:init', () => {
     items: [],
     loading: false,
     
-    init() {
-      this.fetchCart()
-    },
-
 
     fetchCart() {
       this.loading = true
