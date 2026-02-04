@@ -30,7 +30,7 @@
     {% render 'meta-tags' %}
 
     {{ content_for_header }}
-     {% comment %} <script>
+     <script>
     document.addEventListener('alpine:init', () => {
     Alpine.store('cart', {
       items: [],
@@ -71,12 +71,12 @@
 
     })
   })
-  </script> {% endcomment %}
+  </script>
     
   </head>
 
   <body x-data x-init="$store.cart.fetchCart()" >
-    {% sections 'header-group' %}
+    
 
     {{ content_for_layout }}
 
