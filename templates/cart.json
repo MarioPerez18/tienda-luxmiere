@@ -9,6 +9,13 @@
  */
 {
   "sections": {
+    "header_rtJQN4": {
+      "type": "header",
+      "name": "header",
+      "settings": {
+        "menu": "luxmiere-menu"
+      }
+    },
     "main": {
       "type": "cart",
       "settings": {}
@@ -18,13 +25,6 @@
       "name": "footer_index",
       "settings": {
         "descripcvion": ""
-      }
-    },
-    "header_rtJQN4": {
-      "type": "header",
-      "name": "header",
-      "settings": {
-        "menu": ""
       }
     }
   },
