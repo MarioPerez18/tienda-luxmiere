@@ -35,7 +35,6 @@
    
     Alpine.store('cart', {
       items: [],
-      item_acount: 0,
       loading: false,
       cart:null,
 
@@ -46,10 +45,7 @@
           .then(cart => {
             this.items = cart.items
             this.loading = false
-            this.item_acount = cart.item_acount
-          })
-          
-          
+          })       
       },
 
       updateItem(key, quantity) {
