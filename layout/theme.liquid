@@ -32,6 +32,7 @@
     {{ content_for_header }}
      <script>
     document.addEventListener('alpine:init', () => {
+   
     Alpine.store('cart', {
       items: [],
       loading: false,
@@ -45,6 +46,7 @@
             this.items = cart.items
             this.loading = false
           })
+          console.log('productos en el carro': this.items.item_acount)
           
       },
 
