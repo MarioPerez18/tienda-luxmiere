@@ -11,7 +11,9 @@
   "sections": {
     "header": {
       "type": "header",
-      "settings": {}
+      "settings": {
+        "menu": "luxmiere-menu"
+      }
     },
     "main": {
       "type": "hero-luxmiere",
