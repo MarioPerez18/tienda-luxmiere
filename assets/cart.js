@@ -2,6 +2,11 @@ document.addEventListener('alpine:init', () => {
   Alpine.store('cart', {
     items: [],
     loading: false,
+    
+    init() {
+      this.fetchCart()
+    },
+
 
     fetchCart() {
       this.loading = true
