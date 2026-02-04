@@ -27,12 +27,7 @@ document.addEventListener('alpine:init', () => {
       }).then(() => this.fetchCart())
     },
 
-    get subtotal() {
-      return this.items.reduce(
-        (sum, item) => sum + item.final_line_price,
-        0
-      )
-    }
+   
     
   })
 })
