@@ -19,9 +19,17 @@
       "settings": {
         "descripcvion": ""
       }
+    },
+    "header_rtJQN4": {
+      "type": "header",
+      "name": "header",
+      "settings": {
+        "menu": ""
+      }
     }
   },
   "order": [
+    "header_rtJQN4",
     "main",
     "footer_luxmiere_H3FmTC"
   ]
