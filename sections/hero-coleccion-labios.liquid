@@ -141,7 +141,10 @@
             <div class="flex-1">
                 <!-- Toolbar -->
                 <div class="toolbar flex justify-between items-center mb-6 border-b border-[#f4f0f2] dark:border-[#3a2a33] pb-4">
-                    <p class="text-sm text-gray-500 font-medium">Mostrando 24 de 86 productos</p>
+                    {% paginate collection.products by 3 %}
+                       {% render 'mostrando-items-paginacion' paginacion: paginate %}
+                    {% endpaginate %}
+                    
                     <div class="flex gap-4">
                         <div class="flex items-center gap-2 px-3 py-2 bg-white dark:bg-[#3a2a33] rounded-lg border border-[#f4f0f2] dark:border-[#4d3a45]">
                             <span class="text-xs font-bold uppercase tracking-tighter text-gray-400">Ordenar:</span>
@@ -178,8 +181,8 @@
                                 </div>
                                 <div class="space-y-1 px-1">
                                     <p class="text-[11px] font-bold text-primary uppercase tracking-widest">{{ product.tags }}</p>
-                                    <h3 class="text-base font-bold text-[#181114] dark:text-white">{{ produt.title }}</h3>
-                                    <p class="text-sm text-gray-500 dark:text-gray-400">{{ product.description }}</p>
+                                    <h3 class="text-base font-bold text-[#181114] dark:text-white ">{{ produt.title }}</h3>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400 ">{{ product.description }}</p>
                                     <div class="flex items-center gap-2 pt-1">
                                         <div class="size-3 rounded-full bg-[#f3d3b6] border border-black/10"></div>
                                         <div class="size-3 rounded-full bg-[#e8be99] border border-black/10"></div>

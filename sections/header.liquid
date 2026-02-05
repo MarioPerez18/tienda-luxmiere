@@ -491,7 +491,7 @@
               {% for link in section.settings.menu.links %}
                 {% if link.links != blank %}
                   <button class="nav-link" @click="open = ! open">
-                    <div class=" flex  items-center btn-dropdown">
+                    <div class=" flex btn-dropdown">
                        {{ link.title }} 
                        {% render 'dropdown-icon' %}
                     </div>

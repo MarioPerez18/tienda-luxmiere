@@ -117,7 +117,10 @@
 <div class="flex-1">
 <!-- Toolbar -->
 <div class="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
-<p class="text-[#886375] font-medium">Mostrando <span class="text-[#181114] dark:text-white font-bold">12</span> de 48 productos</p>
+    {% paginate collection.products by 3 %}
+       {% render 'mostrando-items-paginacion' paginacion:paginate %}
+    {% endpaginate %}
+
 <div class="flex items-center gap-4">
 <span class="text-sm font-bold text-[#886375]">Ordenar por:</span>
 <select class="bg-white dark:bg-[#3d2633] border-[#f4f0f2] dark:border-[#3d2633] rounded-lg text-sm font-semibold focus:ring-primary focus:border-primary px-4 py-2">
