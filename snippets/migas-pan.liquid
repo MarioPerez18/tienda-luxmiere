@@ -23,7 +23,8 @@
         document.getElementById('flecha_derecha').style.display = "none"; 
     }else{
         document.getElementById('coleccion').textContent = url[3];
-        
+        console.log(document.getElementById('subcoleccion').textContent = url[4].split('/')[0]);
+        document.getElementById('subcoleccion').textContent = url[4];
         document.getElementById('coleccion').href= url_coleccion;
     }
 </script>
