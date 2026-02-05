@@ -200,9 +200,9 @@
                           class="flex items-center border border-[#e5dce0] dark:border-white/10 rounded-lg overflow-hidden h-8"
                           x-data="{producto: 1}"
                         >
-                          <button @click="producto--" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5">-</button>
-                          <span class="px-3 font-bold text-sm" show-text></span>
-                          <button @click="producto++" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5">+</button>
+                          <button @click="decrement" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5">-</button>
+                          <span class="px-3 font-bold text-sm" x-text="cantidad"></span>
+                          <button @click="increment" class="px-3 hover:bg-gray-100 dark:hover:bg-white/5">+</button>
                         </div>
                         <span class="font-bold">{{ item.price | money }} MXN</span>
                       </div>
