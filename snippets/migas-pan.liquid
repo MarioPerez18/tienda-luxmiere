@@ -24,7 +24,7 @@
         document.getElementById('flecha_derecha').style.display = "none"; 
     }else{
         document.getElementById('coleccion').textContent = url[3];
-        console.log(subcollection.split('?'));
+        console.log(subcollection.split('?')[0]);
         document.getElementById('subcoleccion').textContent = url[4];
         document.getElementById('coleccion').href= url_coleccion;
     }
