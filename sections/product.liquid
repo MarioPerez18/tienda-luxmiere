@@ -175,7 +175,7 @@
   
     <div class="flex items-center border border-gray-200 dark:border-white/20 rounded-lg px-4 bg-white dark:bg-white/5 ">
       <button type="button"  @click="qty > 1 && qty--" :disabled="contador == 0" class="p-2">-</button >
-      <input type="number" name="quantity" x-model="qty" min="1" class="px-4 font-bold w-28 border-none">
+      <input type="number" name="quantity" x-model="qty" min="1" class="px-4 font-bold w-28 border-none text-center">
       {% comment %} <span class="px-4 font-bold" x-text=contador></span> {% endcomment %}
       <button type="button" @click="qty++" class="p-2">+</button>
     </div>
