@@ -11,10 +11,18 @@
   "sections": {
     "header": {
       "type": "header",
+      "settings": {
+        "menu": "luxmiere-menu"
+      }
+    },
+    "hero_coleccion_rostro_J3Cr8R": {
+      "type": "hero-coleccion-rostro",
+      "name": "rostro",
       "settings": {}
     }
   },
   "order": [
-    "header"
+    "header",
+    "hero_coleccion_rostro_J3Cr8R"
   ]
 }
