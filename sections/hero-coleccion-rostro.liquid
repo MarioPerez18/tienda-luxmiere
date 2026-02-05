@@ -1,0 +1,254 @@
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#e61980",
+                    "background-light": "#f8f6f7",
+                    "background-dark": "#211119",
+                },
+                fontFamily: {
+                    "display": ["Manrope", "sans-serif"]
+                },
+                borderRadius: {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+                },
+            },
+        },
+    }
+</script>
+<style>
+    body {
+        font-family: 'Manrope', sans-serif;
+    }
+    .product-card:hover .quick-add {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+
+<section class="bg-background-light dark:bg-background-dark text-[#181114] dark:text-white transition-colors duration-300">
+<main class="max-w-[1280px] mx-auto px-4 md:px-10 py-8">
+<!-- Header Banner -->
+<div class="@container mb-8">
+<div class="relative overflow-hidden rounded-xl h-[400px] bg-white group">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Premium foundation application on diverse skin tones" style='background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCsVAS4eSSlBUZMX7rxrs7ZpjJWyWjmqKEifvgN139hrDX6mc3yo_YuDkUR_AcxTGF6u7ykpwlUfB8OinRD2f1coNsf0DzCLxEAoJwfedqOyeVFpXJ5s_jHcl_EdQ5y8A4-yBp5adjr6IgHISbmSabcO5HyoEfq1uRhp-jo2P7eqCmKvXSzROYiOqXkfdr6Rp3ThDIr-We3Hj4STm4HxRXIKyrQaGeemXlZ8fNVFCFNp9gz_BScgunRsYnSwk_khKMhVgGgPAwBvg");'>
+</div>
+<div class="relative h-full flex flex-col justify-center px-12 text-white max-w-2xl">
+<h1 class="tracking-tight text-5xl font-extrabold leading-tight mb-4">Colección de Rostro</h1>
+<p class="text-lg font-medium opacity-90 leading-relaxed">
+                        Fórmulas de alto rendimiento diseñadas para realzar la belleza natural de la piel mexicana. Desde acabados mate hasta luminosos.
+                    </p>
+</div>
+</div>
+</div>
+<!-- SEO Intro Text -->
+<div class="max-w-3xl mx-auto text-center mb-12">
+<h2 class="text-[#181114] dark:text-white tracking-tight text-3xl font-bold leading-tight pb-4">Brillo Impecable y Larga Duración</h2>
+<p class="text-[#181114]/70 dark:text-white/70 text-base font-normal leading-relaxed">
+                Descubre nuestra selección curada de bases, correctores y polvos diseñados para ofrecer una cobertura perfecta que resiste el clima de México. 
+                Nuestras fórmulas premium están enriquecidas con ingredientes que cuidan tu piel mientras luces espectacular.
+            </p>
+</div>
+<!-- Filter Bar (Sticky) -->
+<div class="sticky top-[73px] z-40 bg-background-light dark:bg-background-dark py-4 border-b border-[#f4f0f2] dark:border-[#3a2a33] mb-8">
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex gap-3 overflow-x-auto pb-1 no-scrollbar">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary text-white px-5 shadow-sm">
+<span class="text-sm font-semibold">Todos</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#3a2a33] border border-[#f4f0f2] dark:border-transparent px-5 hover:border-primary transition-all">
+<span class="text-sm font-medium">Bases</span>
+<span class="material-symbols-outlined text-lg">keyboard_arrow_down</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#3a2a33] border border-[#f4f0f2] dark:border-transparent px-5 hover:border-primary transition-all">
+<span class="text-sm font-medium">Correctores</span>
+<span class="material-symbols-outlined text-lg">keyboard_arrow_down</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#3a2a33] border border-[#f4f0f2] dark:border-transparent px-5 hover:border-primary transition-all">
+<span class="text-sm font-medium">Rubores</span>
+<span class="material-symbols-outlined text-lg">keyboard_arrow_down</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#3a2a33] border border-[#f4f0f2] dark:border-transparent px-5 hover:border-primary transition-all">
+<span class="text-sm font-medium">Acabado</span>
+<span class="material-symbols-outlined text-lg">keyboard_arrow_down</span>
+</button>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold uppercase tracking-wider text-[#886375]">Ordenar por:</span>
+<select class="bg-transparent border-none text-sm font-bold focus:ring-0 cursor-pointer text-[#181114] dark:text-white">
+<option>Relevancia</option>
+<option>Precio: Menor a Mayor</option>
+<option>Precio: Mayor a Menor</option>
+<option>Novedades</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Product Card 1 -->
+<div class="group product-card flex flex-col bg-white dark:bg-[#2a1a24] rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110" data-alt="Luxury matte foundation bottle premium packaging" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2HF4SdFLduQYOK1Cmga_HERTmsar3Crh2-c4G1z2ycF9b8dSiIibFdelG9I-4qYxoxeMpXWdKhKOt_HDO-wIxXhyGvtdfmvhVCnw_yUMnqCjz14_7MAGyGWVJw5AVTZzddMnqnauHXD8t7ZVXnVkV_E5GIztoiCJ-pdbVzPWTQKQzFWlCHaza2HGYdnwzNSOrlO4rDeCT3CadMz1o4a-Ecg6hsQvT5-FbZ-BUd1MPOQnb4ytSwvQtCaWzk6Deu23lIyRetCLkgg"/>
+<div class="absolute top-3 left-3 bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Best Seller</div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-[#181114] hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+<div class="quick-add absolute bottom-0 left-0 right-0 p-4 opacity-0 translate-y-2 transition-all duration-300">
+<button class="w-full bg-primary text-white font-bold py-3 rounded-lg text-sm shadow-lg hover:bg-primary/90 transition-colors uppercase tracking-wider">
+                            Añadir al carrito
+                        </button>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<p class="text-[#886375] dark:text-[#c4a4b4] text-xs font-bold uppercase tracking-widest mb-1">Base de Maquillaje</p>
+<h3 class="text-[#181114] dark:text-white text-lg font-bold mb-1 leading-tight">Velvet Matte Foundation</h3>
+<p class="text-[#181114]/60 dark:text-white/60 text-sm line-clamp-2 mb-4">Cobertura total con acabado aterciopelado que dura 24 horas.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-primary font-bold text-lg">$850.00 MXN</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-yellow-500 fill-current">star</span>
+<span class="text-xs font-bold">4.9</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group product-card flex flex-col bg-white dark:bg-[#2a1a24] rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110" data-alt="High-end concealer wand with cream texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ9GmXMys_Hpw3qqv0EghiSc1LF9wG3A1cRRImROu5_8JsvG_6uRBIxbUJIOytfXbSGMbi1jKDi7R1oB3-h1-PG9ozAtGep8cpXHr_8uJFpE11r7FnvcP4OAoE8_1_Aqbz-Q1OVCgUfI7FR1HdcEWn-b-LiN4AbbTKDg3GErEHEnlrG3dLpZqf_B-oGWG0RU3safW2rs8ORrdp8vcvGIqImPFPTMxNk5z3rxXtVcjvPTOBpVCWDrgCa6KBUPpHDtfQHJz1GatyIw"/>
+<div class="absolute top-3 left-3 bg-black text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Nuevo</div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-[#181114] hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+<div class="quick-add absolute bottom-0 left-0 right-0 p-4 opacity-0 translate-y-2 transition-all duration-300">
+<button class="w-full bg-primary text-white font-bold py-3 rounded-lg text-sm shadow-lg hover:bg-primary/90 transition-colors uppercase tracking-wider">
+                            Añadir al carrito
+                        </button>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<p class="text-[#886375] dark:text-[#c4a4b4] text-xs font-bold uppercase tracking-widest mb-1">Corrector</p>
+<h3 class="text-[#181114] dark:text-white text-lg font-bold mb-1 leading-tight">Radiant Skin Concealer</h3>
+<p class="text-[#181114]/60 dark:text-white/60 text-sm line-clamp-2 mb-4">Ilumina y corrige ojeras al instante con ácido hialurónico.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-primary font-bold text-lg">$520.00 MXN</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-yellow-500 fill-current">star</span>
+<span class="text-xs font-bold">4.8</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group product-card flex flex-col bg-white dark:bg-[#2a1a24] rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110" data-alt="Premium setting powder luxury packaging" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCucBSLuIX-ekj59Kgy9xOsNt-jLdPkztSMZVzwFt3umk8gBeaMQQ7x0jDAAsFte2xRo2gRgmKpO46H4Sjegsrqs_YAFzp7fMrvWytL4enEReU4E9dNXKs6T0mfhBLyREIF2dPcZrQNzy52sT-7zmhOZskSMYGi_eTx1xhZVYTj7CPZwa5r5NDGfJYKPSJJ8AlKimyJcsJZ_L8Oxwsy0c_FfhBzyqaw-bT8iYsNzIvdgsXAZthAWYOXWaAMU7qM5QbB0ZOao79P0w"/>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-[#181114] hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+<div class="quick-add absolute bottom-0 left-0 right-0 p-4 opacity-0 translate-y-2 transition-all duration-300">
+<button class="w-full bg-primary text-white font-bold py-3 rounded-lg text-sm shadow-lg hover:bg-primary/90 transition-colors uppercase tracking-wider">
+                            Añadir al carrito
+                        </button>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<p class="text-[#886375] dark:text-[#c4a4b4] text-xs font-bold uppercase tracking-widest mb-1">Polvos</p>
+<h3 class="text-[#181114] dark:text-white text-lg font-bold mb-1 leading-tight">HD Loose Setting Powder</h3>
+<p class="text-[#181114]/60 dark:text-white/60 text-sm line-clamp-2 mb-4">Sella tu maquillaje sin cuarteaduras. Efecto filtro instantáneo.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-primary font-bold text-lg">$680.00 MXN</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-yellow-500 fill-current">star</span>
+<span class="text-xs font-bold">5.0</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group product-card flex flex-col bg-white dark:bg-[#2a1a24] rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110" data-alt="Luxury cream blush compact" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiRGt1gDkh3DgeWVvpfOLJwK6sftYFSO_0goUy2jh2jp9NGkOK3bZ4DtWpDjAVlGVp5p8FtpwmwTMJZppoE3HOJ37iHoMF7HLn5YXQrFl89eEMZURxT0Vh0ymxwAVTyPrWDtf3rFQL-qzcTk_7ZGhfGc2G1OZ7FSpUXQ6UfyqaosypQ9zmdy61_0NZuPrRmI02J1IzGjm7eMCBvB5PwKPBN3aRSCN2G2v7tzpcRw3tm517HzSPTwblrjdAkNszJb15lKfzmJZSjA"/>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-[#181114] hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+<div class="quick-add absolute bottom-0 left-0 right-0 p-4 opacity-0 translate-y-2 transition-all duration-300">
+<button class="w-full bg-primary text-white font-bold py-3 rounded-lg text-sm shadow-lg hover:bg-primary/90 transition-colors uppercase tracking-wider">
+                            Añadir al carrito
+                        </button>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<p class="text-[#886375] dark:text-[#c4a4b4] text-xs font-bold uppercase tracking-widest mb-1">Rubores</p>
+<h3 class="text-[#181114] dark:text-white text-lg font-bold mb-1 leading-tight">Silk Cream Blush</h3>
+<p class="text-[#181114]/60 dark:text-white/60 text-sm line-clamp-2 mb-4">Textura de seda que se funde con la piel para un aspecto saludable.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-primary font-bold text-lg">$450.00 MXN</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-yellow-500 fill-current">star</span>
+<span class="text-xs font-bold">4.7</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More Section -->
+<div class="flex flex-col items-center justify-center py-16 gap-4">
+<p class="text-sm text-[#886375] font-medium">Mostrando 4 de 42 productos</p>
+<div class="w-64 h-1 bg-[#f4f0f2] dark:bg-[#3a2a33] rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[10%] rounded-full"></div>
+</div>
+<button class="mt-4 px-8 py-3 rounded-full border-2 border-[#181114] dark:border-white text-[#181114] dark:text-white font-bold text-sm uppercase tracking-widest hover:bg-[#181114] hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
+                Cargar Más Productos
+            </button>
+</div>
+<!-- SEO Footer Content -->
+<div class="mt-16 pt-12 border-t border-[#f4f0f2] dark:border-[#3a2a33]">
+<div class="grid md:grid-cols-2 gap-12 items-start">
+<div>
+<h4 class="text-xl font-bold mb-4">El Secreto de una Piel Perfecta</h4>
+<p class="text-sm leading-relaxed text-[#181114]/70 dark:text-white/70">
+                        Nuestra colección de maquillaje facial ha sido formulada pensando en las diversas tonalidades y necesidades de la piel en México. Entendemos que el clima cálido y húmedo requiere productos que no solo cubran, sino que se mantengan frescos durante todo el día. Utilizamos ingredientes premium no comedogénicos y libres de crueldad animal.
+                    </p>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">eco</span>
+<h5 class="font-bold text-sm uppercase tracking-tighter">Cruelty Free</h5>
+<p class="text-xs text-[#181114]/60 dark:text-white/60">Nunca probado en animales.</p>
+</div>
+<div class="flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">verified</span>
+<h5 class="font-bold text-sm uppercase tracking-tighter">Dermatológico</h5>
+<p class="text-xs text-[#181114]/60 dark:text-white/60">Seguro para pieles sensibles.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</section>
+{% schema %}
+    {
+        "blocks": [
+          {
+            "name": "hero",
+            "type": "text",
+            "settings": [
+               
+            ]
+          }
+        ],
+        "presets": [
+          {
+            "name": "rostro",
+          }
+        ],
+    }
+{% endschema %}
