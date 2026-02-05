@@ -6,7 +6,7 @@
         <a class="hover:text-primary transition-colors" href="/">Inicio</a>
         <span class="material-symbols-outlined text-[12px]">chevron_right</span>
         <a class="hover:text-primary transition-colors"  id="coleccion"></a>
-        <span class="material-symbols-outlined text-[12px]">chevron_right</span>
+        <span class="material-symbols-outlined text-[12px]" id="flecha_derecha">chevron_right</span>
         <span class="text-primary font-bold" id="subcoleccion"></span>
     </nav>
 </div>
@@ -18,11 +18,12 @@
     if( url_coleccion == "https://luxmiere-beauty.myshopify.com/collections/all"){
         document.getElementById('coleccion').textContent = "Catálogo Completo";
         document.getElementById('coleccion').href= url_coleccion;
-        document.getElementById('subcoleccion').style.display = "none";
-        return;
+        document.getElementById('subcoleccion').style.display = "none"; 
+        document.getElementById('coleccion').classList.add('text-primary');
+        document.getElementById('flecha_derecha').style.display = "none"; 
+    }else{
+        document.getElementById('coleccion').textContent = url[3];
+        document.getElementById('subcoleccion').textContent = url[4];
+        document.getElementById('coleccion').href= url_coleccion;
     }
-
-    document.getElementById('coleccion').textContent = url[3];
-    document.getElementById('subcoleccion').textContent = url[4];
-    document.getElementById('coleccion').href= url_coleccion;
 </script>
