@@ -90,17 +90,19 @@
 <!-- Thumbnail vertical strip -->
 <div class="hidden md:flex flex-col gap-3">
 <div class="size-20 rounded-lg border-2 border-primary overflow-hidden cursor-pointer">
-<div class="w-full h-full bg-center bg-cover" data-alt="High resolution product main view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA4gUi2RDtsPJlHhlo6gBO-aXATG-TUWfczFD5tONSFqU4d1gNJgxAQLzFrkar3lT78EhLd20TzbIfIYcSfuIvXMaDm0sAMkSB9gTFH1SmXMJBSVxmFWa8vGHXTxe_X8o4t4-tl9AVAaEhEc35-HMG5MvLLj3oWhbpCBjWvHXpK3QOHqDF4aTm7RRailpDM2iRI453WbbYCuBpntT4XBvjg3jbq7jcfA7_APpBmPAEH_U5Vi0FW-OE1HftQLYumDuEfAJxJRc5Fkg");'></div>
+<div class="w-full h-full bg-center bg-cover" data-alt="High resolution product main view">
+  {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '100vw', widths: '375, 550, 750, 1100' }}
 </div>
-<div class="size-20 rounded-lg border border-transparent hover:border-primary/50 overflow-hidden cursor-pointer">
+</div>
+{% comment %} <div class="size-20 rounded-lg border border-transparent hover:border-primary/50 overflow-hidden cursor-pointer">
 <div class="w-full h-full bg-center bg-cover opacity-80" data-alt="Creamy texture of the cosmetic product" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB2jJIaZXEOQNOIi3Ucleh_61xekfC8nz8H7VCBnvPfBUNw5cGefydj_Q3i9Dow9bWt8U-Qb7gypdHpH_SMM81_knQ4_EHiDAVd8ZM3QGTgWN-LYYRCTh7g7gNuRhoO3KMi61tvr_RbUtBkTqutKgo_89RIGpHVM98AVUrmPKrn2wDi4IpG4_4fJBf_I8gQM26rB9JtjSbZwAegryTSCCB90GSmV5dgvf3UrRTXZQH_3Bze3klLex4Ofo46UuI4r6bh9LVaoZHB_Q");'></div>
-</div>
-<div class="size-20 rounded-lg border border-transparent hover:border-primary/50 overflow-hidden cursor-pointer">
+</div> {% endcomment %}
+{% comment %} <div class="size-20 rounded-lg border border-transparent hover:border-primary/50 overflow-hidden cursor-pointer">
 <div class="w-full h-full bg-center bg-cover opacity-80" data-alt="Model applying the product to skin" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCYvXtX_HFvZmLcJMyogJMbTc8UQfI0WCheOjBZIBW4dVzJ3bEAsmQ2uAg3xnWbxrEkmkgna4K4lVYgmXttGUklGXN0gvT0Y_QyukFtOdviMVGKsWxToB2JGvsgQXT2ekLFAKHnvCHZ2bj-ywLUcXYsqJuNf5U22LM0FziSdIx0OjI4iTPQTzqzTwNGP9Qkah-FjeZCZpegcJgY2NewFk1D3DkvzTaPGabfFIKnbBrphx63PGoYpYkRCF405mk5BbaE9G-v3R-mXQ");'></div>
-</div>
-<div class="size-20 rounded-lg border border-transparent hover:border-primary/50 overflow-hidden cursor-pointer">
+</div> {% endcomment %}
+{% comment %} <div class="size-20 rounded-lg border border-transparent hover:border-primary/50 overflow-hidden cursor-pointer">
 <div class="w-full h-full bg-center bg-cover opacity-80" data-alt="Luxury packaging details" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-tRHheuLCqihqgESlMfWd84hxuJiMTle0xigFBo1kekJUdI6_MRXUleaDQ5S-lOHNQ6fQtZY6aUSX2-bL7S2PPxAtGab3ozxhlgcX9eOVzxUthq7B7qFGx9tnX7li71jA7k2llf-fCDDpNi3KdNohx4HUx9x2vtV5mqyKMNQnUYSIrlPeCkHuczZO0BGDTklrUjXS3qtZq1uKqCG1VWPb430G3qH5b_JKH1YzIjATWfDLIPlltrXhezuvjTS2fTUzqncrQvv0Nw");'></div>
-</div>
+</div> {% endcomment %}
 </div>
 <!-- Main Image -->
 <div class="flex-1 aspect-[5/5] bg-white dark:bg-white/5 rounded-xl overflow-hidden relative group">
@@ -118,7 +120,7 @@
 <div class="lg:col-span-5 space-y-8">
 <div>
 <div class="flex items-center gap-2 mb-2">
-<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider rounded">Best Seller</span>
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider rounded">Mas vendido</span>
 <div class="flex items-center text-yellow-400">
 <span class="material-symbols-outlined text-sm">star</span>
 <span class="material-symbols-outlined text-sm">star</span>
