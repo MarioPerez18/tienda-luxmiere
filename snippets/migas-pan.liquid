@@ -14,6 +14,7 @@
 <script>
     const url_coleccion = document.URL;
     const url = document.URL.split('/');
+    const subcollection = document.getElementById('subcoleccion').textContent = url[4];
 
     if( url_coleccion == "https://luxmiere-beauty.myshopify.com/collections/all"){
         document.getElementById('coleccion').textContent = "Catálogo Completo";
@@ -23,7 +24,7 @@
         document.getElementById('flecha_derecha').style.display = "none"; 
     }else{
         document.getElementById('coleccion').textContent = url[3];
-        console.log(document.getElementById('subcoleccion').textContent = url[4].split('/')[0]);
+        console.log(subcollection.split('/'));
         document.getElementById('subcoleccion').textContent = url[4];
         document.getElementById('coleccion').href= url_coleccion;
     }
