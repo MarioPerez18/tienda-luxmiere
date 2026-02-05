@@ -1,0 +1,28 @@
+<a href="{{ producto.url }}">
+    <div class="group product-card flex flex-col bg-white dark:bg-[#2a1a24] rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+        <div class="relative aspect-[4/5] overflow-hidden">
+            <img class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110" data-alt="Luxury matte foundation bottle premium packaging" src="{{ producto.featured_image | image_url: width: 600  }}"/>
+            <div class="absolute top-3 left-3 bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Best Seller</div>
+            <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-[#181114] hover:bg-primary hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-xl">favorite</span>
+            </button>
+            <div class="quick-add absolute bottom-0 left-0 right-0 p-4 opacity-0 translate-y-2 transition-all duration-300">
+            {% comment %} <button class="w-full bg-primary text-white font-bold py-3 rounded-lg text-sm shadow-lg hover:bg-primary/90 transition-colors uppercase tracking-wider">
+                Añadir al carrito
+            </button> {% endcomment %}
+            </div>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+            <p class="text-[#886375] dark:text-[#c4a4b4] text-xs font-bold uppercase tracking-widest mb-1">{{ producto.tags }}</p>
+            <h3 class="text-[#181114] dark:text-white text-lg font-bold mb-1 leading-tight">{{ producto.title }}</h3>
+            <p class="text-[#181114]/60 dark:text-white/60 text-sm line-clamp-2 mb-4">{{ producto.description }}</p>
+            <div class="mt-auto flex items-center justify-between">
+                <span class="text-primary font-bold text-lg">{{ producto.price | money }} MXN</span>
+                <div class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm text-yellow-500 fill-current">star</span>
+                    <span class="text-xs font-bold">4.9</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</a>
