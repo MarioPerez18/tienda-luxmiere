@@ -35,10 +35,50 @@
             "subtitulo": "Base y corrector",
             "enlace": "shopify://collections/rostro"
           }
+        },
+        "text_QLzqni": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/AB6AXuD2TaKU211QdaO92ubB5GoB0iMVgzYCKfmrxrfP7jDAZ9aape8GQ0t0AJCDXXSQ73w0-UB5sOVDNoNDR7AixWK2THBWVmvUdVT9IE-mPGPBYsfcrHn2Gmq8LOh1vXv9U7QOJGFHcfAAFwMnqkXGwDP6NWMd4HcPM5SN7mKdEhxPDBRaNls.png",
+            "titulo": "Ojos",
+            "subtitulo": "Sombras y máscaras",
+            "enlace": "shopify://collections/ojos"
+          }
+        },
+        "text_tpzqGb": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/AB6AXuAu_ssUU3t4YG-Sg4iOHLKxaJNn2BjAC3JJ4Uxr0nyCRxDuHE1jwc-4mRWUGAfyoBAGBJZFS6fq-uNraT3stCmcqjTYqUghrJWdDgxDNL7QuROci4RhqxSbGm4-343SjDSA5_uvVg_Oadk6iSCMyFeSYH9dygSpzbx6WfA2In_--5Pb4jt.png",
+            "titulo": "Labios",
+            "subtitulo": "Labiales mate",
+            "enlace": "shopify://collections/labiales"
+          }
+        },
+        "text_VnchRR": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/AB6AXuAuIWuq6nvWvrtJBZJAXVxfKt5NiwU25xuA4uQx0CymPw8HkbjSppiXzHfp473tzkYMk7IJGZaHJ0eBs8gi1D7OxLgkqagzJ07Hwmu1YyaGM-PBYX8SJw0GT4jK7TlS-3-sgvkBI0X37cXr8bHlrI8myEncfE6j4EWox8_bFUYgv1n3ICK.png",
+            "titulo": "Brochas",
+            "subtitulo": "Herramientas pro",
+            "enlace": "shopify://collections/brochas"
+          }
+        },
+        "text_dBxthw": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/AB6AXuD6CNOWngpvD-EAOXaxUNoBKGbY4V-EHv6nZRKGh42-_2o6502YkUmLDc1b6nPQHkMcuYG8JEYm3sTd2Y1iaXCXROXRJ3iwXK-1zmH3JcnnT3xk2bivRyyOWcVnhjYPA6fb6cmOtuGfsymBOs9zeSBHfaE7_3NcYw7D5fIABMwZltAqMGd.png",
+            "titulo": "Skincare",
+            "subtitulo": "Cuidado diario",
+            "enlace": "shopify://collections/cuidado-de-la-piel"
+          }
         }
       },
       "block_order": [
-        "text_UBQHGL"
+        "text_UBQHGL",
+        "text_QLzqni",
+        "text_tpzqGb",
+        "text_VnchRR",
+        "text_dBxthw"
       ],
       "name": "categorias_seccion",
       "settings": {}
