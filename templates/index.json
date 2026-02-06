@@ -26,6 +26,20 @@
     },
     "categorias_C4jtXe": {
       "type": "categorias",
+      "blocks": {
+        "text_UBQHGL": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/AB6AXuB17Lx3YccD-Ogiu6wVhHuOSzZ6HXNkfY9YNMR2i3FJ4Iwfea9T_KCEwhHMKG_IfqrbODL20BMix_O1y0H-qZOeFxwPTTN-nagrB0Nj5FT35xfUtCDtmSgFGxAF6-FZIq9807apT1hzR5SLLapFec1YxapbWDNEWUQbYEKYJ9fPMx8hUHR.png",
+            "titulo": "Rostro",
+            "subtitulo": "Base y corrector",
+            "enlace": "shopify://collections/rostro"
+          }
+        }
+      },
+      "block_order": [
+        "text_UBQHGL"
+      ],
       "name": "categorias_seccion",
       "settings": {}
     },
