@@ -1,0 +1,15 @@
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+    <!-- Category Item -->
+    {% for block in blocks %}
+        <a href="{{ block.settings.enlace }}" aria-label="se dirige al detalle del producto">
+            <div class="group cursor-pointer flex-col">
+                <div class="aspect-square rounded-2xl overflow-hidden relative mb-4">
+                    <img alt="{{ block.settings.titulo }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Foundation and concealer makeup products closeup" src="{{ block.settings.image | img_url: 'master' }}"/>
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
+                </div>
+                <h3 class="text-lg font-bold">{{ block.settings.titulo }}</h3>
+                <p class="text-[#886375] dark:text-white/60 text-sm">{{ block.settings.subtitulo }}</p>
+            </div>
+        </a>
+    {% endfor %}
+</div>
