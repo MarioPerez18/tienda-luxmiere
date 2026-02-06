@@ -81,7 +81,9 @@
         "text_dBxthw"
       ],
       "name": "categorias_seccion",
-      "settings": {}
+      "settings": {
+        "enlace_todo": "shopify://collections/all"
+      }
     },
     "promobanner_z8U3Wf": {
       "type": "promobanner",
