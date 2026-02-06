@@ -27,67 +27,29 @@
 </style>
 
 <section class="bg-background-light">
-<div class="max-w-[1440px] mx-auto px-4 lg:px-20 py-16">
-<div class="flex items-center justify-between mb-8">
-<h2 class="text-3xl font-bold tracking-tight">Categorías Premium</h2>
-<a class="text-primary font-bold text-sm flex items-center gap-1 hover:underline" href="{{ section.settings.enlace_todo }}">
-Ver todo <span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-<!-- Category Item -->
-{% for block in section.blocks %}
-    <a href="{{ block.settings.enlace }}" aria-label="se dirige al detalle del producto">
-        <div class="group cursor-pointer flex-col">
-            <div class="aspect-square rounded-2xl overflow-hidden relative mb-4">
-                <img alt="{{ block.settings.titulo }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Foundation and concealer makeup products closeup" src="{{ block.settings.image | img_url: 'master' }}"/>
-                <div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
-            </div>
-            <h3 class="text-lg font-bold">{{ block.settings.titulo }}</h3>
-            <p class="text-[#886375] dark:text-white/60 text-sm">{{ block.settings.subtitulo }}</p>
+    <div class="max-w-[1440px] mx-auto px-4 lg:px-20 py-16">
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-3xl font-bold tracking-tight">Categorías Premium</h2>
+            <a class="text-primary font-bold text-sm flex items-center gap-1 hover:underline" href="{{ section.settings.enlace_todo }}">
+            Ver todo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
         </div>
-    </a>
-{% endfor %}
-
-<!-- Category Item -->
-{% comment %} <div class="group cursor-pointer flex-col">
-<div class="aspect-square rounded-2xl overflow-hidden relative mb-4">
-<img alt="Eye Makeup" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Eyeshadow palettes and luxury brushes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2TaKU211QdaO92ubB5GoB0iMVgzYCKfmrxrfP7jDAZ9aape8GQ0t0AJCDXXSQ73w0-UB5sOVDNoNDR7AixWK2THBWVmvUdVT9IE-mPGPBYsfcrHn2Gmq8LOh1vXv9U7QOJGFHcfAAFwMnqkXGwDP6NWMd4HcPM5SN7mKdEhxPDBRaNlszIaopOaB6RGk_5Owr50Sq9-O1TTYTTLLkrin1oInqg-mUjrw7wMG2tRjdsYOddWJHdydv16MGwzc3m3tc89dU2nT4Bg"/>
-<div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
-</div>
-<h3 class="text-lg font-bold">Ojos</h3>
-<p class="text-[#886375] dark:text-white/60 text-sm">Sombras y máscaras</p>
-</div> {% endcomment %}
-<!-- Category Item -->
-{% comment %} <div class="group cursor-pointer flex-col">
-<div class="aspect-square rounded-2xl overflow-hidden relative mb-4">
-<img alt="Lipstick" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Elegant matte lipstick product collection" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu_ssUU3t4YG-Sg4iOHLKxaJNn2BjAC3JJ4Uxr0nyCRxDuHE1jwc-4mRWUGAfyoBAGBJZFS6fq-uNraT3stCmcqjTYqUghrJWdDgxDNL7QuROci4RhqxSbGm4-343SjDSA5_uvVg_Oadk6iSCMyFeSYH9dygSpzbx6WfA2In_--5Pb4jts8Qn36t9dv1XL_vwBfDYOD7KjvGx6I-ZNScn2CrEvLl7-2SQ2YQlDL4sWipPNFnMsvOF1S8b02gYMxnemH5140L_8Tw"/>
-<div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
-</div>
-<h3 class="text-lg font-bold">Labios</h3>
-<p class="text-[#886375] dark:text-white/60 text-sm">Labiales mate</p>
-</div> {% endcomment %}
-<!-- Category Item -->
-{% comment %} <div class="group cursor-pointer flex-col">
-<div class="aspect-square rounded-2xl overflow-hidden relative mb-4">
-<img alt="Brushes" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Professional makeup brush set arrangement" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuIWuq6nvWvrtJBZJAXVxfKt5NiwU25xuA4uQx0CymPw8HkbjSppiXzHfp473tzkYMk7IJGZaHJ0eBs8gi1D7OxLgkqagzJ07Hwmu1YyaGM-PBYX8SJw0GT4jK7TlS-3-sgvkBI0X37cXr8bHlrI8myEncfE6j4EWox8_bFUYgv1n3ICK_4V5JmPqUVAT9wLJ7cyPlB1qUy4GHSikgj_mji8mnfw1GKRqQqLMfHTBmIF6y4GHRk0ikfxH3jnzctT1jjWOhC92C0A"/>
-<div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
-</div>
-<h3 class="text-lg font-bold">Brochas</h3>
-<p class="text-[#886375] dark:text-white/60 text-sm">Herramientas pro</p>
-</div> {% endcomment %}
-<!-- Category Item -->
-{% comment %} <div class="group cursor-pointer flex-col">
-<div class="aspect-square rounded-2xl overflow-hidden relative mb-4">
-<img alt="Skincare" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Minimalist skincare product bottles layout" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6CNOWngpvD-EAOXaxUNoBKGbY4V-EHv6nZRKGh42-_2o6502YkUmLDc1b6nPQHkMcuYG8JEYm3sTd2Y1iaXCXROXRJ3iwXK-1zmH3JcnnT3xk2bivRyyOWcVnhjYPA6fb6cmOtuGfsymBOs9zeSBHfaE7_3NcYw7D5fIABMwZltAqMGd-1YJYYADWmXIjDYKWlD7Mf7_NWEV4W7iVj64cXUzUtjlxOePX6ktVphmABMyorBca2vReaWQ0zgEgA72A0X5ZsvwmNg"/>
-<div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
-</div>
-<h3 class="text-lg font-bold">Skincare</h3>
-<p class="text-[#886375] dark:text-white/60 text-sm">Cuidado diario</p>
-</div> {% endcomment %}
-</div>
-</div>
-
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <!-- Category Item -->
+            {% for block in section.blocks %}
+                <a href="{{ block.settings.enlace }}" aria-label="se dirige al detalle del producto">
+                    <div class="group cursor-pointer flex-col">
+                        <div class="aspect-square rounded-2xl overflow-hidden relative mb-4">
+                            <img alt="{{ block.settings.titulo }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Foundation and concealer makeup products closeup" src="{{ block.settings.image | img_url: 'master' }}"/>
+                            <div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
+                        </div>
+                        <h3 class="text-lg font-bold">{{ block.settings.titulo }}</h3>
+                        <p class="text-[#886375] dark:text-white/60 text-sm">{{ block.settings.subtitulo }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
 </section>
 
 
