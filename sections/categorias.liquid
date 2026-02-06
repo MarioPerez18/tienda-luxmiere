@@ -30,8 +30,8 @@
 <div class="max-w-[1440px] mx-auto px-4 lg:px-20 py-16">
 <div class="flex items-center justify-between mb-8">
 <h2 class="text-3xl font-bold tracking-tight">Categorías Premium</h2>
-<a class="text-primary font-bold text-sm flex items-center gap-1 hover:underline" href="#">
-                Ver todo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+<a class="text-primary font-bold text-sm flex items-center gap-1 hover:underline" href="{{ section.settings.enlace_todo }}">
+Ver todo <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
 </div>
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -93,6 +93,13 @@
 
 {% schema %}
   {
+    "settings": [
+        {
+            "type": "url",
+            "id": "enlace_todo",
+            "label": "Aqui agregas o editas el enlace del boton ver todo"
+        }
+    ],
     "blocks": [
       {
         "name": "categorias_seccion",
